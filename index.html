@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html class="html" lang="en-GB">
+<head>
+	<meta charset="UTF-8">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<title>Mumidi &#8211; Connecting musicians and their USB-MIDI equipment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="Mumidi &raquo; Feed" href="/static/feed">
+<link rel="alternate" type="application/rss+xml" title="Mumidi &raquo; Comments Feed" href="/static/comments/feed">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6.2"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/static/wp-includes/css/dist/block-library/style.min.css?ver=5.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-theme-css" href="/static/wp-includes/css/dist/block-library/theme.min.css?ver=5.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="groovy-menu-style-css" href="/static/wp-content/plugins/groovy-menu-free/assets/style/frontend.css?ver=1.2.16" type="text/css" media="all">
+<link rel="stylesheet" id="groovy-menu-style-fonts-groovy-28328-css" href="/static/wp-content/uploads/groovy/fonts/groovy-28328.css?ver=1.2.16" type="text/css" media="all">
+<link rel="stylesheet" id="groovy-menu-style-fonts-groovy-69018-css" href="/static/wp-content/uploads/groovy/fonts/groovy-69018.css?ver=1.2.16" type="text/css" media="all">
+<link rel="stylesheet" id="groovy-menu-style-fonts-groovy-socicon-css" href="/static/wp-content/uploads/groovy/fonts/groovy-socicon.css?ver=1.2.16" type="text/css" media="all">
+<link rel="stylesheet" id="groovy-menu-font-awesome-css" href="/static/wp-content/plugins/groovy-menu-free/assets/style/fontawesome.css?ver=1.2.16" type="text/css" media="all" crossorigin="anonymous">
+<link rel="preload" as="font" crossorigin="anonymous" id="groovy-menu-font-awesome-file-css" href="/static/wp-content/plugins/groovy-menu-free/assets/fonts/fontawesome-webfont.woff2?v=4.7.0" type="font/woff2" media="all">
+<link rel="stylesheet" id="groovy-menu-font-internal-css" href="/static/wp-content/plugins/groovy-menu-free/assets/style/font-internal.css?ver=1.2.16" type="text/css" media="all" crossorigin="anonymous">
+<link rel="preload" as="font" crossorigin="anonymous" id="groovy-menu-font-internal-file-css" href="/static/wp-content/plugins/groovy-menu-free/assets/fonts/crane-font.woff?hhxb42" type="font/woff" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="/static/wp-content/themes/oceanwp/assets/fonts/fontawesome/css/all.min.css?ver=5.15.1" type="text/css" media="all">
+<link rel="stylesheet" id="simple-line-icons-css" href="/static/wp-content/themes/oceanwp/assets/css/third/simple-line-icons.min.css?ver=2.4.0" type="text/css" media="all">
+<link rel="stylesheet" id="magnific-popup-css" href="/static/wp-content/themes/oceanwp/assets/css/third/magnific-popup.min.css?ver=1.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="slick-css" href="/static/wp-content/themes/oceanwp/assets/css/third/slick.min.css?ver=1.6.0" type="text/css" media="all">
+<link rel="stylesheet" id="oceanwp-style-css" href="/static/wp-content/themes/oceanwp/assets/css/style.min.css?ver=1.2" type="text/css" media="all">
+<link rel="stylesheet" id="oceanwp-google-font-ubuntu-css" href="//fonts.googleapis.com/css?family=Ubuntu%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100i%2C200i%2C300i%2C400i%2C500i%2C600i%2C700i%2C800i%2C900i&#038;subset=latin&#038;display=swap&#038;ver=5.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="groovy-menu-preset-style-225-css" href="/static/wp-content/uploads/groovy/preset_225.css?ver=81bd3c42a4884c14fac91c0630204e04" type="text/css" media="all">
+<link rel="stylesheet" id="oe-widgets-style-css" href="/static/wp-content/plugins/ocean-extra/assets/css/widgets.css?ver=5.6.2" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="/static/wp-content/plugins/smart-slider-3/Public/SmartSlider3/Application/Frontend/Assets/dist/smartslider.min.css?ver=821e0c40" media="all">
+<style type="text/css">.n2-ss-spinner-simple-white-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -20px;
+    background: #fff;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.n2-ss-spinner-simple-white {
+  outline: 1px solid RGBA(0,0,0,0);
+  width:100%;
+  height: 100%;
+}
+
+.n2-ss-spinner-simple-white:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -11px;
+    margin-left: -11px;
+}
+
+.n2-ss-spinner-simple-white:not(:required):before {
+    content: '';
+    border-radius: 50%;
+    border-top: 2px solid #333;
+    border-right: 2px solid transparent;
+    animation: n2SimpleWhite .6s linear infinite;
+}
+@keyframes n2SimpleWhite {
+    to {transform: rotate(360deg);}
+}</style>
+<script type="text/javascript" src="/static/wp-includes/js/jquery/jquery.min.js?ver=3.5.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="/static/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="/static/wp-json/">
+<link rel="alternate" type="application/json" href="/static/wp-json/wp/v2/pages/144">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/static/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/static/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.6.2">
+<link rel="canonical" href="/static/">
+<link rel="shortlink" href="/static/">
+<link rel="alternate" type="application/json+oembed" href="/static/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F">
+<link rel="alternate" type="text/xml+oembed" href="/static/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F&#038;format=xml">
+<!-- OceanWP CSS -->
+<style type="text/css">/* General CSS */.separate-layout .content-area,.separate-layout.content-left-sidebar .content-area,.content-both-sidebars.scs-style .content-area,.separate-layout.content-both-sidebars.ssc-style .content-area,body.separate-blog.separate-layout #blog-entries >*,body.separate-blog.separate-layout .oceanwp-pagination,body.separate-blog.separate-layout .blog-entry.grid-entry .blog-entry-inner{padding:5px}.separate-layout.content-full-width .content-area{padding:5px !important}.separate-layout .widget-area .sidebar-box{padding:5px}@media only screen and (min-width:960px){.content-area,.content-left-sidebar .content-area{width:100%}}@media only screen and (min-width:960px){body.search-results.content-both-sidebars .content-area{width:100%}body.search-results.content-both-sidebars.scs-style .widget-area.sidebar-secondary,body.search-results.content-both-sidebars.ssc-style .widget-area{left:-100%}}/* Header CSS */#site-header.top-header .oceanwp-social-menu,#site-header.top-header #search-toggle{height:100px}#site-header.top-header #site-navigation-wrap .dropdown-menu >li >a,#site-header.top-header .oceanwp-mobile-menu-icon a,.mobile-menu-close{line-height:100px}#site-header,.has-transparent-header .is-sticky #site-header,.has-vh-transparent .is-sticky #site-header.vertical-header,#searchform-header-replace{background-color:rgba(255,255,255,0)}#site-header{border-color:#9e9e9e}#site-header.top-header .header-top,#site-header.top-header #searchform-header-replace{background-color:rgba(255,255,255,0)}#site-header.has-header-media .overlay-header-media{background-color:rgba(0,0,0,0.5)}#site-logo #site-logo-inner a img,#site-header.center-header #site-navigation-wrap .middle-site-logo a img{max-width:258px}#site-header #site-logo #site-logo-inner a img,#site-header.center-header #site-navigation-wrap .middle-site-logo a img{max-height:258px}/* Footer Widgets CSS */#footer-widgets{background-color:#7c9dbf}#footer-widgets .footer-box a:hover,#footer-widgets a:hover{color:#0b5b91}/* Footer Bottom CSS */#footer-bottom{background-color:#7c9dbf}/* Typography CSS */body{font-family:Ubuntu}h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.oceanwp-widget-recent-posts-title,.comment-reply-title,.entry-title,.sidebar-box .widget-title{font-family:MuMidi}h1{font-family:MuMidi;font-size:300%;color:#000000}@media (max-width:768px){h1{font-size:180%}}@media (max-width:480px){h1{font-size:160%}}</style>
+<script>(function(){var N=this;N.N2_=N.N2_||{r:[],d:[]},N.N2R=N.N2R||function(){N.N2_.r.push(arguments)},N.N2D=N.N2D||function(){N.N2_.d.push(arguments)}}).call(window);window.nextend={jQueryFallback:'/wp-includes/js/jquery/jquery.js',localization:{},ready:function(cb){console.error('nextend.ready will be deprecated!');N2R('documentReady',function($){cb.call(window,$)})}};</script><script src="/static/wp-content/plugins/smart-slider-3/Public/SmartSlider3/Application/Frontend/Assets/dist/n2.min.js?ver=821e0c40"></script>
+<script src="/static/wp-content/plugins/smart-slider-3/Public/SmartSlider3/Application/Frontend/Assets/dist/smartslider-frontend.min.js?ver=821e0c40"></script>
+<script src="/static/wp-content/plugins/smart-slider-3/Public/SmartSlider3/Slider/SliderType/Simple/Assets/dist/smartslider-simple-type-frontend.min.js?ver=821e0c40"></script>
+<script src="/static/wp-content/plugins/smart-slider-3/Public/SmartSlider3/Slider/SliderType/Simple/Assets/dist/smartslider-backgroundanimation.min.js?ver=821e0c40"></script>
+<script>N2R('documentReady',function($){N2R(["documentReady","smartslider-frontend","smartslider-backgroundanimation","smartslider-simple-type-frontend"],function(){new N2Classes.SmartSliderSimple('#n2-ss-4',{"admin":false,"callbacks":"","background.video.mobile":1,"alias":{"id":0,"smoothScroll":0,"slideSwitch":0,"scroll":1},"align":"normal","isDelayed":0,"load":{"fade":1,"scroll":0},"playWhenVisible":1,"playWhenVisibleAt":0.5,"responsive":{"hideOn":{"desktopLandscape":false,"desktopPortrait":false,"tabletLandscape":false,"tabletPortrait":false,"mobileLandscape":false,"mobilePortrait":false},"onResizeEnabled":true,"type":"auto","downscale":1,"upscale":1,"minimumHeight":0,"maximumSlideWidth":{"desktopLandscape":10000,"desktopPortrait":10000,"tabletLandscape":10000,"tabletPortrait":10000,"mobileLandscape":10000,"mobilePortrait":10000},"forceFull":0,"forceFullOverflowX":"body","forceFullHorizontalSelector":"","constrainRatio":1,"sliderHeightBasedOn":"real","decreaseSliderHeight":0,"focusUser":1,"focusEdge":"auto","breakpoints":[{"device":"tabletPortrait","type":"max-screen-width","portraitWidth":1199,"landscapeWidth":1199},{"device":"mobilePortrait","type":"max-screen-width","portraitWidth":700,"landscapeWidth":900}],"enabledDevices":{"desktopLandscape":0,"desktopPortrait":1,"tabletLandscape":0,"tabletPortrait":1,"mobileLandscape":0,"mobilePortrait":1},"sizes":{"desktopPortrait":{"width":1200,"height":800,"max":3000,"min":1200},"tabletPortrait":{"width":701,"height":467,"max":1199,"min":701},"mobilePortrait":{"width":320,"height":213,"max":900,"min":320}},"normalizedDeviceModes":{"unknown":"desktopPortrait","desktopPortrait":"desktopPortrait","desktopLandscape":"desktopPortrait","tabletLandscape":"desktopPortrait","tabletPortrait":"tabletPortrait","mobileLandscape":"tabletPortrait","mobilePortrait":"mobilePortrait"},"overflowHiddenPage":0,"focus":{"offsetTop":"#wpadminbar","offsetBottom":""}},"controls":{"mousewheel":0,"touch":"horizontal","keyboard":1,"blockCarouselInteraction":1},"lazyLoad":0,"lazyLoadNeighbor":0,"blockrightclick":0,"maintainSession":0,"autoplay":{"enabled":1,"start":1,"duration":5000,"autoplayLoop":1,"allowReStart":0,"pause":{"click":1,"mouse":"0","mediaStarted":1},"resume":{"click":0,"mouse":"0","mediaEnded":1,"slidechanged":0},"interval":1,"intervalModifier":"loop","intervalSlide":"current"},"perspective":1500,"layerMode":{"playOnce":0,"playFirstLayer":1,"mode":"skippable","inAnimation":"mainInEnd"},"bgAnimationsColor":"RGBA(51,51,51,1)","bgAnimations":{"global":[{"type":"Flat","rows":1,"columns":25,"tiles":{"delay":0.03,"sequence":"BackwardCol"},"main":{"type":"next","duration":0.35,"next":{"ease":"easeInQuart","opacity":"0","left":"-100%"}},"invert":{"next":{"left":"100%"}},"invertTiles":{"sequence":"ForwardCol"}},{"type":"Flat","tiles":{"crop":true,"delay":0,"sequence":"ForwardDiagonal"},"main":{"type":"both","duration":1,"current":{"ease":"easeOutCubic","scale":0.7},"next":{"ease":"easeOutCubic","left":"100%"}},"invert":{"zIndex":2,"current":{"left":"100%","scale":1},"next":{"scale":0.7,"left":0}}}],"color":"RGBA(51,51,51,1)","speed":"normal"},"mainanimation":{"type":"horizontal","duration":800,"delay":0,"ease":"easeOutQuad","parallax":0,"shiftedBackgroundAnimation":0},"carousel":1,"dynamicHeight":0,"initCallbacks":function($){N2D("SmartSliderWidgetArrowImage","SmartSliderWidget",function(e,i){function r(e,i,t,s,r,o){this.key=e,this.action=t,this.desktopRatio=s,this.tabletRatio=r,this.mobileRatio=o,N2Classes.SmartSliderWidget.prototype.constructor.call(this,i)}return((r.prototype=Object.create(N2Classes.SmartSliderWidget.prototype)).constructor=r).prototype.onStart=function(){this.deferred=e.Deferred(),this.slider.sliderElement.on("SliderDevice",this.onDevice.bind(this)).trigger("addWidget",this.deferred),this.$widget=e("#"+this.slider.elementID+"-arrow-"+this.key).on("click",function(e){e.stopPropagation(),this.slider[this.action]()}.bind(this)),this.$resize=this.$widget.find(".n2-resize"),0===this.$resize.length&&(this.$resize=this.$widget),e.when(this.$widget.n2imagesLoaded(),this.slider.stages.get("ResizeFirst").getDeferred()).always(this.onLoad.bind(this))},r.prototype.onLoad=function(){this.$widget.addClass("n2-ss-widget--calc"),this.previousWidth=this.$resize.width(),this.previousHeight=this.$resize.height(),this.$widget.removeClass("n2-ss-widget--calc"),this.$resize.find("img").css("width","100%"),this.onDevice(null,{device:this.slider.responsive.getDeviceMode()}),this.deferred.resolve()},r.prototype.onDevice=function(e,i){var t=1;switch(i.device){case"tabletPortrait":case"tabletLandscape":t=this.tabletRatio;break;case"mobilePortrait":case"mobileLandscape":t=this.mobileRatio;break;default:t=this.desktopRatio}this.$resize.width(this.previousWidth*t+"px"),this.$resize.height(this.previousHeight*t+"px")},function(e,i,t,s){this.key="arrow",this.previous=new r("previous",e,"previousWithDirection",i,t,s),this.next=new r("next",e,"nextWithDirection",i,t,s)}});new N2Classes.SmartSliderWidgetArrowImage(this,0.8,0.8,0.5);N2D("SmartSliderWidgetAutoplayImage","SmartSliderWidget",function(a,t){"use strict";function e(t,e,i,s){this.key="autoplay",this.desktopRatio=e,this.tabletRatio=i,this.mobileRatio=s,N2Classes.SmartSliderWidget.prototype.constructor.call(this,t)}return((e.prototype=Object.create(N2Classes.SmartSliderWidget.prototype)).constructor=e).prototype.onStart=function(t,e,i){this.paused=!1,this.$widget=this.slider.sliderElement.find(".nextend-autoplay"),this.deferred=a.Deferred(),this.slider.sliderElement.on({"SliderDevice.autoplay":this.onDevice.bind(this),"autoplayStarted.autoplay":this.setPlaying.bind(this),"autoplayPaused.autoplay":this.setPaused.bind(this)}).trigger("addWidget",this.deferred);var s=NextendDeBounce(this.switchState.bind(this),300,!0);this.$widget.on({n2Activate:s,universalclick:s}),a.when(this.$widget.n2imagesLoaded(),this.slider.stages.get("ResizeFirst").getDeferred()).always(this.onLoad.bind(this)),this.slider.stages.done("AutoplayDestroyed",this.destroy.bind(this))},e.prototype.onLoad=function(){this.$widget.addClass("n2-ss-widget--calc"),this.width=this.$widget.width(),this.height=this.$widget.height(),this.$widget.removeClass("n2-ss-widget--calc"),this.onDevice(null,{device:this.slider.responsive.getDeviceMode()}),this.deferred.resolve()},e.prototype.onDevice=function(t,e){var i=1;switch(e.device){case"tabletPortrait":case"tabletLandscape":i=this.tabletRatio;break;case"mobilePortrait":case"mobileLandscape":i=this.mobileRatio;break;default:i=this.desktopRatio}this.$widget.width(this.width*i+"px"),this.$widget.height(this.height*i+"px")},e.prototype.switchState=function(t){this.slider.controls.autoplay.preventClickHandle(),this.paused?(this.setPlaying(),this.slider.trigger("autoplayResume",1)):(this.setPaused(),this.slider.trigger("autoplayPause"))},e.prototype.setPaused=function(){this.paused=!0,this.$widget.addClass("n2-autoplay-paused")},e.prototype.setPlaying=function(){this.paused=!1,this.$widget.removeClass("n2-autoplay-paused")},e.prototype.destroy=function(){this.$widget.remove()},e});new N2Classes.SmartSliderWidgetAutoplayImage(this,1,1,0.5);N2D("SmartSliderWidgetThumbnailDefaultHorizontal","SmartSliderWidget",function(d,c){"use strict";var i=!1,p={videoDark:'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#000" opacity=".6"/><path fill="#FFF" d="M19.8 32c-.124 0-.247-.028-.36-.08-.264-.116-.436-.375-.44-.664V16.744c.005-.29.176-.55.44-.666.273-.126.592-.1.84.07l10.4 7.257c.2.132.32.355.32.595s-.12.463-.32.595l-10.4 7.256c-.14.1-.31.15-.48.15z"/><\/svg>'};function t(t,i){this.key="thumbnail",this.parameters=d.extend({captionSize:0,minimumThumbnailCount:1.5,invertGroupDirection:0},i),N2Classes.SmartSliderWidget.prototype.constructor.call(this,t)}((t.prototype=Object.create(N2Classes.SmartSliderWidget.prototype)).constructor=t).prototype.onStart=function(){this.ratio=1,this.itemsPerPane=1,this.currentI=0,this.offset=0,this.group=parseInt(this.parameters.group),this.$widget=this.slider.sliderElement.find(".nextend-thumbnail-default"),this.bar=this.$widget.find(".nextend-thumbnail-inner"),this.scroller=this.bar.find(".nextend-thumbnail-scroller"),this.$groups=d();for(var t=0;t<this.group;t++)this.$groups=this.$groups.add(d('<div class="nextend-thumbnail-scroller-group"><\/div>').appendTo(this.scroller));n2const.rtl.isRtl?(this.previous=this.$widget.find(".nextend-thumbnail-next").on("click",this.previousPane.bind(this)),this.next=this.$widget.find(".nextend-thumbnail-previous").on("click",this.nextPane.bind(this))):(this.previous=this.$widget.find(".nextend-thumbnail-previous").on("click",this.previousPane.bind(this)),this.next=this.$widget.find(".nextend-thumbnail-next").on("click",this.nextPane.bind(this))),this.slider.stages.done("BeforeShow",this.onBeforeShow.bind(this)),this.slider.stages.done("WidgetsReady",this.onWidgetsReady.bind(this))},t.prototype.renderThumbnails=function(){var t;this.parameters.invertGroupDirection&&(t=Math.ceil(this.slider.visibleRealSlides.length/this.group));for(var i=0;i<this.slider.visibleRealSlides.length;i++){var e=this.slider.visibleRealSlides[i],s=d('<div class="'+this.parameters.slideStyle+' n2-ow" style="'+this.parameters.containerStyle+'"><\/div>');if(this.parameters.invertGroupDirection?s.appendTo(this.$groups.eq(Math.floor(i/t))):s.appendTo(this.$groups.eq(i%this.group)),s.data("slide",e),e.$thumbnail=s,this.parameters.thumbnail!==c){var h=e.getThumbnailType(),n=p[h]!==c?p[h]:"";d('<div class="n2-ss-thumb-image n2-ow" style="width:'+this.parameters.thumbnail.width+"px; height:"+this.parameters.thumbnail.height+"px;"+this.parameters.thumbnail.code+'">'+n+"<\/div>").css("background-image","url('"+e.getThumbnail()+"')").appendTo(s)}if(this.parameters.caption!==c){var r=d('<div class="'+this.parameters.caption.styleClass+"n2-ss-caption n2-ow n2-caption-"+this.parameters.caption.placement+'" style="'+this.parameters.caption.style+'"><\/div>');switch(this.parameters.caption.placement){case"before":r.prependTo(s);break;default:r.appendTo(s)}if(this.parameters.title!==c&&r.append('<div class="n2-ow '+this.parameters.title.font+'">'+e.getTitle()+"<\/div>"),this.parameters.description!==c){var o=e.getDescription();o&&r.append('<div class="n2-ow '+this.parameters.description.font+'">'+o+"<\/div>")}}}var a="universalclick",l="onDotClick";"mouseenter"===this.parameters.action?(a="universalenter",l="onDotHover"):this.slider.hasTouch()&&(a="n2click"),this.dots=this.scroller.find(".nextend-thumbnail-scroller-group > div").on(a,this[l].bind(this)),this.images=this.dots.find(".n2-ss-thumb-image")},t.prototype.onTap=function(t){i||(d(t.target).trigger("n2click"),i=!0,setTimeout(function(){i=!1},500))},t.prototype.onBeforeShow=function(){var t=!1;switch(this.parameters.area){case 5:t="left";break;case 8:t="right"}t&&(this.offset=parseFloat(this.$widget.data("offset")),this.slider.responsive.addHorizontalSpacingControl(t,this)),this.renderThumbnails(),this.slider.hasTouch()&&(N2Classes.EventBurrito(this.$widget.get(0),{mouse:!0,axis:"x",start:function(){this.bar.width();this._touch={start:parseInt(this.scroller.css(n2const.rtl.left)),max:0},this.getScrollerWidth()<this.thumbnailDimension.width*Math.ceil(this.dots.length/this.group)&&(this._touch.max=-Math.round(this.thumbnailDimension.width*this.ratio*Math.ceil(this.dots.length/this.group-1))),this._touch.current=this._touch.start}.bind(this),move:function(t,i,e,s,h){return this._touch.current=Math.max(this._touch.max,Math.min(0,this._touch.start+e.x)),this.scroller.css(n2const.rtl.left,this._touch.current+"px"),5<Math.abs(e.x)}.bind(this),end:function(t,i,e,s,h){Math.abs(this._touch.start-this._touch.current)<40?this.resetPane():this._touch.current>this._touch.start?this.previousPane():this.nextPane(),Math.abs(e.x)<10&&Math.abs(e.y)<10?this.onTap(t):nextend.preventClick(),delete this._touch}.bind(this)}),this.slider.parameters.controls.drag||this.$widget.on("click",this.onTap.bind(this))),this.widthPercent=this.$widget.data("width-percent"),this.thumbnailDimension={widthLocal:this.dots.width(),width:this.dots.outerWidth(!0),height:this.dots.outerHeight(!0),widthBorder:parseInt(this.dots.css("borderLeftWidth"))+parseInt(this.dots.css("borderRightWidth"))+parseInt(this.dots.css("paddingLeft"))+parseInt(this.dots.css("paddingRight")),heightBorder:parseInt(this.dots.css("borderTopWidth"))+parseInt(this.dots.css("borderBottomWidth"))+parseInt(this.dots.css("paddingTop"))+parseInt(this.dots.css("paddingBottom"))},this.thumbnailDimension.widthMargin=this.thumbnailDimension.width-this.dots.outerWidth(),this.thumbnailDimension.heightMargin=this.thumbnailDimension.height-this.dots.outerHeight(),this.imageDimension={width:this.images.outerWidth(!0),height:this.images.outerHeight(!0)},this.sideDimension=.25*this.thumbnailDimension.width,this.scroller.height(this.thumbnailDimension.height*this.ratio*this.group+"px"),this.bar.height(this.scroller.outerHeight(!0)+"px"),this.horizontalSpacing=this.bar.outerWidth()-this.bar.width(),this.slider.sliderElement.on({SlideWillChange:this.onSlideSwitch.bind(this),visibleRealSlidesChanged:this.onVisibleRealSlidesChanged.bind(this)})},t.prototype.onWidgetsReady=function(){this.activateDots(this.slider.currentSlide.index),this.slider.sliderElement.on("SliderResize",this.onSliderResize.bind(this)),this.onSliderResize()},t.prototype.filterSliderVerticalCSS=function(t){};var e=!(t.prototype.onSliderResize=function(){if(this.slider.visibleRealSlides.length){if(this.lastScrollerWidth!==this.getScrollerWidth()){var t,i=1,e=this.getScrollerWidth(),s=e-2*this.sideDimension;if((t=e/this.thumbnailDimension.width)<this.dots.length/this.group&&(t=s/this.thumbnailDimension.width),this.localSideDimension=this.sideDimension,this.parameters.minimumThumbnailCount>=t&&(this.localSideDimension=.1*e,i=(s=e-2*this.localSideDimension)/(this.parameters.minimumThumbnailCount*this.thumbnailDimension.width),t=s/(this.thumbnailDimension.width*i),(t=e/(this.thumbnailDimension.width*i))<this.dots.length/this.group&&(t=s/(this.thumbnailDimension.width*i))),this.ratio!==i){var h={};h.width=Math.floor(this.thumbnailDimension.width*i-this.thumbnailDimension.widthMargin-this.thumbnailDimension.widthBorder)+"px",h.height=Math.floor((this.thumbnailDimension.height-this.parameters.captionSize)*i-this.thumbnailDimension.heightMargin+this.parameters.captionSize-this.thumbnailDimension.heightBorder)+"px",this.dots.css(h);var n=this.dots.width()/this.thumbnailDimension.widthLocal;(h={}).width=Math.ceil(this.imageDimension.width*n)+"px",h.height=Math.ceil(this.imageDimension.height*n)+"px",this.images.css(h),this.bar.css("height","auto"),this.ratio=i}this.itemsPerPane=Math.floor(t);var r=this.slider.responsive.dynamicHeightSlide||this.slider.currentSlide;this.currentI=r.index,this.scroller.css(n2const.rtl.left,this.getScrollerTargetLeft(this.getPaneByIndex(this.currentI))+"px"),this.scroller.css("width",this.thumbnailDimension.width*this.ratio*Math.ceil(this.dots.length/this.group)+"px")}this.scroller.height(this.thumbnailDimension.height*this.ratio*this.group+"px"),this.bar.height(this.scroller.outerHeight(!0)+"px")}});return t.prototype.onDotClick=function(t){nextend.shouldPreventClick||(e||(this.slider.directionalChangeToReal(d(t.currentTarget).data("slide").index),e=!0),setTimeout(function(){e=!1}.bind(this),400))},t.prototype.onDotHover=function(t){this.slider.directionalChangeToReal(d(t.currentTarget).data("slide").index)},t.prototype.onSlideSwitch=function(t,i){this.activateDots(i.index),this.goToDot(this.slider.getRealIndex(i.index))},t.prototype.activateDots=function(t){this.dots.removeClass("n2-active");for(var i=this.slider.slides[t].slides,e=0;i.length>e;e++)i[e].$thumbnail.addClass("n2-active")},t.prototype.resetPane=function(){this.goToDot(this.currentI)},t.prototype.previousPane=function(){this.goToDot(this.currentI-this.itemsPerPane*this.group)},t.prototype.nextPane=function(){this.goToDot(this.currentI+this.itemsPerPane*this.group)},t.prototype.getPaneByIndex=function(t){return t=Math.max(0,Math.min(this.dots.length-1,t)),this.parameters.invertGroupDirection?Math.floor(t%Math.ceil(this.dots.length/this.group)/this.itemsPerPane):Math.floor(t/this.group/this.itemsPerPane)},t.prototype.getScrollerTargetLeft=function(t){this.lastScrollerWidth=this.getScrollerWidth();var i=0;t===Math.floor((this.dots.length-1)/this.group/this.itemsPerPane)?(i=-t*this.itemsPerPane*this.thumbnailDimension.width*this.ratio,0===t?this.previous.removeClass("n2-active"):this.previous.addClass("n2-active"),this.next.removeClass("n2-active")):(0<t?(i=-(t*this.itemsPerPane*this.thumbnailDimension.width*this.ratio-this.localSideDimension),this.previous.addClass("n2-active")):(i=0,this.previous.removeClass("n2-active")),this.next.addClass("n2-active"));var e=this.getScrollerWidth(),s=this.thumbnailDimension.width*this.ratio*Math.ceil(this.dots.length/this.group);return e<s&&(i=Math.max(i,-(s-e))),i},t.prototype.goToDot=function(t){this.tween&&this.tween.progress()<1&&this.tween.pause();var i={};i[n2const.rtl.left]=this.getScrollerTargetLeft(this.getPaneByIndex(t)),this.tween=NextendTween.to(this.scroller,.5,i),this.currentI=t},t.prototype.onVisibleRealSlidesChanged=function(){this.dots.remove(),this.renderThumbnails(),this.lastScrollerWidth=0},t.prototype.getScrollerWidth=function(){return this.widthPercent?Math.ceil(this.slider.responsive.resizeContext.sliderWidth*this.widthPercent/100)-this.horizontalSpacing:this.bar.width()},t.prototype.getSize=function(){return 0},t.prototype.refreshSliderSize=function(t){},t});new N2Classes.SmartSliderWidgetThumbnailDefaultHorizontal(this,{"area":12,"action":"click","minimumThumbnailCount":1.5,"group":1,"invertGroupDirection":0,"captionSize":0,"orientation":"horizontal","slideStyle":"n2-style-2840da0471d42fe2fd2d7302d55cb2f2-dot ","containerStyle":"width: 240px; height: 120px;","thumbnail":{"width":240,"height":120,"code":"background-size: cover;"}})}})})});</script><style type="text/css">#turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } body.wp-admin #turnkey-credit, body#image #turnkey-credit, body#media-upload #turnkey-credit { display: none; }</style>
+</head>
+
+<body class="home page-template-default page page-id-144 wp-custom-logo wp-embed-responsive groovy_menu_1-2-16 oceanwp-theme dropdown-mobile top-header-style default-breakpoint has-sidebar content-right-sidebar page-header-disabled has-breadcrumbs has-fixed-footer elementor-default elementor-kit-122" itemscope="itemscope" itemtype="https://schema.org/WebPage">
+
+	
+	
+	<div id="outer-wrap" class="site clr">
+
+		<a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+
+		
+		<div id="wrap" class="clr">
+
+			
+	<header class="gm-navbar gm-preset-id-225 gm-navbar--align-left gm-navbar--style-1 gm-top-links-align-right gm-navbar--toolbar-false gm-navbar--has-divider gm-navbar--hide-gm-caret gm-dropdown-hover-style-default gm-dropdown-appearance-default gm-dropdown-with-scrollbar" id="gm-6076db9aaf702" data-version="1.2.16">
+		<div class="gm-wrapper">
+<div class="gm-inner">
+				<div class="gm-inner-bg"></div>
+				<div class="gm-container">
+					<div class="gm-logo"></div>
+<span class="gm-menu-btn">
+						<span class="gm-menu-btn__inner">	<i class="fa fa-bars"></i>
+					</span>
+					</span><div class="gm-main-menu-wrapper"><nav id="gm-main-menu"><ul id="menu-top-menu" class="gm-navbar-nav">
+<li id="menu-item-146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-144 current_page_item gm-menu-item gm-menu-item--lvl-0"><a href="/static/" class="gm-anchor"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">Products</span></span></a></li>
+<li id="menu-item-134" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children gm-menu-item gm-menu-item--lvl-0 gm-dropdown">
+<a href="/static/hublink" class="gm-anchor gm-dropdown-toggle"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">HubLink</span></span><span class="gm-caret"><i class="fa fa-fw fa-angle-down"></i></span></a>
+<div class="gm-dropdown-menu-wrapper"><ul class="gm-dropdown-menu gm-dropdown-menu--lvl-1">
+	<li id="menu-item-335" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-1"><a href="/static/hublink" class="gm-anchor gm-menu-item__link"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">HubLink</span></span></a></li>
+	<li id="menu-item-331" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-1"><a href="/static/hublink-s" class="gm-anchor gm-menu-item__link"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">HubLink-S</span></span></a></li>
+	<li id="menu-item-462" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-1"><a href="/static/usage" class="gm-anchor gm-menu-item__link"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">Usage</span></span></a></li>
+	<li id="menu-item-466" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-1"><a href="/static/faq" class="gm-anchor gm-menu-item__link"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">FAQ</span></span></a></li>
+</ul></div>
+</li>
+<li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children gm-menu-item gm-menu-item--lvl-0 gm-dropdown">
+<a href="/static/hubmidi" class="gm-anchor gm-dropdown-toggle"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">HubMidi</span></span><span class="gm-caret"><i class="fa fa-fw fa-angle-down"></i></span></a>
+<div class="gm-dropdown-menu-wrapper"><ul class="gm-dropdown-menu gm-dropdown-menu--lvl-1">
+	<li id="menu-item-357" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-1"><a href="/static/hubmidi" class="gm-anchor gm-menu-item__link"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">HubMidi</span></span></a></li>
+	<li id="menu-item-412" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-1"><a href="/static/hubmidi-s" class="gm-anchor gm-menu-item__link"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">HubMidi-S</span></span></a></li>
+</ul></div>
+</li>
+<li id="menu-item-543" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-0"><a href="/static/compatibility" class="gm-anchor"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">Compatibility</span></span></a></li>
+<li id="menu-item-430" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-0"><a href="/static/company" class="gm-anchor"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">Company</span></span></a></li>
+<li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-0"><a href="/static/about" class="gm-anchor"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">About</span></span></a></li>
+<li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-0"><a href="/static/contact" class="gm-anchor"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">Contact</span></span></a></li>
+<li id="menu-item-475" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-0"><a href="/static/music" class="gm-anchor"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">Music</span></span></a></li>
+</ul></nav></div>
+				</div>
+			</div>
+		</div>
+		<div class="gm-padding"></div>
+	</header><aside class="gm-navigation-drawer gm-navigation-drawer--mobile gm-hidden"><div class="gm-grid-container d-flex flex-column h-100">
+<div class="gm-mobile-menu-container"><ul id="menu-top-menu-1" class="gm-navbar-nav">
+<li id="menu-item-mobile-146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-144 current_page_item gm-menu-item gm-menu-item--lvl-0"><a href="/static/" class="gm-anchor"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">Products</span></span></a></li>
+<li id="menu-item-mobile-134" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-has-children gm-menu-item gm-menu-item--lvl-0 gm-dropdown">
+<a href="/static/hublink" class="gm-anchor gm-dropdown-toggle"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">HubLink</span></span><span class="gm-caret"><i class="fa fa-fw fa-angle-down"></i></span></a>
+<div class="gm-dropdown-menu-wrapper">
+<div class="gm-dropdown-menu-title"></div>
+<ul class="gm-dropdown-menu gm-dropdown-menu--lvl-1">
+	<li id="menu-item-mobile-335" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-1"><a href="/static/hublink" class="gm-anchor gm-menu-item__link"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">HubLink</span></span></a></li>
+	<li id="menu-item-mobile-331" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-1"><a href="/static/hublink-s" class="gm-anchor gm-menu-item__link"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">HubLink-S</span></span></a></li>
+	<li id="menu-item-mobile-462" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-1"><a href="/static/usage" class="gm-anchor gm-menu-item__link"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">Usage</span></span></a></li>
+	<li id="menu-item-mobile-466" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-1"><a href="/static/faq" class="gm-anchor gm-menu-item__link"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">FAQ</span></span></a></li>
+</ul>
+</div>
+</li>
+<li id="menu-item-mobile-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-has-children gm-menu-item gm-menu-item--lvl-0 gm-dropdown">
+<a href="/static/hubmidi" class="gm-anchor gm-dropdown-toggle"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">HubMidi</span></span><span class="gm-caret"><i class="fa fa-fw fa-angle-down"></i></span></a>
+<div class="gm-dropdown-menu-wrapper">
+<div class="gm-dropdown-menu-title"></div>
+<ul class="gm-dropdown-menu gm-dropdown-menu--lvl-1">
+	<li id="menu-item-mobile-357" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-1"><a href="/static/hubmidi" class="gm-anchor gm-menu-item__link"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">HubMidi</span></span></a></li>
+	<li id="menu-item-mobile-412" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-1"><a href="/static/hubmidi-s" class="gm-anchor gm-menu-item__link"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">HubMidi-S</span></span></a></li>
+</ul>
+</div>
+</li>
+<li id="menu-item-mobile-543" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-0"><a href="/static/compatibility" class="gm-anchor"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">Compatibility</span></span></a></li>
+<li id="menu-item-mobile-430" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-0"><a href="/static/company" class="gm-anchor"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">Company</span></span></a></li>
+<li id="menu-item-mobile-21" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-0"><a href="/static/about" class="gm-anchor"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">About</span></span></a></li>
+<li id="menu-item-mobile-23" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-0"><a href="/static/contact" class="gm-anchor"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">Contact</span></span></a></li>
+<li id="menu-item-mobile-475" class="menu-item menu-item-type-post_type menu-item-object-page gm-menu-item gm-menu-item--lvl-0"><a href="/static/music" class="gm-anchor"><span class="gm-menu-item__txt-wrapper"><span class="gm-menu-item__txt">Music</span></span></a></li>
+</ul></div>
+<div class="flex-grow-1"></div>
+<div class="gm-mobile-action-area-wrapper d-flex justify-content-center align-items-center text-center mb-4 mt-5"><div class="gm-divider--vertical mx-4"></div></div>
+</div>
+<div class="gm-mobile-postwrap"></div></aside>
+			
+			
+			<main id="main" class="site-main clr" role="main">
+
+				
+	
+	<div id="content-wrap" class="container clr">
+
+		
+		<div id="primary" class="content-area clr">
+
+			
+			<div id="content" class="site-content clr">
+
+				
+				
+<article class="single-page-article clr">
+
+	
+<div class="entry clr" itemprop="text">
+
+	
+	
+<div class="wp-block-media-text alignwide is-stacked-on-mobile has-very-light-gray-to-cyan-bluish-gray-gradient-background has-background" style="grid-template-columns:15% auto">
+<figure class="wp-block-media-text__media"><img loading="lazy" width="300" height="267" src="http://192.168.1.151/wp-content/uploads/2021/03/graphics1-300x267.png" alt="" class="wp-image-139 size-medium" srcset="/static/wp-content/uploads/2021/03/graphics1-300x267.png 300w, /static/wp-content/uploads/2021/03/graphics1-768x683.png 768w, /static/wp-content/uploads/2021/03/graphics1.png 972w" sizes="(max-width: 300px) 100vw, 300px"></figure><div class="wp-block-media-text__content">
+<h1>MuMidi</h1>
+</div>
+</div>
+
+
+
+<div class="wp-block-nextend-smartslider3"><div class="n2-section-smartslider fitvidsignore  n2_clear" role="region" aria-label="Slider">
+<style>div#n2-ss-4{width:1200px;}div#n2-ss-4 .n2-ss-slider-1{position:relative;}div#n2-ss-4 .n2-ss-slider-background-video-container{position:absolute;left:0;top:0;width:100%;height:100%;overflow:hidden;}div#n2-ss-4 .n2-ss-slider-2{position:relative;overflow:hidden;padding:0px 0px 0px 0px;height:800px;border:0px solid RGBA(62,62,62,1);border-radius:0px;background-clip:padding-box;background-repeat:repeat;background-position:50% 50%;background-size:cover;background-attachment:scroll;z-index:1;}div#n2-ss-4 .n2-ss-slider-3{position:relative;width:100%;height:100%;overflow:hidden;outline:1px solid rgba(0,0,0,0);z-index:10;}div#n2-ss-4 .n2-ss-slide-backgrounds,div#n2-ss-4 .n2-ss-slider-3 > .n-particles-js-canvas-el,div#n2-ss-4 .n2-ss-slider-3 > .n2-ss-divider{position:absolute;left:0;top:0;width:100%;height:100%;}div#n2-ss-4 .n2-ss-slide-backgrounds{z-index:10;}div#n2-ss-4 .n2-ss-slider-3 > .n-particles-js-canvas-el{z-index:12;}div#n2-ss-4 .n2-ss-slide-backgrounds > *{overflow:hidden;}div#n2-ss-4 .n2-ss-slide{position:absolute;top:0;left:0;width:100%;height:100%;z-index:20;display:block;-webkit-backface-visibility:hidden;}div#n2-ss-4 .n2-ss-layers-container{position:relative;width:1200px;height:800px;}div#n2-ss-4 .n2-ss-parallax-clip > .n2-ss-layers-container{position:absolute;right:0;}div#n2-ss-4 .n2-ss-slide{perspective:1500px;}div#n2-ss-4[data-ie] .n2-ss-slide{perspective:none;transform:perspective(1500px);}div#n2-ss-4 .n2-ss-slide-active{z-index:21;}div#n2-ss-4 .nextend-arrow{cursor:pointer;overflow:hidden;line-height:0 !important;z-index:18;}div#n2-ss-4 .nextend-arrow img{position:relative;min-height:0;min-width:0;vertical-align:top;width:auto;height:auto;max-width:100%;max-height:100%;display:inline;}div#n2-ss-4 .nextend-arrow img.n2-arrow-hover-img{display:none;}div#n2-ss-4 .nextend-arrow:HOVER img.n2-arrow-hover-img{display:inline;}div#n2-ss-4 .nextend-arrow:HOVER img.n2-arrow-normal-img{display:none;}div#n2-ss-4 .nextend-arrow-animated{overflow:hidden;}div#n2-ss-4 .nextend-arrow-animated > div{position:relative;}div#n2-ss-4 .nextend-arrow-animated .n2-active{position:absolute;}div#n2-ss-4 .nextend-arrow-animated-fade{transition:background 0.3s, opacity 0.4s;}div#n2-ss-4 .nextend-arrow-animated-horizontal > div{transition:all 0.4s;left:0;}div#n2-ss-4 .nextend-arrow-animated-horizontal .n2-active{top:0;}div#n2-ss-4 .nextend-arrow-previous.nextend-arrow-animated-horizontal:HOVER > div,div#n2-ss-4 .nextend-arrow-previous.nextend-arrow-animated-horizontal:FOCUS > div,div#n2-ss-4 .nextend-arrow-next.nextend-arrow-animated-horizontal .n2-active{left:-100%;}div#n2-ss-4 .nextend-arrow-previous.nextend-arrow-animated-horizontal .n2-active,div#n2-ss-4 .nextend-arrow-next.nextend-arrow-animated-horizontal:HOVER > div,div#n2-ss-4 .nextend-arrow-next.nextend-arrow-animated-horizontal:FOCUS > div{left:100%;}div#n2-ss-4 .nextend-arrow.nextend-arrow-animated-horizontal:HOVER .n2-active,div#n2-ss-4 .nextend-arrow.nextend-arrow-animated-horizontal:FOCUS .n2-active{left:0;}div#n2-ss-4 .nextend-arrow-animated-vertical > div{transition:all 0.4s;top:0;}div#n2-ss-4 .nextend-arrow-animated-vertical .n2-active{left:0;}div#n2-ss-4 .nextend-arrow-animated-vertical .n2-active{top:-100%;}div#n2-ss-4 .nextend-arrow-animated-vertical:HOVER > div,div#n2-ss-4 .nextend-arrow-animated-vertical:FOCUS > div{top:100%;}div#n2-ss-4 .nextend-arrow-animated-vertical:HOVER .n2-active,div#n2-ss-4 .nextend-arrow-animated-vertical:FOCUS .n2-active{top:0;}div#n2-ss-4 .nextend-autoplay{cursor:pointer;z-index:16;line-height:1;}div#n2-ss-4 .nextend-autoplay img{vertical-align:top;width:auto;height:auto;max-width:100%;max-height:100%;display:block;}div#n2-ss-4 .nextend-autoplay .nextend-autoplay-play{display:none;}div#n2-ss-4 .nextend-autoplay.n2-autoplay-paused .nextend-autoplay-play{display:block;}div#n2-ss-4 .nextend-autoplay.n2-autoplay-paused .nextend-autoplay-pause{display:none;}div#n2-ss-4 .nextend-thumbnail-default{display:flex;user-select:none;z-index:10;}div#n2-ss-4 .nextend-thumbnail-default,div#n2-ss-4 .nextend-thumbnail-inner{overflow:hidden;}div#n2-ss-4 .nextend-thumbnail-inner{flex:1 1 auto;display:flex;}div#n2-ss-4 .nextend-thumbnail-vertical .nextend-thumbnail-inner{flex-flow:column;}div#n2-ss-4 .n2-ss-thumb-image{display:flex;flex:0 0 auto;align-items:center;justify-content:center;background-position:center center;background-size:cover;}div#n2-ss-4 .nextend-thumbnail-button{position:absolute;z-index:2;transition:all 0.4s;opacity:0;cursor:pointer;}div#n2-ss-4 .nextend-thumbnail-vertical .nextend-thumbnail-button{left:50%;margin-left:-13px !important;}div#n2-ss-4 .nextend-thumbnail-vertical .nextend-thumbnail-previous{top:-26px;}div#n2-ss-4 .nextend-thumbnail-vertical .nextend-thumbnail-previous.n2-active{top:10px;opacity:1;}div#n2-ss-4 .nextend-thumbnail-vertical .nextend-thumbnail-next{bottom:-26px;}div#n2-ss-4 .nextend-thumbnail-vertical .nextend-thumbnail-next.n2-active{bottom:10px;opacity:1;}div#n2-ss-4 .nextend-thumbnail-horizontal .nextend-thumbnail-button{top:50%;margin-top:-13px !important;transform:rotateZ(-90deg);}div#n2-ss-4 .nextend-thumbnail-horizontal .nextend-thumbnail-previous{left:-26px;}div#n2-ss-4 .nextend-thumbnail-horizontal .nextend-thumbnail-previous.n2-active{left:10px;opacity:1;}div#n2-ss-4 .nextend-thumbnail-horizontal .nextend-thumbnail-next{right:-26px;}div#n2-ss-4 .nextend-thumbnail-horizontal .nextend-thumbnail-next.n2-active{right:10px;opacity:1;}div#n2-ss-4 .nextend-thumbnail-default .nextend-thumbnail-scroller{flex:1 0 auto;position:relative;box-sizing:border-box !important;white-space:nowrap;display:flex;flex-direction:column;}div#n2-ss-4 .nextend-thumbnail-horizontal .nextend-thumbnail-scroller{flex-direction:column;}div#n2-ss-4 .nextend-thumbnail-vertical .nextend-thumbnail-scroller{flex-direction:row;}div#n2-ss-4 .nextend-thumbnail-scroller.n2-align-content-start .nextend-thumbnail-scroller-group{justify-content:flex-start;}div#n2-ss-4 .nextend-thumbnail-scroller.n2-align-content-center .nextend-thumbnail-scroller-group{justify-content:center;}div#n2-ss-4 .nextend-thumbnail-scroller.n2-align-content-end .nextend-thumbnail-scroller-group{justify-content:flex-end;}div#n2-ss-4 .nextend-thumbnail-scroller.n2-align-content-space-around .nextend-thumbnail-scroller-group{justify-content:space-around;}div#n2-ss-4 .nextend-thumbnail-scroller.n2-align-content-space-between .nextend-thumbnail-scroller-group{justify-content:space-between;}html[dir="rtl"] div#n2-ss-4 .nextend-thumbnail-default .nextend-thumbnail-scroller{position:relative;float:right;}div#n2-ss-4 .nextend-thumbnail-scroller-group{display:flex;flex-flow:column;}div#n2-ss-4 .nextend-thumbnail-horizontal .nextend-thumbnail-scroller-group{display:flex;flex-flow:row;}div#n2-ss-4 .nextend-thumbnail-default .nextend-thumbnail-scroller .nextend-thumbnail-scroller-group > div{display:flex;position:relative;flex:0 0 auto;box-sizing:content-box !important;cursor:pointer;overflow:hidden;}div#n2-ss-4 .nextend-thumbnail-horizontal .nextend-thumbnail-scroller .nextend-thumbnail-scroller-group > div{flex-flow:column;}div#n2-ss-4 .nextend-thumbnail-default .nextend-thumbnail-scroller .nextend-thumbnail-scroller-group > div.n2-active{cursor:default;}div#n2-ss-4 .nextend-thumbnail-default .n2-ss-caption{display:inline-block;white-space:normal;box-sizing:border-box !important;overflow:hidden;}div#n2-ss-4 .nextend-thumbnail-default .n2-caption-overlay{position:absolute;}div#n2-ss-4 .nextend-thumbnail-default .n2-caption-overlay div{float:left;clear:left;}div#n2-ss-4 .nextend-thumbnail-horizontal .n2-ss-caption{display:block;}div#n2-ss-4 .nextend-thumbnail-vertical .n2-caption-after,div#n2-ss-4 .nextend-thumbnail-vertical .n2-caption-before{height:100%;}div#n2-ss-4 .n2-style-107cb0e4b96e295f0c4852cfc0854d07-heading{background: RGBA(0,0,0,0.67);opacity:1;padding:2px 2px 2px 2px ;box-shadow: none;border-width: 0px;border-style: solid;border-color: #000000; border-color: RGBA(0,0,0,1);border-radius:3px;}div#n2-ss-4 .n2-style-107cb0e4b96e295f0c4852cfc0854d07-heading:Hover, div#n2-ss-4 .n2-style-107cb0e4b96e295f0c4852cfc0854d07-heading:ACTIVE, div#n2-ss-4 .n2-style-107cb0e4b96e295f0c4852cfc0854d07-heading:FOCUS{background: RGBA(255,145,57,1);}div#n2-ss-4 .n2-style-39d91de386d63e8e493aa09391e3689f-heading{background: RGBA(0,0,0,0.5);opacity:1;padding:10px 10px 10px 10px ;box-shadow: none;border-width: 2px;border-style: solid;border-color: #000000; border-color: RGBA(0,0,0,0.5);border-radius:99px;}div#n2-ss-4 .n2-style-39d91de386d63e8e493aa09391e3689f-heading:Hover, div#n2-ss-4 .n2-style-39d91de386d63e8e493aa09391e3689f-heading:ACTIVE, div#n2-ss-4 .n2-style-39d91de386d63e8e493aa09391e3689f-heading:FOCUS{background: RGBA(0,0,0,0.67);}div#n2-ss-4 .n2-style-2cfadb9440b7ddf3e0fb53c7f16adab2-simple{background: RGBA(0,0,0,0.89);opacity:1;padding:5px 5px 5px 5px ;box-shadow: none;border-width: 0px;border-style: solid;border-color: #000000; border-color: RGBA(0,0,0,1);border-radius:0px;}div#n2-ss-4 .n2-style-2840da0471d42fe2fd2d7302d55cb2f2-dot{background: RGBA(0,0,0,0);opacity:0.2;padding:0px 0px 0px 0px ;box-shadow: none;border-width: 0px;border-style: solid;border-color: #000000; border-color: RGBA(0,0,0,0);border-radius:0px;background-size: cover;
+transition: all 0.4s;
+margin-right: 5px;}div#n2-ss-4 .n2-style-2840da0471d42fe2fd2d7302d55cb2f2-dot.n2-active, div#n2-ss-4 .n2-style-2840da0471d42fe2fd2d7302d55cb2f2-dot:HOVER, div#n2-ss-4 .n2-style-2840da0471d42fe2fd2d7302d55cb2f2-dot:FOCUS{border-width: 0px;border-style: solid;border-color: #000000; border-color: RGBA(0,0,0,0.8);background: RGBA(231,157,25,0);opacity:1;}</style>
+<div id="n2-ss-4-align" class="n2-ss-align"><div class="n2-padding">
+<div id="n2-ss-4" data-creator="Smart Slider 3" class="n2-ss-slider n2-ow n2-has-hover n2notransition  n2-ss-load-fade " style="font-size: 1rem;" data-fontsize="16">
+        <div class="n2-ss-slider-1 n2_ss__touch_element n2-ow">
+            <div class="n2-ss-slider-2 n2-ow">
+                                                    <div class="n2-ss-background-animation n2-ow"></div>
+                                <div class="n2-ss-slider-3 n2-ow">
+
+                    <div class="n2-ss-slide-backgrounds"></div>
+<div data-first="1" data-slide-duration="0" data-id="21" data-title="HubMidi4S" data-thumbnail="//192.168.1.151/wp-content/uploads/2021/04/HubMidi4S.jpg" class=" n2-ss-slide n2-ss-canvas n2-ow  n2-ss-slide-21">
+<div class="n2-ss-slide-background n2-ow" data-mode="fill"><div data-hash="be6d282a4d6d57be12b99db61525bd50" data-desktop="//192.168.1.151/wp-content/uploads/2021/04/HubMidi4S.jpg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title="" data-no-lazy="" style="background-image:url('//192.168.1.151/wp-content/uploads/2021/04/HubMidi4S.jpg')"></div></div>
+<div class="n2-ss-layers-container n2-ow"><div class="n2-ss-layer n2-ow" style="padding:10px 10px 10px 10px;" data-desktopportraitpadding="10|*|10|*|10|*|10" data-sstype="slide" data-csstextalign="center" data-pm="default"></div></div>
+</div>
+<div data-slide-duration="0" data-id="22" data-title="HubMidi4-1" data-thumbnail="//192.168.1.151/wp-content/uploads/2021/04/HubMidi4-1-scaled.jpg" class=" n2-ss-slide n2-ss-canvas n2-ow  n2-ss-slide-22">
+<div class="n2-ss-slide-background n2-ow" data-mode="fill"><div data-hash="771600fcbf1f780914a32724d5c9a27b" data-desktop="//192.168.1.151/wp-content/uploads/2021/04/HubMidi4-1-scaled.jpg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title="" data-no-lazy="" style="background-image:url('//192.168.1.151/wp-content/uploads/2021/04/HubMidi4-1-scaled.jpg')"></div></div>
+<div class="n2-ss-layers-container n2-ow"><div class="n2-ss-layer n2-ow" style="padding:10px 10px 10px 10px;" data-desktopportraitpadding="10|*|10|*|10|*|10" data-sstype="slide" data-csstextalign="center" data-pm="default"></div></div>
+</div>
+<div data-slide-duration="0" data-id="23" data-title="IMGP8531" data-thumbnail="//192.168.1.151/wp-content/uploads/2021/03/IMGP8531-1.jpg" class=" n2-ss-slide n2-ss-canvas n2-ow  n2-ss-slide-23">
+<div class="n2-ss-slide-background n2-ow" data-mode="fill"><div data-hash="a62c61af131a7cd62f847a942735bad4" data-desktop="//192.168.1.151/wp-content/uploads/2021/03/IMGP8531-1.jpg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title="" data-no-lazy="" style="background-image:url('//192.168.1.151/wp-content/uploads/2021/03/IMGP8531-1.jpg')"></div></div>
+<div class="n2-ss-layers-container n2-ow"><div class="n2-ss-layer n2-ow" style="padding:10px 10px 10px 10px;" data-desktopportraitpadding="10|*|10|*|10|*|10" data-sstype="slide" data-csstextalign="center" data-pm="default"></div></div>
+</div>                </div>
+            </div>
+            <div data-ssleft="0+15" data-sstop="sliderHeight/2-previousheight/2" id="n2-ss-4-arrow-previous" class="n2-ss-widget n2-ss-widget-display-hover n2-style-107cb0e4b96e295f0c4852cfc0854d07-heading nextend-arrow n2-ow nextend-arrow-previous  nextend-arrow-animated-fade n2-ib" style="position: absolute;" role="button" aria-label="previous arrow" tabindex="0"><img class="n2-ow skip-lazy" data-skip-lazy="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOCIgZmlsbC1ydWxlPSJldmVub2RkIgogICAgICAgICAgZD0iTTE4Ljk5NTggOC45OTA3YzAtLjQyNC0uMjA0LS43MjMtLjYxLS44OTgtLjQwOS0uMTczLS43NzItLjEwNC0xLjA5My4yMDlsLTcuMDA2IDYuOTc1Yy0uMjAxLjE5OS0uMjk3LjQzNy0uMjg2LjcxNiAwIC4yNjcuMDk2LjQ5OC4yODYuNjg5bDcuMDA2IDcuMDAxYy4zMjEuMzIxLjY4NC4zODkgMS4wOTMuMjA5LjQwNi0uMTc0LjYxLS40ODIuNjEtLjkyMlY4Ljk5MDd6Ii8+Cjwvc3ZnPg==" alt="previous arrow"></div>
+<div data-ssright="0+15" data-sstop="sliderHeight/2-nextheight/2" id="n2-ss-4-arrow-next" class="n2-ss-widget n2-ss-widget-display-hover n2-style-107cb0e4b96e295f0c4852cfc0854d07-heading nextend-arrow n2-ow nextend-arrow-next  nextend-arrow-animated-fade n2-ib" style="position: absolute;" role="button" aria-label="next arrow" tabindex="0"><img class="n2-ow skip-lazy" data-skip-lazy="1" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xMiA4Ljk5YzAtLjQyMy4yMDQtLjcyMi42MS0uODk3LjQwOC0uMTczLjc3Mi0uMTA0IDEuMDkyLjIxbDcuMDA2IDYuOTc0Yy4yMDIuMi4yOTguNDM3LjI4Ny43MTYgMCAuMjY3LS4wOTYuNDk4LS4yODcuNjlsLTcuMDA2IDdjLS4zMi4zMi0uNjg0LjM5LTEuMDkyLjIxLS40MDYtLjE3NS0uNjEtLjQ4My0uNjEtLjkyM1Y4Ljk5eiIKICAgICAgICAgIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOCIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPg==" alt="next arrow"></div>
+<div data-ssright="0+18" data-sstop="0+18" class="n2-ss-widget n2-style-39d91de386d63e8e493aa09391e3689f-heading nextend-autoplay n2-ow nextend-autoplay-image n2-ib" style="position: absolute;" role="button" aria-label="Pause autoplay" tabindex="0">
+<img class="nextend-autoplay-play n2-ow skip-lazy" data-skip-lazy="1" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xMS41OCA3LjAzTDUuMzAyIDIuMTY1QzUuMTY1IDIuMDU3IDUuMDE2IDIgNC44NTcgMiA0LjM4NCAyIDQgMi41MDQgNCAzLjEyNXY5Ljc1YzAgLjYyLjM4NCAxLjEyNS44NTcgMS4xMjUuMTYgMCAuMzA4LS4wNTcuNDM2LS4xNTZMMTEuNTggOC45N2MuMjUtLjE5OC40Mi0uNTU4LjQyLS45NyAwLS40MTItLjE3LS43NzMtLjQyLS45N3oiCiAgICAgICAgICBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjgiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4=" alt="Play"><img class="nextend-autoplay-pause n2-ow skip-lazy" data-skip-lazy="1" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik00IDJ2MTJoM1YySDR6bTUgMHYxMmgzVjJIOXoiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOCIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPg==" alt="Pause">
+</div>
+        </div>
+        <div data-position="below" data-offset="0" data-width-percent="100" class="n2-ss-widget nextend-thumbnail nextend-thumbnail-default n2-ow nextend-thumbnail-horizontal" style="margin-top:0px;width:100%;">
+<img class="nextend-thumbnail-button nextend-thumbnail-previous n2-ow skip-lazy" style="width:26px;margin-top:-13px!important;" data-skip-lazy="1" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMjYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxjaXJjbGUgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9Ii41IiBmaWxsPSIjMDAwIiBjeD0iMTMiIGN5PSIxMyIgcj0iMTIiLz4KICAgICAgICA8cGF0aCBkPSJNMTMuNDM1IDkuMTc4Yy0uMTI2LS4xMjEtLjI3LS4xODItLjQzNi0uMTgyLS4xNjQgMC0uMzA2LjA2MS0uNDI4LjE4MmwtNC4zOCA0LjE3NWMtLjEyNi4xMjEtLjE4OC4yNjItLjE4OC40MjQgMCAuMTYxLjA2Mi4zMDIuMTg4LjQyM2wuNjUuNjIyYy4xMjYuMTIxLjI3My4xODIuNDQxLjE4Mi4xNyAwIC4zMTQtLjA2MS40MzYtLjE4MmwzLjMxNC0zLjE2MSAzLjI0OSAzLjE2MWMuMTI2LjEyMS4yNjkuMTgyLjQzMi4xODIuMTY0IDAgLjMwNy0uMDYxLjQzMy0uMTgybC42NjItLjYyMmMuMTI2LS4xMjEuMTg5LS4yNjIuMTg5LS40MjMgMC0uMTYyLS4wNjMtLjMwMy0uMTg5LS40MjRsLTQuMzczLTQuMTc1eiIKICAgICAgICAgICAgICBmaWxsPSIjZmZmIi8+CiAgICA8L2c+Cjwvc3ZnPg==" alt="previous arrow"><img class="nextend-thumbnail-button nextend-thumbnail-next n2-ow n2-active skip-lazy" style="width:26px;margin-top:-13px!important;" data-skip-lazy="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNiIgaGVpZ2h0PSIyNiI+CiAgICA8ZyBmaWxsPSJub25lIj4KICAgICAgICA8Y2lyY2xlIGN4PSIxMyIgY3k9IjEzIiByPSIxMiIgZmlsbD0iIzAwMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9Ii41Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI2ZmZiIKICAgICAgICAgICAgICBkPSJNMTIuNTY1IDE2LjgyMmMuMTI2LjEyLjI3LjE4Mi40MzYuMTgyLjE2OCAwIC4zMS0uMDYuNDMtLjE4Mmw0LjM4LTQuMTc1Yy4xMjgtLjEyLjE5LS4yNjIuMTktLjQyNCAwLS4xNi0uMDYyLS4zMDItLjE5LS40MjNsLS42NS0uNjIyYy0uMTI1LS4xMi0uMjcyLS4xODItLjQ0LS4xODItLjE3IDAtLjMxNC4wNi0uNDM2LjE4MmwtMy4zMTQgMy4xNi0zLjI1LTMuMTZjLS4xMjYtLjEyLS4yNy0uMTgyLS40My0uMTgyLS4xNjYgMC0uMzEuMDYtLjQzNS4xODJsLS42NjIuNjIyYy0uMTI2LjEyLS4xOS4yNjItLjE5LjQyMyAwIC4xNjIuMDY0LjMwMy4xOS40MjRsNC4zNzMgNC4xNzV6Ii8+CiAgICA8L2c+Cjwvc3ZnPg==" alt="next arrow"><div class="nextend-thumbnail-inner n2-ow n2-style-2cfadb9440b7ddf3e0fb53c7f16adab2-simple "><div class="nextend-thumbnail-scroller n2-ow n2-align-content-start"></div></div>
+</div>
+</div>
+<div id="n2-ss-4-spinner" style="display: none;"><div><div class="n2-ss-spinner-simple-white-container"><div class="n2-ss-spinner-simple-white"></div></div></div></div>
+</div></div>
+<div class="n2_clear"></div>
+<div id="n2-ss-4-placeholder" style="min-height:0px;position: relative;z-index:2;background-color:RGBA(0,0,0,0); background-color:RGBA(255,255,255,0);"><img style="width: 100%; max-width:10000px; display: block;opacity:0;margin:0px;" class="n2-ow skip-lazy" data-skip-lazy="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgPjwvc3ZnPg==" alt="Slider"></div>
+</div></div>
+
+
+
+<div class="wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile has-background" style="background-color:#d0e5ee;grid-template-columns:auto 37%">
+<figure class="wp-block-media-text__media"><img loading="lazy" width="1024" height="1024" src="http://192.168.1.151/wp-content/uploads/2021/03/IMGP8531-1-1024x1024.jpg" alt="" class="wp-image-29 size-full" srcset="/static/wp-content/uploads/2021/03/IMGP8531-1-1024x1024.jpg 1024w, /static/wp-content/uploads/2021/03/IMGP8531-1-300x300.jpg 300w, /static/wp-content/uploads/2021/03/IMGP8531-1-150x150.jpg 150w, /static/wp-content/uploads/2021/03/IMGP8531-1-768x768.jpg 768w, /static/wp-content/uploads/2021/03/IMGP8531-1-100x100.jpg 100w, /static/wp-content/uploads/2021/03/IMGP8531-1.jpg 1069w" sizes="(max-width: 1024px) 100vw, 1024px"></figure><div class="wp-block-media-text__content">
+<p class="has-normal-font-size">Our MuLink range of interfaces provide very low latency interconnection to route messages between MIDI devices such as keyboards, DJ controllers, sequencers, synthesizers, etc. without the need for a Personal Computer or laptop.</p>
+
+
+
+<p>With two USB Host ports, <a href="https://www.mumidi.com/hublink">MuMidi HubLink</a> can connect and power two USB-MIDI Devices.</p>
+
+
+
+<p><a href="https://www.mumidi.com/hubmidi">MuMidi HubMidi</a> adds serial MIDI In and MIDI Out ports for additionally connecting legacy MIDI Devices.</p>
+</div>
+</div>
+
+
+
+<p class="has-background" style="background-color:#e9ebed">USB-MIDI is a great way to connect MIDI devices, but it tends to require a computer at the heart of any setup. This may not always be an ideal situation since<br>    &#8211; as soon as a computer is portable enough to take to a gig it is portable enough to be a target for theft<br>    &#8211; many computer-based MIDI interconnections suffer from unacceptably high latency</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="1024" height="484" src="http://192.168.1.151/wp-content/uploads/2021/03/web_HUBLINK_x-1024x484.png" alt="" class="wp-image-120" srcset="/static/wp-content/uploads/2021/03/web_HUBLINK_x-1024x484.png 1024w, /static/wp-content/uploads/2021/03/web_HUBLINK_x-300x142.png 300w, /static/wp-content/uploads/2021/03/web_HUBLINK_x-768x363.png 768w, /static/wp-content/uploads/2021/03/web_HUBLINK_x.png 1137w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p class="has-background" style="background-color:#e9ebed">MuMidi MIDI interfaces provide a dedicated low latency router for MIDI messages. They also provide up to 2.5W of power (equivalent to 500mA) from each USB port.</p>
+
+
+
+<h2 class="has-huge-font-size">MuMidi Product Comparison</h2>
+
+
+
+<figure class="wp-block-table alignfull is-style-stripes"><table>
+<thead><tr>
+<th class="has-text-align-center" data-align="center"><strong><a href="http://192.168.1.151/hublink" data-type="page" data-id="130">HubLink</a></strong></th>
+<th class="has-text-align-center" data-align="center"><strong><a href="http://192.168.1.151/hublink-s" data-type="page" data-id="328">HubLink-S</a></strong></th>
+<th class="has-text-align-center" data-align="center"><strong><a href="http://192.168.1.151/hubmidi" data-type="page" data-id="339">HubMidi</a></strong></th>
+<th class="has-text-align-center" data-align="center"><strong><a href="http://192.168.1.151/hubmidi-s" data-type="page" data-id="358">HubMidi-S</a></strong></th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="has-text-align-center" data-align="center">2 USB Host ports</td>
+<td class="has-text-align-center" data-align="center">2 USB Host ports</td>
+<td class="has-text-align-center" data-align="center">2 USB Host ports</td>
+<td class="has-text-align-center" data-align="center">2 USB Host ports</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center">1 Serial Midi In</td>
+<td class="has-text-align-center" data-align="center">1 Serial Midi In</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center">1 Serial Midi Out</td>
+<td class="has-text-align-center" data-align="center">1 Serial Midi Out</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center">Supports USB Hubs</td>
+<td class="has-text-align-center" data-align="center">Supports USB Hubs</td>
+<td class="has-text-align-center" data-align="center">Supports USB Hubs</td>
+<td class="has-text-align-center" data-align="center">Supports USB Hubs</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center">Supports USB-HS</td>
+<td class="has-text-align-center" data-align="center">Supports USB-HS</td>
+<td class="has-text-align-center" data-align="center">Supports USB-HS</td>
+<td class="has-text-align-center" data-align="center">Supports USB-HS</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center">Activity LED</td>
+<td class="has-text-align-center" data-align="center">Activity LED</td>
+<td class="has-text-align-center" data-align="center">Activity LED</td>
+<td class="has-text-align-center" data-align="center">Activity LED</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center">Powers USB-MIDI Devices</td>
+<td class="has-text-align-center" data-align="center">Powers USB-MIDI Devices</td>
+<td class="has-text-align-center" data-align="center">Powers USB-MIDI Devices</td>
+<td class="has-text-align-center" data-align="center">Powers USB-MIDI Devices</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center">​Switchable Routing</td>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center">​Switchable Routing</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center">​USB-USB Link</td>
+<td class="has-text-align-center" data-align="center">​USB-USB Link</td>
+<td class="has-text-align-center" data-align="center">​USB-USB Link</td>
+<td class="has-text-align-center" data-align="center">​USB-USB Link</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center">USB Midi Host</td>
+<td class="has-text-align-center" data-align="center">USB Midi Host</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center">Common USB Merge</td>
+<td class="has-text-align-center" data-align="center">Common USB Merge</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center">Common USB Thru</td>
+<td class="has-text-align-center" data-align="center">Common USB Thru</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center">​Common Midi Merge</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center">​Common Midi Thru</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center">​One-Way USB</td>
+<td class="has-text-align-center" data-align="center"></td>
+<td class="has-text-align-center" data-align="center">​One-Way USB</td>
+</tr>
+<tr>
+<td class="has-text-align-center" data-align="center">​£99 + p&amp;p</td>
+<td class="has-text-align-center" data-align="center">​£115 + p&amp;p</td>
+<td class="has-text-align-center" data-align="center">​£125 + p&amp;p</td>
+<td class="has-text-align-center" data-align="center">​£149 + p&amp;p</td>
+</tr>
+</tbody>
+</table></figure>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube"><div class="wp-block-embed__wrapper">
+<p class="responsive-video-wrap clr"><iframe title="MuMidi HubLink" width="1200" height="675" src="https://www.youtube.com/embed/zcITzxWdJ3E?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+</div>
+<figcaption>Check out a short <a rel="noreferrer noopener" href="https://www.youtube.com/watch?v=zcITzxWdJ3E" target="_blank">video</a> demonstrating the operation of MuMidi HubLink.</figcaption></figure>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube"><div class="wp-block-embed__wrapper">
+<p class="responsive-video-wrap clr"><iframe title="MuMidi HubMidi" width="1200" height="675" src="https://www.youtube.com/embed/jv8tGTpYurA?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+</div>
+<figcaption>Another <a rel="noreferrer noopener" href="https://www.youtube.com/watch?v=zcITzxWdJ3E" target="_blank">video</a> demonstrating the operation of MuMidi HubMidi.</figcaption></figure>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube"><div class="wp-block-embed__wrapper">
+<p class="responsive-video-wrap clr"><iframe title="you might need this for your synthesizer setup" width="1200" height="675" src="https://www.youtube.com/embed/XfcnRjhEm7M?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+</div>
+<figcaption>A video by an internet influencer</figcaption></figure>
+
+
+
+<p></p>
+
+	
+</div>
+
+</article>
+
+				
+			</div>
+<!-- #content -->
+
+			
+		</div>
+<!-- #primary -->
+
+		
+
+<aside id="right-sidebar" class="sidebar-container widget-area sidebar-primary" itemscope="itemscope" itemtype="https://schema.org/WPSideBar" role="complementary" aria-label="Primary Sidebar">
+
+	
+	<div id="right-sidebar-inner" class="clr">
+
+		
+	</div>
+<!-- #sidebar-inner -->
+
+	
+</aside><!-- #right-sidebar -->
+
+
+	</div>
+<!-- #content-wrap -->
+
+	
+
+	</main><!-- #main -->
+
+	
+	
+	
+		
+<footer id="footer" class="site-footer" itemscope="itemscope" itemtype="https://schema.org/WPFooter" role="contentinfo">
+
+	
+	<div id="footer-inner" class="clr">
+
+		
+
+<div id="footer-widgets" class="oceanwp-row clr">
+
+	
+	<div class="footer-widgets-inner container">
+
+					<div class="footer-box span_1_of_3 col col-1">
+				<div id="ocean_custom_menu-3" class="footer-widget widget-oceanwp-custom-menu custom-menu-widget clr">
+<style type="text/css">.ocean_custom_menu-3 > ul > li > a, .custom-menu-widget .ocean_custom_menu-3 .dropdown-menu .sub-menu li a.menu-link{color:#555555;}.custom-menu-widget .ocean_custom_menu-3.oceanwp-custom-menu > ul.click-menu .open-this{color:#555555;}.ocean_custom_menu-3 > ul > li > a:hover, .custom-menu-widget .ocean_custom_menu-3 .dropdown-menu .sub-menu li a.menu-link:hover{color:#8224e3;}.custom-menu-widget .ocean_custom_menu-3.oceanwp-custom-menu > ul.click-menu .open-this:hover{color:#8224e3;}</style>
+<h4 class="widget-title">Navigation</h4>
+<div class="oceanwp-custom-menu clr ocean_custom_menu-3 left dropdown-hover"><ul id="menu-top-menu" class="dropdown-menu sf-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-144 current_page_item menu-item-146"><a href="/static/" class="menu-link">Products</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-134 nav-no-click">
+<a href="/static/hublink" class="menu-link">HubLink <span class="nav-arrow fa fa-angle-down"></span></a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-335"><a href="/static/hublink" class="menu-link">HubLink</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-331"><a href="/static/hublink-s" class="menu-link">HubLink-S</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-462"><a href="/static/usage" class="menu-link">Usage</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-466"><a href="/static/faq" class="menu-link">FAQ</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-356 nav-no-click">
+<a href="/static/hubmidi" class="menu-link">HubMidi <span class="nav-arrow fa fa-angle-down"></span></a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-357"><a href="/static/hubmidi" class="menu-link">HubMidi</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-412"><a href="/static/hubmidi-s" class="menu-link">HubMidi-S</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-543"><a href="/static/compatibility" class="menu-link">Compatibility</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-430"><a href="/static/company" class="menu-link">Company</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="/static/about" class="menu-link">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="/static/contact" class="menu-link">Contact</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-475"><a href="/static/music" class="menu-link">Music</a></li>
+</ul></div>
+</div>			</div>
+<!-- .footer-one-box -->
+
+							<div class="footer-box span_1_of_3 col col-2">
+					<div id="ocean_social-2" class="footer-widget widget-oceanwp-social social-widget clr">
+<h4 class="widget-title">Follow Us</h4>
+				<ul class="oceanwp-social-icons no-transition style-light">
+					<li class="oceanwp-twitter">
+<a href="https://twitter.com/microsoltest" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter" aria-hidden="true"></i></a><span class="screen-reader-text">Opens in a new tab</span>
+</li>
+<li class="oceanwp-facebook">
+<a href="https://www.facebook.com/microsonic.solutions" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" aria-hidden="true"></i></a><span class="screen-reader-text">Opens in a new tab</span>
+</li>
+<li class="oceanwp-youtube">
+<a href="https://www.youtube.com/channel/UCjHl7hJVRXI4LtPduO_8frA" aria-label="Youtube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" aria-hidden="true"></i></a><span class="screen-reader-text">Opens in a new tab</span>
+</li>				</ul>
+
+				
+			
+		
+			</div>				</div>
+<!-- .footer-one-box -->
+				
+							<div class="footer-box span_1_of_3 col col-3 ">
+					<div id="pages-3" class="footer-widget widget_pages clr">
+<h4 class="widget-title">Pages</h4>
+			<ul>
+				<li class="page_item page-item-10"><a href="/static/about">About</a></li>
+<li class="page_item page-item-12"><a href="/static/blog">Blog</a></li>
+<li class="page_item page-item-424"><a href="/static/company">Company</a></li>
+<li class="page_item page-item-535"><a href="/static/compatibility">Compatibility</a></li>
+<li class="page_item page-item-11"><a href="/static/contact">Contact</a></li>
+<li class="page_item page-item-463"><a href="/static/faq">FAQ</a></li>
+<li class="page_item page-item-130"><a href="/static/hublink">HubLink</a></li>
+<li class="page_item page-item-328"><a href="/static/hublink-s">HubLink-S</a></li>
+<li class="page_item page-item-339"><a href="/static/hubmidi">HubMidi</a></li>
+<li class="page_item page-item-358"><a href="/static/hubmidi-s">HubMidi-S</a></li>
+<li class="page_item page-item-471"><a href="/static/music">Music</a></li>
+<li class="page_item page-item-3"><a href="/static/privacy-policy">Privacy Policy</a></li>
+<li class="page_item page-item-144 current_page_item"><a href="/static/" aria-current="page">Products</a></li>
+<li class="page_item page-item-453"><a href="/static/usage">Usage</a></li>
+			</ul>
+
+			</div>				</div>
+<!-- .footer-one-box -->
+				
+			
+			
+	</div>
+<!-- .container -->
+
+	
+</div>
+<!-- #footer-widgets -->
+
+
+
+<div id="footer-bottom" class="clr no-footer-nav">
+
+	
+	<div id="footer-bottom-inner" class="container clr">
+
+		
+		
+			<div id="copyright" class="clr" role="contentinfo">
+				Copyright 2021 - Microsonic Solutions			</div>
+<!-- #copyright -->
+
+			
+	</div>
+<!-- #footer-bottom-inner -->
+
+	
+</div>
+<!-- #footer-bottom -->
+
+
+	</div>
+<!-- #footer-inner -->
+
+	
+</footer><!-- #footer -->
+
+	
+	
+</div>
+<!-- #wrap -->
+
+
+</div>
+<!-- #outer-wrap -->
+
+
+
+<a id="scroll-top" class="scroll-top-right" href="#"><span class="fa fa-angle-up" aria-label="Scroll to the top of the page"></span></a>
+
+
+
+
+<script type="text/javascript" id="groovy-menu-js-js-extra">
+/* <![CDATA[ */
+var groovyMenuHelper = {"ajaxurl":"\/wp-admin\/admin-ajax.php"};
+var groovyMenuNonce = {"style":"c8c631ace5"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/static/wp-content/plugins/groovy-menu-free/assets/js/frontend.js?ver=1.2.16" id="groovy-menu-js-js"></script>
+<script type="text/javascript" id="groovy-menu-js-js-after">
+var groovyMenuSettings = {"header":{"align":"left","style":1,"toolbar":"false"},"topLvlLinkAlign":"right","topLvlLinkCenterConsideringLogo":false,"forceLogoCentering":false,"gapBetweenLogoAndLinks":40,"overlap":true,"headerHeight":70,"canvasContainerWidthType":"canvas-boxed-container-boxed","canvasWideContainerWidePadding":15,"canvasBoxedContainerBoxedWidth":1200,"canvasWideContainerBoxedWidth":1200,"woocommerceCart":false,"woocommerceCartIconSizeDesktop":16,"woocommerceCartIconSizeMobile":17,"showWpml":false,"showWpmlIconSizeDesktop":18,"showWpmlIconSizeMobile":18,"caret":false,"showDivider":false,"showDividerBetweenMenuLinks":true,"showDividerBetweenMenuLinksWide":false,"showTopLvlAndSubmenuIcons":false,"menuZIndex":9999,"showSubmenu":"hover","subLevelWidth":230,"hideDropdownBg":true,"iconMenuSubmenuBorderTopThickness":1,"iconMenuSubmenuBorderTopStyle":"dotted","iconMenuSubmenuBorderTopColor":"rgba(74, 74, 76, 1)","iconMenuFirstSubmenuActiveLinkColor":"rgba(255, 255, 255, 1)","sidebarMenuFirstSubmenuBgColor":"rgba(0, 0, 0, 1)","sidebarMenuNextSubmenuBgColor":"rgba(0, 0, 0, 1)","minimalisticMenuFirstSubmenuBgColor":"rgba(0, 0, 0, 1)","minimalisticMenuNextSubmenuBgColor":"rgba(0, 0, 0, 1)","dropdownAppearanceStyle":"default","dropdownHoverStyle":"default","dropdownOverlay":false,"dropdownOverlayColor":"rgba(0, 0, 0, 0.5)","dropdownOverlayBlur":false,"dropdownOverlayBlurRadius":2,"submenuBorderStyle":"dotted","submenuBorderThickness":1,"submenuBorderColor":"rgba(110, 110, 111, 1)","subLevelBorderTopStyle":"solid","subLevelBorderTopThickness":3,"subLevelBorderTopColor":"rgba(147, 203, 82, 1)","subLevelBorderTopShift":true,"subLevelTextColor":"rgba(110, 110, 111, 1)","subLevelTextColorHover":"rgba(147, 203, 82, 1)","subLevelTextActiveColor":"rgba(147, 203, 82, 1)","subLevelBackgroundColor":"rgba(238, 238, 253, 1)","subLevelBackgroundColorHover":"","subLevelItemTextSize":11,"subLevelItemTextCase":"uppercase","subLevelItemTextWeight":"none","subLevelItemTextSubset":"none","subItemLetterSpacing":0,"subDropdownRadius":false,"subDropdownRadius1":0,"subDropdownRadius2":0,"subDropdownRadius4":0,"subDropdownRadius3":0,"dropdownMargin":0,"subDropdownMargin":0,"megamenuTitleTextSize":13,"megamenuTitleTextCase":"uppercase","megamenuTitleTextWeight":"none","megamenuTitleTextSubset":"none","menuTitleLetterSpacing":0,"megamenuTitleAsLink":false,"megamenuTitleAsLinkAccent":false,"menuTitleColor":"rgba(255, 255, 255, 1)","megaMenuCanvasContainerWidthType":"mega-menu-canvas-boxed-container-boxed","megaMenuCanvasBoxedContainerBoxedWidth":1200,"megaMenuCanvasWideContainerBoxedWidth":1200,"megamenuBackgroundColorCustom":true,"megamenuBackgroundColor":"rgba(32, 32, 34, 0)","megamenuColumnPadding":true,"megaMenuDividerColor":"rgba(255, 255, 255, 0)","megaMenuShowLinksBottomBorder":false,"megaMenuLinksSidePadding":0,"megaMenuDropdownMargin":0,"searchForm":"disable","searchFormFrom":"all","searchFormFullscreenBackground":"rgba(0, 0, 0, 0.85)","searchFormIconSizeDesktop":17,"searchFormIconSizeMobile":17,"searchFormIconColor":"rgba(255, 255, 255, 1)","searchFormIconColorHover":"rgba(255, 255, 255, 1)","searchFormCloseIconColor":"rgba(255, 255, 255, 1)","searchFormSideBorderThickness":4,"searchFormSideBorderStyle":"solid","searchFormSideBorderColor":"rgba(69, 69, 69, 1)","searchFormInputFieldBackground":"rgba(255, 255, 255, 0)","searchFormInputFieldColor":"rgba(144, 144, 144, 1)","searchFormDropdownBackground":"rgba(255, 255, 255, 1)","searchFormDropdownBtnBackground":"rgba(57, 59, 63, 1)","searchFormDropdownBtnHover":"rgba(87, 171, 85, 1)","logoType":"no","logoMarginTop":0,"logoMarginRight":0,"logoMarginBottom":0,"logoMarginLeft":0,"logoHeight":66,"logoHeightMobile":69,"logoShowAlt":false,"logoShowTitleAsAlt":false,"logoTxtFont":"none","logoTxtFontSize":20,"logoTxtWeight":"none","logoTxtSubset":"none","logoTxtColor":"rgba(32, 32, 34, 1)","logoTxtColorHover":"rgba(32, 32, 34, 1)","toolbarMenuEnable":false,"toolbarMenuId":"none","toolbarMenuPosition":"gm_toolbar_right_last","toolbarMenuShowMobile":false,"toolbarMenuAppearanceStyle":"animate-with-scaling","toolbarMenuHoverStyle":"default","toolbarMenuTopColor":"rgba(100, 100, 100, 1)","toolbarMenuTopBg":"rgba(255, 255, 255, 0)","toolbarMenuTopColorHover":"rgba(32, 32, 32, 1)","toolbarMenuTopBgHover":"rgba(255, 255, 255, 0)","toolbarMenuTopFontSize":14,"toolbarMenuSubColor":"rgba(100, 100, 100, 1)","toolbarMenuSubBg":"rgba(245, 245, 245, 1)","toolbarMenuSubColorHover":"rgba(32, 32, 32, 1)","toolbarMenuSubBgHover":"rgba(250, 250, 250, 1)","toolbarMenuSubFontSize":14,"toolbarMenuSubWidth":140,"toolbarMenuSubBorderThickness":1,"toolbarMenuSubBorderStyle":"solid","toolbarMenuSubBorderColor":"rgba(195, 195, 195, 1)","toolbarMenuSubTopBorderThickness":3,"toolbarMenuSubTopBorderStyle":"solid","toolbarMenuSubTopBorderColor":"rgba(147, 203, 82, 1)","toolbarMenuSubNavBorderThickness":1,"toolbarMenuSubNavBorderStyle":"dotted","toolbarMenuSubNavBorderColor":"rgba(220, 220, 220, 1)","toolbarMenuSubRadius":false,"toolbarMenuSubRadius1":0,"toolbarMenuSubRadius2":0,"toolbarMenuSubRadius4":0,"toolbarMenuSubRadius3":0,"scrollbarEnable":true,"scrollbarEnableWheelSpeed":50,"scrollbarEnableMobile":true,"scrollHandleAllLinks":false,"scrollSpeedSettings":false,"scrollSpeedSettingsMain":400,"scrollSpeedSettingsMin":250,"scrollSpeedSettingsMax":2000,"scrollSpeedSettingsEasing":"easeInOutQuad","previewWidth":330,"previewHeight":230,"iconMenuSideBorderThickness":1,"iconMenuSideBorderStyle":"solid","iconMenuSideBorderColor":"rgba(218, 218, 218, 1)","iconMenuIconSize":26,"iconMenuTopLevelIconActiveBgColor":"rgba(147, 203, 82, 1)","iconMenuTopLevelIconActiveColor":"rgba(255, 255, 255, 1)","iconMenuBorderTopThickness":1,"iconMenuBorderTopStyle":"solid","iconMenuBorderTopColor":"rgba(232, 232, 232, 1)","iconMenuTopLvlLinkBgColor":"rgba(32, 32, 34, 1)","sidebarMenuSideBorderThickness":1,"sidebarMenuSideBorderStyle":"solid","sidebarMenuSideBorderColor":"rgba(218, 218, 218, 1)","minimalisticMenuOpenType":"offcanvasSlideRight","minimalisticMenuOpenAnimationSpeed":400,"minimalisticMenuTopLvlMenuBgColor":"rgba(0, 0, 0, 1)","minimalisticMenuTopLvlMenuBgBlur":false,"minimalisticMenuTopLvlMenuBgBlurRadius":2,"minimalisticMenuFullscreen":false,"minimalisticMenuFullscreenPosition":"center","minimalisticMenuFullscreenTopWidth":350,"minimalisticMenuFullscreenTopAlignment":"center","compiledCssRtl":"","presetKey":"81bd3c42a4884c14fac91c0630204e04","version":"1.2.16","versionRtl":"","customCssClass":"","hoverStyle":"1","backgroundColor":"rgba(255, 255, 255, 0)","backgroundColorChangeOnSubmenuOpened":false,"backgroundColorChange":"rgba(255, 255, 255, 1)","backgroundImage":"","backgroundSize":"full","backgroundRepeat":"no-repeat","backgroundAttachment":"scroll","backgroundPosition":"center center","coverBackground":false,"bottomBorderThickness":0,"bottomBorderColor":"rgba(0, 0, 0, 0)","topLevelTextColor":"rgba(90, 90, 90, 1)","topLevelTextColorHover":"rgba(147, 203, 82, 1)","topLevelTextColorChange":"rgba(90, 90, 90, 1)","topLevelTextColorChangeHover":"rgba(147, 203, 82, 1)","googleFont":"none","itemsGutterSpace":15,"itemTextSize":14,"itemTextCase":"uppercase","itemTextWeight":"none","itemTextSubset":"none","itemLetterSpacing":0,"shadow":false,"shadowDropdown":false,"hideToolbarOnMobile":false,"toolbarAlignCenter":false,"toolbarAlignCenterMobile":false,"toolbarTopThickness":0,"toolbarTopColor":"rgba(0, 0, 0, 1)","toolbarBottomThickness":0,"toolbarBottomColor":"rgba(0, 0, 0, 1)","toolbarBgColor":"rgba(255, 255, 255, 1)","toolbarAdditionalInfoColor":"rgba(104, 104, 104, 1)","wpmlDropdownBgColor":"rgba(255, 255, 255, 1)","toolbarAdditionalInfoFontSize":14,"hideToolbarIconTextOnMobile":false,"toolbarIconSize":16,"toolbarIconColor":"rgba(104, 104, 104, 1)","toolbarIconHoverColor":"rgba(165, 226, 94, 1)","toolbarIconSwitchBorder":false,"hamburgerIconSize":24,"hamburgerIconPadding":0,"hamburgerIconBgColor":"rgba(0, 0, 0, 0)","hamburgerIconColor":"rgba(104, 104, 104, 1)","hamburgerIconBorderWidth":0,"hamburgerIconBorderColor":"rgba(0, 0, 0, 0)","hamburgerIconSizeMobile":24,"hamburgerIconPaddingMobile":0,"hamburgerIconBgColorMobile":"rgba(0, 0, 0, 0)","hamburgerIconColorMobile":"rgba(104, 104, 104, 1)","hamburgerIconMobileBorderWidth":0,"hamburgerIconMobileBorderColor":"rgba(0, 0, 0, 0)","hamburgerIconMobileFloatSize":24,"hamburgerIconMobileFloatPadding":0,"hamburgerIconMobileFloatBgColor":"rgba(0, 0, 0, 0)","hamburgerIconMobileFloatColor":"rgba(104, 104, 104, 1)","hamburgerIconMobileFloatBorderWidth":0,"hamburgerIconMobileFloatBorderColor":"rgba(0, 0, 0, 0)","wooCartCountShape":"drop","wooCartCountBgColor":"rgba(165, 226, 94, 1)","wooCartCountTextColor":"rgba(255, 255, 255, 1)","wooCartDropdownBgColor":"rgba(32, 32, 34, 1)","wooCartDropdownTextColor":"rgba(255, 255, 255, 1)","checkoutBtnFontSize":13,"checkoutBtnFontWeight":"700","checkoutBtnTextColor":"rgba(104, 104, 104, 1)","checkoutBtnTextColorHover":"rgba(104, 104, 104, 1)","checkoutBtnBgColor":"rgba(255, 255, 255, 1)","checkoutBtnBgColorHover":"rgba(255, 255, 255, 1)","checkoutBtnBorderStyle":"none","checkoutBtnBorderWidth":0,"checkoutBtnBorderColor":"","checkoutBtnBorderColorHover":"","viewCartBtnFontSize":13,"viewCartBtnFontWeight":"700","viewCartBtnTextColor":"rgba(255, 255, 255, 1)","viewCartBtnTextColorHover":"rgba(255, 255, 255, 1)","viewCartBtnBgColor":"rgba(165, 226, 94, 1)","viewCartBtnBgColorHover":"rgba(165, 226, 94, 1)","viewCartBtnBorderStyle":"none","viewCartBtnBorderWidth":0,"viewCartBtnBorderColor":"","viewCartBtnBorderColorHover":"","mobileNavMenu":"default","mobileSubmenuStyle":"default","mobileCustomHamburger":false,"mobileIndependentCssHamburger":false,"mobileIndependentCssHamburgerType":"hamburger--squeeze","mobileIndependentCssHamburgerFloat":true,"mobileIndependentCssHamburgerHeight":3,"mobileNavDrawerOpenType":"offcanvasSlideRight","mobilePreventAutoclose":false,"mobileLogoPosition":"default","forceLogoCenteringMobile":false,"mobileLogoMarginTop":0,"mobileLogoMarginRight":0,"mobileLogoMarginBottom":0,"mobileLogoMarginLeft":0,"mobileSideIconPosition":"default","mobileShowWoominicart":false,"responsiveNavigationBackgroundColor":"rgba(249, 249, 249, 1)","mobileSliderTitleBackgroundColor":"rgba(206, 206, 206, 1)","responsiveNavigationTextColor":"rgba(90, 90, 90, 1)","responsiveNavigationHoverTextColor":"rgba(204, 204, 204, 1)","mobileItemsBorderThickness":1,"mobileItemsBorderStyle":"dotted","mobileItemsBorderColor":"rgb(90, 90, 90, 1)","mobileToolbarIconColor":"rgba(90, 90, 90, 1)","mobileCaretCustomColor":false,"mobileCaretCustomColorTop":"rgba(90, 90, 90, 1)","mobileCaretCustomColorSub":"rgba(90, 90, 90, 1)","mobileCaretCustomColorCurrent":"rgba(204, 204, 204, 1)","mobileWidth":1023,"mobileOffcanvasWidth":250,"mobileOffcanvasWidthDynamic":false,"mobileHeaderHeight":70,"mobileMenuWrapperIndent":0,"mobileSliderTitleHeight":50,"mobileItemsPaddingY":9,"mobileItemTextSize":11,"mobileItemTextCase":"uppercase","mobileItemTextWeight":"none","mobileItemLetterSpacing":0,"mobileSubitemTextSize":11,"mobileSubitemTextCase":"uppercase","mobileSubitemTextWeight":"none","mobileSubitemLetterSpacing":0,"logoText":"Logo","logoUrl":"","logoUrlOpenType":"same","logoDefault":"139","logoMobile":"139","socialSetNofollow":false,"socialSetBlank":false,"socialTwitter":false,"socialTwitterLink":"","socialTwitterText":"","socialTwitterIcon":"fa fa-twitter","socialFacebook":false,"socialFacebookLink":"","socialFacebookText":"","socialFacebookIcon":"fa fa-facebook","socialGoogle":false,"socialGoogleLink":"","socialGoogleText":"","socialGoogleIcon":"fa fa-google","socialVimeo":false,"socialVimeoLink":"","socialVimeoText":"","socialVimeoIcon":"fa fa-vimeo","socialDribbble":false,"socialDribbbleLink":"","socialDribbbleText":"","socialDribbbleIcon":"fa fa-dribbble","socialPinterest":false,"socialPinterestLink":"","socialPinterestText":"","socialPinterestIcon":"fa fa-pinterest","socialYoutube":false,"socialYoutubeLink":"","socialYoutubeText":"","socialYoutubeIcon":"fa fa-youtube","socialLinkedin":false,"socialLinkedinLink":"","socialLinkedinText":"","socialLinkedinIcon":"fa fa-linkedin","socialInstagram":false,"socialInstagramLink":"","socialInstagramText":"","socialInstagramIcon":"fa fa-instagram","socialFlickr":false,"socialFlickrLink":"","socialFlickrText":"","socialFlickrIcon":"fa fa-flickr","socialVk":false,"socialVkLink":"","socialVkText":"","socialVkIcon":"fa fa-vk","toolbarEmailIcon":"","toolbarEmail":"","toolbarEmailAsLink":false,"toolbarPhoneIcon":"","toolbarPhone":"","toolbarPhoneAsLink":false,"searchIcon":"gmi gmi-zoom-search","cartIcon":"gmi gmi-bag","menuIcon":"fa fa-bars","icons":"","wrapperTag":"header","adminWalkerPriority":false,"googleFontsLocal":false,"disableLocalFontAwesome":false,"disableLocalFontInternal":false,"allowUseFontPreloader":true,"uninstallData":false,"preset":{"id":"225","name":"First Preset"},"extra_navbar_classes":["gm-navbar--align-left","gm-navbar--style-1","gm-top-links-align-right","gm-navbar--toolbar-false","gm-navbar--has-divider","gm-navbar--hide-gm-caret","gm-dropdown-hover-style-default","gm-dropdown-appearance-default","gm-dropdown-with-scrollbar"],"_preset_shortcodes_added":true};
+document.addEventListener("DOMContentLoaded", function () {
+	let gmNavNode = document.querySelector('.gm-preset-id-225');
+	if (gmNavNode) {
+		if ( ! gmNavNode.classList.contains('gm-init-done')) {
+			var gm = new GroovyMenu(gmNavNode ,groovyMenuSettings); gm.init();
+		}
+	}
+});
+</script>
+<script type="text/javascript" src="/static/wp-includes/js/imagesloaded.min.js?ver=4.1.4" id="imagesloaded-js"></script>
+<script type="text/javascript" src="/static/wp-content/themes/oceanwp/assets/js/third/magnific-popup.min.js?ver=1.2" id="magnific-popup-js"></script>
+<script type="text/javascript" src="/static/wp-content/themes/oceanwp/assets/js/third/lightbox.min.js?ver=1.2" id="oceanwp-lightbox-js"></script>
+<script type="text/javascript" id="oceanwp-main-js-extra">
+/* <![CDATA[ */
+var oceanwpLocalize = {"isRTL":"","menuSearchStyle":"drop_down","sidrSource":null,"sidrDisplace":"1","sidrSide":"left","sidrDropdownTarget":"link","verticalHeaderTarget":"link","customSelects":".woocommerce-ordering .orderby, #dropdown_product_cat, .widget_categories select, .widget_archive select, .single-product .variations_form .variations select","ajax_url":"\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/static/wp-content/themes/oceanwp/assets/js/main.min.js?ver=1.2" id="oceanwp-main-js"></script>
+<script type="text/javascript" src="/static/wp-includes/js/wp-embed.min.js?ver=5.6.2" id="wp-embed-js"></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='/wp-content/themes/oceanwp/assets/js/third/html5.min.js?ver=1.2' id='html5shiv-js'></script>
+<![endif]-->
+<div id="turnkey-credit"> <div style="clear: both;"> <a href="https://www.turnkeylinux.org/wordpress">WordPress Appliance</a> - Powered by <a href="https://www.turnkeylinux.org/">TurnKey Linux</a> </div> </div>
+</body>
+</html>
