@@ -1,11 +1,11 @@
 
 @font-face {
 	font-family: 'groovy-socicon';
-	src:url('/static/wp-content/uploads/groovy/fonts/groovy-socicon.eot?jk3qnc');
-	src:url('/static/wp-content/uploads/groovy/fonts/groovy-socicon.eot?jk3qnc#iefix') format('embedded-opentype'),
-		url('/static/wp-content/uploads/groovy/fonts/groovy-socicon.ttf?jk3qnc') format('truetype'),
-		url('/static/wp-content/uploads/groovy/fonts/groovy-socicon.woff?jk3qnc') format('woff'),
-		url('/static/wp-content/uploads/groovy/fonts/groovy-socicon.svg?jk3qnc#icomoon1') format('svg');
+	src:url('/wp-content/uploads/groovy/fonts/groovy-socicon.eot?jk3qnc');
+	src:url('/wp-content/uploads/groovy/fonts/groovy-socicon.eot?jk3qnc#iefix') format('embedded-opentype'),
+		url('/wp-content/uploads/groovy/fonts/groovy-socicon.ttf?jk3qnc') format('truetype'),
+		url('/wp-content/uploads/groovy/fonts/groovy-socicon.woff?jk3qnc') format('woff'),
+		url('/wp-content/uploads/groovy/fonts/groovy-socicon.svg?jk3qnc#icomoon1') format('svg');
 	font-weight: normal;
 	font-style: normal;
 	font-display: block;

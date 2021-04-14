@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments for Mumidi	</title>
-	<atom:link href="/static/comments/feed" rel="self" type="application/rss+xml" />
-	<link>/static/</link>
+	<atom:link href="/comments/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
 	<description>Connecting musicians and their USB-MIDI equipment</description>
 	<lastBuildDate>Sun, 21 Mar 2021 10:14:32 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,7 +20,7 @@
 	<item>
 		<title>
 		Comment on Hello world! by A WordPress Commenter		</title>
-		<link>/static/archives/1#comment-1</link>
+		<link>/archives/1#comment-1</link>
 
 		<dc:creator><![CDATA[A WordPress Commenter]]></dc:creator>
 		<pubDate>Sun, 21 Mar 2021 10:14:32 +0000</pubDate>

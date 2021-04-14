@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Privacy Policy	</title>
-	<atom:link href="/static/privacy-policy/feed" rel="self" type="application/rss+xml" />
-	<link>/static/</link>
+	<atom:link href="/privacy-policy/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
 	<description>Connecting musicians and their USB-MIDI equipment</description>
 	<lastBuildDate>Sun, 21 Mar 2021 12:50:00 +0000</lastBuildDate>
 	<sy:updatePeriod>
