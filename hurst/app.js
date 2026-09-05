@@ -181,12 +181,8 @@ function pointerMidpoint(
 {
 
     return {
-
-        x:
-            (p1.x + p2.x) / 2,
-
-        y:
-            (p1.y + p2.y) / 2
+        x: (p1.x + p2.x) / 2,
+        y: (p1.y + p2.y) / 2
     };
 }
 
@@ -200,23 +196,17 @@ function showGPSMessage(message) {
     /*
      * Cancel any previous timer.
      */
-    if (gpsMessageTimer !== null) {
-
-        clearTimeout(
-            gpsMessageTimer
-        );
-
-        gpsMessageTimer =
-            null;
+    if (gpsMessageTimer !== null) 
+    {
+        clearTimeout(gpsMessageTimer);
+        gpsMessageTimer = null;
     }
-
 
     /*
      * Hide the GPS button while the message
      * is being displayed.
      */
-    gpsButton.style.display =
-        "none";
+    gpsButton.style.display = "none";
 
 
     gpsStatus.textContent =
@@ -249,23 +239,15 @@ function showGPSMessage(message) {
  * CLEAR GPS MESSAGE
  * ============================================================ */
 
-function clearGPSMessage() {
-
-    if (
-        gpsMessageTimer !== null
-    ) {
-
-        clearTimeout(
-            gpsMessageTimer
-        );
-
-        gpsMessageTimer =
-            null;
+function clearGPSMessage() 
+{
+    if (gpsMessageTimer !== null) 
+    {
+        clearTimeout(gpsMessageTimer);
+        gpsMessageTimer = null;
     }
 
-
-    gpsStatus.textContent =
-        "";
+    gpsStatus.textContent = "";
 }
 
 
@@ -455,17 +437,19 @@ function updateMarker() {
             longitude
         );
 
-showGPSMessage("lat=" + latitude + ", long=" + longitude + 
-	"\n x=" + p.x + ", y=" + p.y + 
-	", inMap=" + isPositionInsideMap(p.x, p.y)); /*richard*/
+	if (RICHARD_DEBUG)
+	{
+		showGPSMessage("lat=" + latitude + ", long=" + longitude + 
+			", x=" + p.x + ", y=" + p.y + 
+			", inMap=" + isPositionInsideMap(p.x, p.y)); /*richard*/
+	}
 
     /*
      * Don't display a position which isn't represented
      * by the map.
      */
-    if (
-        0 /*richard !isPositionInsideMap(p.x, p.y) */
-    ) {
+    if (!RICHARD_DEBUG && !isPositionInsideMap(p.x, p.y)) 
+    {
 
         marker.style.display =
             "none";
@@ -651,22 +635,15 @@ function centreMapOnGPS() {
             longitude
         );
 
-
     /*
      * Never centre on a position outside the map.
      */
-    if (
-        0 /* richard !isPositionInsideMap(p.x, p.y) */
-    ) {
-
+    if (!RICHARD_DEBUG && !isPositionInsideMap(p.x, p.y)) 
+    {
         return;
     }
 
-
-    centreMapOnImagePoint(
-        p.x,
-        p.y
-    );
+    centreMapOnImagePoint(p.x, p.y);
 }
 
 
@@ -1256,9 +1233,8 @@ function processGPSPosition(
     /*
      * User has left the mapped area.
      */
-    if (
-        0 /*richard !insideMap*/
-    ) {
+    if (!RICHARD_DEBUG && !insideMap) 
+    {
 
         /*
          * Remove marker immediately.
@@ -1433,9 +1409,8 @@ function startGPS() {
             );
 
 
-        if (
-            1 /*richard isPositionInsideMap(p.x, p.y) */
-        ) {
+        if (RICHARD_DEBUG || isPositionInsideMap(p.x, p.y)) 
+        {
 
             centreMapOnGPS();
         }
