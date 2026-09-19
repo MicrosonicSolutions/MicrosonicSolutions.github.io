@@ -1110,6 +1110,8 @@ if (poiButton)
 
 function showPOI(poi)
 {
+    alert("NEW SHOWPOI CODE IS RUNNING");
+
     const popup =
         document.getElementById("poi-popup");
 
@@ -1122,21 +1124,32 @@ function showPOI(poi)
     const text =
         document.getElementById("poi-text");
 
-    if (!popup || !image || !title || !text)
-    {
-        return;
-    }
-
     title.textContent = poi.title;
     text.textContent = poi.text;
 
+    image.onload = function()
+    {
+        text.textContent =
+            "IMAGE LOADED: " +
+            image.src +
+            " (" +
+            image.naturalWidth +
+            " × " +
+            image.naturalHeight +
+            ")";
+    };
+
+    image.onerror = function()
+    {
+        text.textContent =
+            "IMAGE FAILED TO LOAD: " +
+            image.src;
+    };
+
     image.src = poi.image;
-    image.alt = poi.title;
 
     popup.style.display = "block";
 }
-
-
 /* ============================================================
  * HIDE POI INFORMATION
  * ============================================================ */
