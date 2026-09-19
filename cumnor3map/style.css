@@ -11,6 +11,34 @@ body {
     background: #263d19;
 }
 
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+#header {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    right: 0;
+
+    height: 44px;
+
+    background: #263d19;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    z-index: 20;
+}
 
 /* ============================================================
    MAP
@@ -21,7 +49,7 @@ body {
     position: absolute;
 
     left: 0;
-    top: 0;
+    top: 44px;
     right: 0;
     bottom: 52px;
 
@@ -155,40 +183,225 @@ body {
    ============================================================ */
 
 #gps-button {
-
     height: 40px;
-
-    min-width: 125px;
-
-    padding:
-        0 16px;
-
+    min-width: 0;
+    padding: 0 10px;
     font-size: 15px;
-
     font-weight: 500;
-
-    border:
-        1px solid #888;
-
+    border: 1px solid #888;
     border-radius: 6px;
-
-    background: #eeeeee;
-
+    background: #cccccc;
     color: #222;
+    box-sizing: border-box;
+    white-space: nowrap;
+    touch-action: manipulation;
+    text-align: center;
+}
+
+
+#gps-button:active {
+    background: #d5d5d5;
+}
+
+
+/* ============================================================
+   POINTS OF INTEREST BUTTON
+   ============================================================ */
+
+#poi-button {
+    height: 40px;
+    min-width: 0;
+    margin-left: 8px;
+    padding: 0 10px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid #888;
+    border-radius: 6px;
+    background: #cccccc;
+    color: #222;
+    box-sizing: border-box;
+    white-space: nowrap;
+    touch-action: manipulation;
+    text-align: center;    
+}
+
+
+#poi-button:active {
+    background: #d5d5d5;
+}
+
+
+#poi-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 9;
+}
+
+/* ============================================================
+   POINTS OF INTEREST PINS
+   ============================================================ */
+
+.poi-pin {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    margin-left: -14px;
+    margin-top: -28px;
+
+    background: #d22;
+    border: 2px solid white;
+    border-radius: 50% 50% 50% 0;
+
+    transform: rotate(-45deg);
+
+    box-shadow:
+        0 1px 4px
+        rgba(0, 0, 0, 0.45);
+
+    z-index: 9;
+
+    cursor: pointer;
+    pointer-events: auto;
+    touch-action: manipulation;
+}
+
+
+/*
+ * The centre of the pin.
+ */
+.poi-pin::after {
+    content: "";
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    left: 7px;
+    top: 7px;
+
+    background: white;
+    border-radius: 50%;
+}
+
+
+/* ============================================================
+   POINTS OF INTEREST POPUP
+   ============================================================ */
+
+#poi-popup {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: min(90vw, 420px);
+    max-height: 80vh;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 3px 18px
+        rgba(0, 0, 0, 0.45);
+
+    padding: 12px;
 
     box-sizing: border-box;
 
-    white-space: nowrap;
+    z-index: 100;
+
+    overflow-y: auto;
+
+    display: none;
+}
+
+
+/* ============================================================
+   POI POPUP CLOSE BUTTON
+   ============================================================ */
+
+#poi-close {
+    position: absolute;
+
+    right: 8px;
+    top: 8px;
+
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+
+    font-size: 26px;
+    line-height: 32px;
+
+    border: none;
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.90);
+
+    color: #333;
+
+    z-index: 2;
 
     touch-action: manipulation;
 }
 
 
-#gps-button:active {
-
-    background: #d5d5d5;
+#poi-close:active {
+    background: #ddd;
 }
 
+
+/* ============================================================
+   POI POPUP IMAGE
+   ============================================================ */
+
+#poi-image {
+    display: block;
+
+    width: 100%;
+    max-height: 45vh;
+
+    object-fit: contain;
+
+    border-radius: 6px;
+
+    margin-bottom: 10px;
+}
+
+
+/* ============================================================
+   POI POPUP TEXT
+   ============================================================ */
+
+#poi-title {
+    margin:
+        4px 40px
+        8px 4px;
+
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+
+#poi-text {
+    margin:
+        0 4px
+        6px 4px;
+
+    font-size: 16px;
+    line-height: 1.45;
+}
 
 /* ============================================================
    ZOOM BUTTONS

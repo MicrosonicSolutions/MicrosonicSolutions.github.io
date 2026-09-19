@@ -20,6 +20,10 @@
 
 
 <body>
+  
+    <div id="header">
+        Cumnor Hurst
+    </div>  
 
     <div id="map-container">
 <!--
@@ -34,6 +38,9 @@
              src="cumnor3.jpg"
              alt="Cumnor map">
 
+
+        <div id="poi-container"></div>
+
         <div id="accuracy-circle"></div>
 
         <div id="position-marker"></div>
@@ -46,14 +53,30 @@
 		<button id="gps-button">
 			Show location
 		</button>
+    
+    <button id="poi-button">
+        Show points of interest
+    </button>
 
 		<span id="gps-status"></span>
 
 	</div>
+  
+  <div id="poi-popup">
+    <button id="poi-close">×</button>
 
-    <script src="mapProjection.js?v=17"></script>
+    <img id="poi-image"
+         src=""
+         alt="">
 
-    <script src="app.js?v=17"></script>
+    <h2 id="poi-title"></h2>
+
+    <p id="poi-text"></p>
+  </div>
+
+  <script src="mapProjection.js?v=17"></script>
+  <script src="pois.js?v=1"></script>
+  <script src="app.js?v=17"></script>
 
 </body>
 

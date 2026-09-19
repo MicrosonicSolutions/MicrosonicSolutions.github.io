@@ -61,23 +61,12 @@ const GPS_MESSAGE_TIME = 3500;
  * ELEMENTS
  * ============================================================ */
 
-const mapContainer =
-    document.getElementById("map-container");
-
-const mapImage =
-    document.getElementById("map-image");
-
-const marker =
-    document.getElementById("position-marker");
-
-const accuracyCircle =
-    document.getElementById("accuracy-circle");
-
-const gpsButton =
-    document.getElementById("gps-button");
-
-const gpsStatus =
-    document.getElementById("gps-status");
+const mapContainer = document.getElementById("map-container");
+const mapImage = document.getElementById("map-image");
+const marker = document.getElementById("position-marker");
+const accuracyCircle = document.getElementById("accuracy-circle");
+const gpsButton = document.getElementById("gps-button");
+const gpsStatus = document.getElementById("gps-status");
 
 
 /* ============================================================
@@ -253,14 +242,15 @@ function calculateMapScale()
 /* ============================================================
  * APPLY MAP TRANSFORM
  * ============================================================ */
-
+ 
 function applyMapTransform() 
 {
-
-    mapImage.style.transform = "translate(" + mapOffsetX + "px, " +
+    mapImage.style.transform =
+        "translate(" + mapOffsetX + "px, " +
         mapOffsetY + "px) scale(" + mapScale + ")";
-}
 
+    updatePOIs();
+}
 
 /* ============================================================
  * DISPLAY MAP
@@ -301,6 +291,11 @@ function displayMap()
     updateMarker();
 }
 
+function fitMap()
+{
+    zoom = 1;
+    displayMap();
+}
 
 /* ============================================================
  * IMAGE -> SCREEN
@@ -513,9 +508,14 @@ function createZoomButtons()
     const zoomOut = document.createElement("button");
     zoomOut.textContent = "−";
     zoomOut.title = "Zoom out";
+    
+    const fitButton = document.createElement("button");
+	fitButton.textContent = "⛶";
+	fitButton.title = "Show whole map";
 
-    zoomControls.appendChild(zoomIn);
-    zoomControls.appendChild(zoomOut);
+	zoomControls.appendChild(zoomIn);
+	zoomControls.appendChild(zoomOut);
+	zoomControls.appendChild(fitButton);
 
     mapContainer.appendChild(zoomControls);
 
@@ -543,6 +543,16 @@ function createZoomButtons()
                 mapContainer.clientHeight / 2);
         }
     );
+    
+    fitButton.addEventListener(
+		"click",
+		function(event)
+		{
+			event.stopPropagation();
+
+			fitMap();
+		}
+	);
 }
 
 
@@ -939,6 +949,237 @@ function stopGPS()
     gpsButton.textContent = "Show location";
 }
 
+
+/* ============================================================
+ * POINTS OF INTEREST
+ * ============================================================ */
+
+
+let poisVisible = false;
+
+
+/* ============================================================
+ * CREATE POI PINS
+ * ============================================================ */
+
+function createPOIs()
+{
+    const container = document.getElementById("poi-container");
+
+    if (!container)
+    {
+        console.error("POI container not found");
+        return;
+    }
+
+    /*
+     * Remove any existing pins.
+     */
+    container.innerHTML = "";
+
+    pointsOfInterest.forEach(function(poi)
+    {
+        const pin = document.createElement("div");
+
+        pin.className = "poi-pin";
+        pin.dataset.poiId = poi.id;
+
+        pin.addEventListener("click", function(event)
+        {
+            event.stopPropagation();
+            showPOI(poi);
+        });
+
+        container.appendChild(pin);
+
+        poi.element = pin;
+    });
+
+    updatePOIs();
+}
+
+
+/* ============================================================
+ * UPDATE POI POSITIONS
+ * ============================================================ */
+
+function updatePOIs()
+{
+    if (!poisVisible)
+    {
+        return;
+    }
+
+    pointsOfInterest.forEach(function(poi)
+    {
+        if (!poi.element)
+        {
+            return;
+        }
+
+        /*
+         * Convert the original map-image coordinate
+         * into the current screen coordinate.
+         */
+        const screenX =
+            mapOffsetX +
+            poi.x * mapScale;
+
+        const screenY =
+            mapOffsetY +
+            poi.y * mapScale;
+
+        poi.element.style.left = screenX + "px";
+        poi.element.style.top = screenY + "px";
+    });
+}
+
+function showPOIs()
+{
+    poisVisible = true;
+
+    const container =
+        document.getElementById("poi-container");
+
+    if (container)
+    {
+        container.style.display = "block";
+    }
+
+    const button =
+        document.getElementById("poi-button");
+
+    if (button)
+    {
+        button.textContent = "Hide points of interest";
+    }
+
+    createPOIs();
+}
+
+function hidePOIs()
+{
+    poisVisible = false;
+
+    const container =
+        document.getElementById("poi-container");
+
+    if (container)
+    {
+        container.style.display = "none";
+    }
+
+    const button =
+        document.getElementById("poi-button");
+
+    if (button)
+    {
+        button.textContent = "Show points of interest";
+    }
+
+    hidePOI();
+}
+
+
+/* ============================================================
+ * POI BUTTON
+ * ============================================================ */
+
+const poiButton =
+    document.getElementById("poi-button");
+
+if (poiButton)
+{
+    poiButton.addEventListener("click", function()
+    {
+        if (poisVisible)
+        {
+            hidePOIs();
+        }
+        else
+        {
+            showPOIs();
+        }
+    });
+}
+
+
+/* ============================================================
+ * SHOW POI INFORMATION
+ * ============================================================ */
+
+function showPOI(poi)
+{
+    const popup =
+        document.getElementById("poi-popup");
+
+    const image =
+        document.getElementById("poi-image");
+
+    const title =
+        document.getElementById("poi-title");
+
+    const text =
+        document.getElementById("poi-text");
+
+    if (!popup || !image || !title || !text)
+    {
+        return;
+    }
+
+    title.textContent = poi.title;
+    text.textContent = poi.text;
+
+    image.src = poi.image;
+    image.alt = poi.title;
+
+    popup.style.display = "block";
+}
+
+
+/* ============================================================
+ * HIDE POI INFORMATION
+ * ============================================================ */
+
+function hidePOI()
+{
+    const popup =
+        document.getElementById("poi-popup");
+
+    if (popup)
+    {
+        popup.style.display = "none";
+    }
+}
+
+
+/* ============================================================
+ * POI CLOSE BUTTON
+ * ============================================================ */
+
+const poiClose =
+    document.getElementById("poi-close");
+
+if (poiClose)
+{
+    poiClose.addEventListener("click", function()
+    {
+        hidePOI();
+    });
+}
+
+
+/* ============================================================
+ * INITIAL POI STATE
+ * ============================================================ */
+
+const poiContainer =
+    document.getElementById("poi-container");
+
+if (poiContainer)
+{
+    poiContainer.style.display = "none";
+}
 
 /* ============================================================
  * GPS BUTTON
