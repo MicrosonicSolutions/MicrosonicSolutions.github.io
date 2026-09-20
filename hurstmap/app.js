@@ -67,6 +67,7 @@ const marker = document.getElementById("position-marker");
 const accuracyCircle = document.getElementById("accuracy-circle");
 const gpsButton = document.getElementById("gps-button");
 const gpsStatus = document.getElementById("gps-status");
+const poiButton = document.getElementById("poi-button");
 
 
 /* ============================================================
@@ -193,25 +194,29 @@ function showGPSMessage(message)
     }
 
     /*
-     * Hide the GPS button while the message
+     * Hide both buttons while the message
      * is being displayed.
      */
     gpsButton.style.display = "none";
+    poiButton.style.display = "none";
+
     gpsStatus.textContent = message;
 
     /*
-     * Restore the button after a few seconds.
+     * Restore both buttons after a few seconds.
      */
     gpsMessageTimer = setTimeout(
-		function()
-		{
-		  gpsStatus.textContent = "";
-		  gpsButton.style.display = "";
-		  gpsMessageTimer = null;
-		}, 
-		GPS_MESSAGE_TIME);
-}
+        function()
+        {
+            gpsStatus.textContent = "";
 
+            gpsButton.style.display = "";
+            poiButton.style.display = "";
+
+            gpsMessageTimer = null;
+        },
+        GPS_MESSAGE_TIME);
+}
 
 /* ============================================================
  * CLEAR GPS MESSAGE
@@ -1097,9 +1102,6 @@ function hidePOIs()
 /* ============================================================
  * POI BUTTON
  * ============================================================ */
-
-const poiButton =
-    document.getElementById("poi-button");
 
 if (poiButton)
 {
