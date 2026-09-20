@@ -26,5 +26,24 @@ const pointsOfInterest = [
         text: "The history of the folly is unclear.\n" +
           "For some time, it was believed that it simply indicated a clump of trees. " +
           "However recent work has revealed the remains of a building.\n"
+    },
+    
+    {
+        id: "poi4",
+        title: "Rhino",
+        x: 207,
+        y: 516,
+        image: "poi/Rhino.png",
+        text: "It's a nature reserve so there is wildlife here."
+    },
+
+    {
+        id: "poi5",
+        title: "Spade",
+        x: 1010,
+        y: 709,
+        image: "poi/Spade.png",
+        text: "Can you see something up in the tree? How did it get there?"
     }
+    
 ];
