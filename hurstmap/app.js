@@ -1135,8 +1135,8 @@ function showPOI(poi)
         return;
     }
 
-    title.textContent = poi.title;
-    text.textContent = poi.text;
+	title.textContent = poi.title;
+	text.textContent = poi.text + "\n\nLoading image...";
 
     /*
      * Give this image request a unique number.
@@ -1167,26 +1167,31 @@ function showPOI(poi)
         {
             return;
         }
-
+        
+		text.textContent = poi.text;
         image.style.display = "block";
     };
 
     /*
      * Handle failed loading.
      */
-    image.onerror = function()
-    {
-        /*
-         * Ignore an old image request.
-         */
-        if (image.dataset.requestId != requestId)
-        {
-            return;
-        }
+	image.onerror = function()
+	{
+		/*
+		 * Ignore an old image request.
+		 */
+		if (image.dataset.requestId != requestId)
+		{
+			return;
+		}
 
-        image.removeAttribute("src");
-        image.style.display = "none";
-    };
+		text.textContent =
+			poi.text +
+			"\n\nImage failed to load.";
+
+		image.removeAttribute("src");
+		image.style.display = "none";
+	};
 
     /*
      * Start loading the new image.
