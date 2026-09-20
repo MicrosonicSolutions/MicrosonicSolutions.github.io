@@ -983,13 +983,26 @@ function createPOIs()
 
         pin.className = "poi-pin";
         pin.dataset.poiId = poi.id;
-
+/* richard
         pin.addEventListener("click", function(event)
         {
             event.stopPropagation();
+            alert("POI CLICKED"); //richard
             showPOI(poi);
         });
+*/
 
+		pin.addEventListener("pointerdown", function(event)
+		{
+			event.stopPropagation();
+		});
+
+		pin.addEventListener("pointerup", function(event)
+		{
+			event.stopPropagation();
+			showPOI(poi);
+		});
+		
         container.appendChild(pin);
 
         poi.element = pin;
@@ -1110,54 +1123,61 @@ if (poiButton)
 
 function showPOI(poi)
 {
-    alert("NEW SHOWPOI CODE IS RUNNING");
+    const popup = document.getElementById("poi-popup");
+    const image = document.getElementById("poi-image");
+    const title = document.getElementById("poi-title");
+    const text = document.getElementById("poi-text");
 
-    const popup =
-        document.getElementById("poi-popup");
-
-    const image =
-        document.getElementById("poi-image");
-
-    const title =
-        document.getElementById("poi-title");
-
-    const text =
-        document.getElementById("poi-text");
+    if (!popup || !image || !title || !text)
+    {
+        return;
+    }
 
     title.textContent = poi.title;
     text.textContent = poi.text;
 
+    /*
+     * Clear any previously displayed image.
+     */
+    image.onload = null;
+    image.onerror = null;
+    image.removeAttribute("src");
+    image.style.display = "none";
+
+    /*
+     * Set handlers for this particular image.
+     */
     image.onload = function()
     {
-        text.textContent =
-            "IMAGE LOADED: " +
-            image.src +
-            " (" +
-            image.naturalWidth +
-            " × " +
-            image.naturalHeight +
-            ")";
+        image.style.display = "block";
     };
 
     image.onerror = function()
     {
+        image.removeAttribute("src");
+        image.style.display = "none";
+
         text.textContent =
-            "IMAGE FAILED TO LOAD: " +
-            image.src;
+            poi.text +
+            "\n\nImage could not be loaded.";
     };
 
+    /*
+     * Now request the new image.
+     */
     image.src = poi.image;
 
     popup.style.display = "block";
 }
+
+
 /* ============================================================
  * HIDE POI INFORMATION
  * ============================================================ */
 
 function hidePOI()
 {
-    const popup =
-        document.getElementById("poi-popup");
+    const popup = document.getElementById("poi-popup");
 
     if (popup)
     {
@@ -1280,3 +1300,4 @@ if (mapImage.complete)
     }
 }
 
+document.getElementById("poi-popup").style.display = "none";

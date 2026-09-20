@@ -302,28 +302,19 @@ body {
 
     transform: translate(-50%, -50%);
 
-    width: min(90vw, 420px);
+    width: 90vw;
     max-height: 80vh;
 
     background: white;
 
-    border-radius: 10px;
-
-    box-shadow:
-        0 3px 18px
-        rgba(0, 0, 0, 0.45);
-
-    padding: 12px;
+    padding: 20px;
 
     box-sizing: border-box;
 
     z-index: 100;
 
-    overflow-y: auto;
-
     display: none;
 }
-
 
 /* ============================================================
    POI POPUP CLOSE BUTTON
@@ -367,18 +358,15 @@ body {
    ============================================================ */
 
 #poi-image {
-    display: block;
+    display: none;
 
     width: 100%;
-    max-height: 45vh;
+    height: auto;
+
+    max-height: 400px;
 
     object-fit: contain;
-
-    border-radius: 6px;
-
-    margin-bottom: 10px;
 }
-
 
 /* ============================================================
    POI POPUP TEXT
