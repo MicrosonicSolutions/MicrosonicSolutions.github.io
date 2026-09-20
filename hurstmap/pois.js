@@ -20,8 +20,8 @@ const pointsOfInterest = [
     {
         id: "poi3",
         title: "Folly",
-        x: 1200,
-        y: 600,
+        x: 1122,
+        y: 640,
         image: "poi/Folly.jpg",
         text: "The history of the folly is unclear.\n" +
           "For some time, it was believed that it simply indicated a clump of trees. " +
