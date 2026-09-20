@@ -1139,33 +1139,57 @@ function showPOI(poi)
     text.textContent = poi.text;
 
     /*
-     * Clear any previously displayed image.
+     * Give this image request a unique number.
+     */
+    const requestId =
+        (image.dataset.requestId || 0) * 1 + 1;
+
+    image.dataset.requestId = requestId;
+
+    /*
+     * Hide and clear the previous image.
      */
     image.onload = null;
     image.onerror = null;
-    image.removeAttribute("src");
+
     image.style.display = "none";
+    image.removeAttribute("src");
 
     /*
-     * Set handlers for this particular image.
+     * Handle successful loading.
      */
     image.onload = function()
     {
+        /*
+         * Ignore an old image request.
+         */
+        if (image.dataset.requestId != requestId)
+        {
+            return;
+        }
+
         image.style.display = "block";
     };
 
+    /*
+     * Handle failed loading.
+     */
     image.onerror = function()
     {
+        /*
+         * Ignore an old image request.
+         */
+        if (image.dataset.requestId != requestId)
+        {
+            return;
+        }
+
         image.removeAttribute("src");
         image.style.display = "none";
-
-        text.textContent =
-            poi.text +
-            "\n\nImage could not be loaded.";
     };
 
     /*
-     * Now request the new image.
+     * Start loading the new image.
      */
     image.src = poi.image;
 
