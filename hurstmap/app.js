@@ -33,6 +33,7 @@ const MIN_ZOOM = 1.0;
 const MAX_ZOOM = 15.0;
 const BUTTON_ZOOM_STEP = 0.5;
 const RICHARD_DEBUG = false;
+const ALLOW_OUTSIDE_MAP = false;
 
 /*
  * GPS deliberately starts OFF.
@@ -60,23 +61,12 @@ const GPS_MESSAGE_TIME = 3500;
  * ELEMENTS
  * ============================================================ */
 
-const mapContainer =
-    document.getElementById("map-container");
-
-const mapImage =
-    document.getElementById("map-image");
-
-const marker =
-    document.getElementById("position-marker");
-
-const accuracyCircle =
-    document.getElementById("accuracy-circle");
-
-const gpsButton =
-    document.getElementById("gps-button");
-
-const gpsStatus =
-    document.getElementById("gps-status");
+const mapContainer = document.getElementById("map-container");
+const mapImage = document.getElementById("map-image");
+const marker = document.getElementById("position-marker");
+const accuracyCircle = document.getElementById("accuracy-circle");
+const gpsButton = document.getElementById("gps-button");
+const gpsStatus = document.getElementById("gps-status");
 
 
 /* ============================================================
@@ -191,8 +181,8 @@ function pointerMidpoint(
  * TEMPORARY GPS MESSAGE
  * ============================================================ */
 
-function showGPSMessage(message) {
-
+function showGPSMessage(message) 
+{
     /*
      * Cancel any previous timer.
      */
@@ -207,31 +197,19 @@ function showGPSMessage(message) {
      * is being displayed.
      */
     gpsButton.style.display = "none";
-
-
-    gpsStatus.textContent =
-        message;
-
+    gpsStatus.textContent = message;
 
     /*
      * Restore the button after a few seconds.
      */
-    gpsMessageTimer =
-        setTimeout(
-            function() {
-
-                gpsStatus.textContent =
-                    "";
-
-                gpsButton.style.display =
-                    "";
-
-                gpsMessageTimer =
-                    null;
-
-            },
-            GPS_MESSAGE_TIME
-        );
+    gpsMessageTimer = setTimeout(
+		function()
+		{
+		  gpsStatus.textContent = "";
+		  gpsButton.style.display = "";
+		  gpsMessageTimer = null;
+		}, 
+		GPS_MESSAGE_TIME);
 }
 
 
@@ -255,129 +233,79 @@ function clearGPSMessage()
  * MAP SCALE
  * ============================================================ */
 
-function calculateMapScale() {
-
-    mapScale =
-        fitScale * zoom;
+function calculateMapScale() 
+{
+    mapScale = fitScale * zoom;
 }
 
 
 /* ============================================================
  * APPLY MAP TRANSFORM
  * ============================================================ */
-
-function applyMapTransform() {
-
+ 
+function applyMapTransform() 
+{
     mapImage.style.transform =
-        "translate(" +
-        mapOffsetX +
-        "px, " +
-        mapOffsetY +
-        "px) scale(" +
-        mapScale +
-        ")";
-}
+        "translate(" + mapOffsetX + "px, " +
+        mapOffsetY + "px) scale(" + mapScale + ")";
 
+    updatePOIs();
+}
 
 /* ============================================================
  * DISPLAY MAP
  * ============================================================ */
 
-function displayMap() {
+function displayMap() 
+{
+    const width = mapContainer.clientWidth;
+    const height = mapContainer.clientHeight;
+    const imageWidth = mapImage.naturalWidth;
+    const imageHeight = mapImage.naturalHeight;
 
-    const width =
-        mapContainer.clientWidth;
-
-    const height =
-        mapContainer.clientHeight;
-
-    const imageWidth =
-        mapImage.naturalWidth;
-
-    const imageHeight =
-        mapImage.naturalHeight;
-
-
-    if (
-        !imageWidth ||
-        !imageHeight
-    ) {
-
+    if (!imageWidth || !imageHeight) 
+    {
         return;
     }
-
 
     /*
      * Scale required to fit the complete image.
      */
-    fitScale =
-        Math.min(
-            width / imageWidth,
-            height / imageHeight
-        );
-
-
-    zoom =
-        clamp(
-            zoom,
-            MIN_ZOOM,
-            MAX_ZOOM
-        );
-
-
+    fitScale = Math.min(width / imageWidth, height / imageHeight);
+    zoom = clamp(zoom, MIN_ZOOM, MAX_ZOOM);
     calculateMapScale();
-
 
     /*
      * Centre the map.
      */
-    mapOffsetX =
-        (
-            width -
-            imageWidth * mapScale
-        ) / 2;
-
-    mapOffsetY =
-        (
-            height -
-            imageHeight * mapScale
-        ) / 2;
-
+    mapOffsetX = (width - imageWidth * mapScale) / 2;
+    mapOffsetY = (height - imageHeight * mapScale) / 2;
 
     /*
      * Keep image at natural size.
      */
-    mapImage.style.width =
-        imageWidth + "px";
-
-    mapImage.style.height =
-        imageHeight + "px";
-
-
+    mapImage.style.width = imageWidth + "px";
+    mapImage.style.height = imageHeight + "px";
     applyMapTransform();
 
     updateMarker();
 }
 
+function fitMap()
+{
+    zoom = 1;
+    displayMap();
+}
 
 /* ============================================================
  * IMAGE -> SCREEN
  * ============================================================ */
 
-function imageToScreen(
-    x,
-    y
-) {
-
+function imageToScreen(x, y) 
+{
     return {
-
-        x:
-            mapOffsetX +
-            x * mapScale,
-
-        y:
-            mapOffsetY +
-            y * mapScale
+        x: mapOffsetX + x * mapScale,
+        y: mapOffsetY + y * mapScale
     };
 }
 
@@ -386,21 +314,12 @@ function imageToScreen(
  * TEST WHETHER GPS POSITION IS ON MAP
  * ============================================================ */
 
-function isPositionInsideMap(
-    imageX,
-    imageY
-) {
-
-    return (
-
-        imageX >= 0 &&
-
+function isPositionInsideMap(imageX, imageY) 
+{
+    return (imageX >= 0 &&
         imageX <= mapImage.naturalWidth &&
-
         imageY >= 0 &&
-
-        imageY <= mapImage.naturalHeight
-    );
+        imageY <= mapImage.naturalHeight);
 }
 
 
@@ -408,34 +327,23 @@ function isPositionInsideMap(
  * UPDATE MARKER
  * ============================================================ */
 
-function updateMarker() {
-
+function updateMarker() 
+{
     /*
      * No GPS position.
      */
-    if (
-        latitude === null ||
-        longitude === null
-    ) {
-
-        marker.style.display =
-            "none";
-
-        accuracyCircle.style.display =
-            "none";
+    if (latitude === null || longitude === null) 
+    {
+        marker.style.display = "none";
+        accuracyCircle.style.display = "none";
 
         return;
     }
 
-
     /*
      * Convert GPS to image coordinates.
      */
-    const p =
-        MapProjection.gpsToPixel(
-            latitude,
-            longitude
-        );
+    const p = MapProjection.gpsToPixel(latitude, longitude);
 
 	if (RICHARD_DEBUG)
 	{
@@ -448,82 +356,43 @@ function updateMarker() {
      * Don't display a position which isn't represented
      * by the map.
      */
-    if (!RICHARD_DEBUG && !isPositionInsideMap(p.x, p.y)) 
+    if (!ALLOW_OUTSIDE_MAP && !isPositionInsideMap(p.x, p.y)) 
     {
-
-        marker.style.display =
-            "none";
-
-        accuracyCircle.style.display =
-            "none";
+        marker.style.display = "none";
+        accuracyCircle.style.display = "none";
 
         return;
     }
 
-
     /*
      * Convert image position to screen position.
      */
-    const screen =
-        imageToScreen(
-            p.x,
-            p.y
-        );
-
+    const screen = imageToScreen(p.x, p.y);
 
     /*
      * Position marker.
      */
-    marker.style.left =
-        screen.x + "px";
-
-    marker.style.top =
-        screen.y + "px";
-
-    marker.style.display =
-        "block";
-
+    marker.style.left = screen.x + "px";
+    marker.style.top = screen.y + "px";
+    marker.style.display = "block";
 
     /*
      * Accuracy circle.
      */
-    if (
-        gpsAccuracy !== null &&
-        gpsAccuracy > 0
-    ) {
+    if (gpsAccuracy !== null && gpsAccuracy > 0) 
+    {
+        const radiusPixels = metresToImagePixels(gpsAccuracy, latitude);
+        const diameter = radiusPixels * 2 * mapScale;
 
-        const radiusPixels =
-            metresToImagePixels(
-                gpsAccuracy,
-                latitude
-            );
-
-
-        const diameter =
-            radiusPixels *
-            2 *
-            mapScale;
-
-
-        accuracyCircle.style.width =
-            diameter + "px";
-
-        accuracyCircle.style.height =
-            diameter + "px";
-
-        accuracyCircle.style.left =
-            screen.x + "px";
-
-        accuracyCircle.style.top =
-            screen.y + "px";
-
-        accuracyCircle.style.display =
-            "block";
-
-    } else {
-
-        accuracyCircle.style.display =
-            "none";
+        accuracyCircle.style.width = diameter + "px";
+        accuracyCircle.style.height = diameter + "px";
+        accuracyCircle.style.left = screen.x + "px";
+        accuracyCircle.style.top = screen.y + "px";
+        accuracyCircle.style.display = "block";
+    } 
+    else 
+    {
+        accuracyCircle.style.display = "none";
     }
 }
 
@@ -532,54 +401,18 @@ function updateMarker() {
  * METRES -> IMAGE PIXELS
  * ============================================================ */
 
-function metresToImagePixels(
-    metres,
-    lat
-) {
+function metresToImagePixels(metres, lat) 
+{
+    const earthCircumference = 40075016.686;
+    const metresPerDegreeLongitude = earthCircumference *
+        Math.cos(lat * Math.PI / 180) / 360;
+    const degreesLongitude = metres / metresPerDegreeLongitude;
+    const p1 = MapProjection.gpsToPixel(lat, longitude);
+    const p2 = MapProjection.gpsToPixel(lat, longitude + degreesLongitude);
+    const dx = p2.x - p1.x;
+    const dy = p2.y - p1.y;
 
-    const earthCircumference =
-        40075016.686;
-
-
-    const metresPerDegreeLongitude =
-        earthCircumference *
-        Math.cos(
-            lat * Math.PI / 180
-        ) /
-        360;
-
-
-    const degreesLongitude =
-        metres /
-        metresPerDegreeLongitude;
-
-
-    const p1 =
-        MapProjection.gpsToPixel(
-            lat,
-            longitude
-        );
-
-
-    const p2 =
-        MapProjection.gpsToPixel(
-            lat,
-            longitude +
-            degreesLongitude
-        );
-
-
-    const dx =
-        p2.x - p1.x;
-
-    const dy =
-        p2.y - p1.y;
-
-
-    return Math.sqrt(
-        dx * dx +
-        dy * dy
-    );
+    return Math.sqrt(dx * dx + dy * dy);
 }
 
 
@@ -587,26 +420,12 @@ function metresToImagePixels(
  * CENTRE MAP ON IMAGE POINT
  * ============================================================ */
 
-function centreMapOnImagePoint(
-    x,
-    y
-) {
-
-    const width =
-        mapContainer.clientWidth;
-
-    const height =
-        mapContainer.clientHeight;
-
-
-    mapOffsetX =
-        width / 2 -
-        x * mapScale;
-
-    mapOffsetY =
-        height / 2 -
-        y * mapScale;
-
+function centreMapOnImagePoint(x, y) 
+{
+    const width = mapContainer.clientWidth;
+    const height = mapContainer.clientHeight;
+    mapOffsetX = width / 2 - x * mapScale;
+    mapOffsetY = height / 2 - y * mapScale;
 
     applyMapTransform();
 
@@ -618,27 +437,19 @@ function centreMapOnImagePoint(
  * CENTRE MAP ON GPS
  * ============================================================ */
 
-function centreMapOnGPS() {
-
-    if (
-        latitude === null ||
-        longitude === null
-    ) {
-
+function centreMapOnGPS() 
+{
+    if (latitude === null || longitude === null) 
+    {
         return;
     }
 
-
-    const p =
-        MapProjection.gpsToPixel(
-            latitude,
-            longitude
-        );
+    const p = MapProjection.gpsToPixel(latitude, longitude);
 
     /*
      * Never centre on a position outside the map.
      */
-    if (!RICHARD_DEBUG && !isPositionInsideMap(p.x, p.y)) 
+    if (!ALLOW_OUTSIDE_MAP && !isPositionInsideMap(p.x, p.y)) 
     {
         return;
     }
@@ -651,64 +462,29 @@ function centreMapOnGPS() {
  * ZOOM AT SCREEN POSITION
  * ============================================================ */
 
-function setZoomAt(
-    newZoom,
-    screenX,
-    screenY
-) {
+function setZoomAt(newZoom, screenX, screenY) 
+{
+    newZoom = clamp(newZoom, MIN_ZOOM, MAX_ZOOM);
 
-    newZoom =
-        clamp(
-            newZoom,
-            MIN_ZOOM,
-            MAX_ZOOM
-        );
-
-
-    if (
-        newZoom === zoom
-    ) {
-
+    if (newZoom === zoom) 
+    {
         return;
     }
-
 
     /*
      * Find image coordinate under the pointer.
      */
-    const imageX =
-        (
-            screenX -
-            mapOffsetX
-        ) /
-        mapScale;
-
-    const imageY =
-        (
-            screenY -
-            mapOffsetY
-        ) /
-        mapScale;
-
-
-    zoom =
-        newZoom;
-
+    const imageX = (screenX - mapOffsetX) / mapScale;
+    const imageY = (screenY - mapOffsetY) / mapScale;
+    zoom = newZoom;
 
     calculateMapScale();
-
 
     /*
      * Keep that image coordinate under the pointer.
      */
-    mapOffsetX =
-        screenX -
-        imageX * mapScale;
-
-    mapOffsetY =
-        screenY -
-        imageY * mapScale;
-
+    mapOffsetX = screenX - imageX * mapScale;
+    mapOffsetY = screenY - imageY * mapScale;
 
     applyMapTransform();
 
@@ -720,87 +496,63 @@ function setZoomAt(
  * ZOOM BUTTONS
  * ============================================================ */
 
-function createZoomButtons() {
+function createZoomButtons() 
+{
+    const zoomControls = document.createElement("div");
+    zoomControls.id = "zoom-controls";
 
-    const zoomControls =
-        document.createElement("div");
+    const zoomIn = document.createElement("button");
+    zoomIn.textContent = "+";
+    zoomIn.title = "Zoom in";
 
-    zoomControls.id =
-        "zoom-controls";
+    const zoomOut = document.createElement("button");
+    zoomOut.textContent = "−";
+    zoomOut.title = "Zoom out";
+    
+    const fitButton = document.createElement("button");
+	fitButton.textContent = "⛶";
+	fitButton.title = "Show whole map";
 
+	zoomControls.appendChild(zoomIn);
+	zoomControls.appendChild(zoomOut);
+	zoomControls.appendChild(fitButton);
 
-    const zoomIn =
-        document.createElement("button");
-
-    zoomIn.textContent =
-        "+";
-
-    zoomIn.title =
-        "Zoom in";
-
-
-    const zoomOut =
-        document.createElement("button");
-
-    zoomOut.textContent =
-        "−";
-
-    zoomOut.title =
-        "Zoom out";
-
-
-    zoomControls.appendChild(
-        zoomIn
-    );
-
-    zoomControls.appendChild(
-        zoomOut
-    );
-
-
-    mapContainer.appendChild(
-        zoomControls
-    );
-
+    mapContainer.appendChild(zoomControls);
 
     zoomIn.addEventListener(
         "click",
-        function(event) {
-
+        function(event) 
+        {
             event.stopPropagation();
 
-
-            setZoomAt(
-
-                zoom +
-                BUTTON_ZOOM_STEP,
-
+            setZoomAt(zoom + BUTTON_ZOOM_STEP,
                 mapContainer.clientWidth / 2,
-
-                mapContainer.clientHeight / 2
-            );
+                mapContainer.clientHeight / 2);
         }
     );
 
 
     zoomOut.addEventListener(
         "click",
-        function(event) {
-
+        function(event) 
+        {
             event.stopPropagation();
 
-
-            setZoomAt(
-
-                zoom -
-                BUTTON_ZOOM_STEP,
-
+            setZoomAt(zoom - BUTTON_ZOOM_STEP,
                 mapContainer.clientWidth / 2,
-
-                mapContainer.clientHeight / 2
-            );
+                mapContainer.clientHeight / 2);
         }
     );
+    
+    fitButton.addEventListener(
+		"click",
+		function(event)
+		{
+			event.stopPropagation();
+
+			fitMap();
+		}
+	);
 }
 
 
@@ -808,137 +560,66 @@ function createZoomButtons() {
  * POINTER DOWN
  * ============================================================ */
 
-mapContainer.addEventListener(
-    "pointerdown",
-    function(event) {
-
+mapContainer.addEventListener("pointerdown",
+    function(event) 
+    {
         /*
          * Ignore zoom controls.
          */
-        if (
-            event.target.closest &&
-            event.target.closest(
-                "#zoom-controls"
-            )
-        ) {
+        if (event.target.closest && event.target.closest("#zoom-controls")) 
+        {
 
             return;
         }
 
+        mapContainer.setPointerCapture(event.pointerId);
 
-        mapContainer.setPointerCapture(
-            event.pointerId
-        );
+        const rect = mapContainer.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
 
-
-        const rect =
-            mapContainer.getBoundingClientRect();
-
-
-        const x =
-            event.clientX -
-            rect.left;
-
-        const y =
-            event.clientY -
-            rect.top;
-
-
-        pointers.set(
-            event.pointerId,
+        pointers.set(event.pointerId,
             {
                 x: x,
                 y: y
             }
         );
 
-
         /*
          * Manual map movement stops automatic following.
          */
-        if (
-            gpsActive
-        ) {
-
-            followGPS =
-                false;
+        if (gpsActive) 
+        {
+            followGPS = false;
         }
-
 
         /*
          * One finger = pan.
          */
-        if (
-            pointers.size === 1
-        ) {
-
-            panStartX =
-                x;
-
-            panStartY =
-                y;
-
-            panStartOffsetX =
-                mapOffsetX;
-
-            panStartOffsetY =
-                mapOffsetY;
+        if (pointers.size === 1) 
+        {
+            panStartX = x;
+            panStartY = y;
+            panStartOffsetX = mapOffsetX;
+            panStartOffsetY = mapOffsetY;
         }
-
 
         /*
          * Two fingers = pinch.
          */
-        if (
-            pointers.size === 2
-        ) {
+        if (pointers.size === 2) 
+        {
+            const points = Array.from(pointers.values());
+            const p1 = points[0];
+            const p2 = points[1];
+            pinchStartDistance = pointerDistance(p1, p2);
 
-            const points =
-                Array.from(
-                    pointers.values()
-                );
+            const centre = pointerMidpoint(p1, p2);
+            pinchMapX = (centre.x - mapOffsetX) / mapScale;
+            pinchMapY = (centre.y - mapOffsetY) / mapScale;
 
-
-            const p1 =
-                points[0];
-
-            const p2 =
-                points[1];
-
-
-            pinchStartDistance =
-                pointerDistance(
-                    p1,
-                    p2
-                );
-
-
-            const centre =
-                pointerMidpoint(
-                    p1,
-                    p2
-                );
-
-
-            pinchMapX =
-                (
-                    centre.x -
-                    mapOffsetX
-                ) /
-                mapScale;
-
-            pinchMapY =
-                (
-                    centre.y -
-                    mapOffsetY
-                ) /
-                mapScale;
-
-
-            pinchStartZoom =
-                zoom;
+            pinchStartZoom = zoom;
         }
-
 
         event.preventDefault();
     },
@@ -952,169 +633,78 @@ mapContainer.addEventListener(
  * POINTER MOVE
  * ============================================================ */
 
-mapContainer.addEventListener(
-    "pointermove",
-    function(event) {
-
-        if (
-            !pointers.has(
-                event.pointerId
-            )
-        ) {
-
+mapContainer.addEventListener("pointermove",
+    function(event) 
+    {
+        if (!pointers.has(event.pointerId)) 
+        {
             return;
         }
 
-
-        const rect =
-            mapContainer.getBoundingClientRect();
-
-
-        const x =
-            event.clientX -
-            rect.left;
-
-        const y =
-            event.clientY -
-            rect.top;
-
-
-        pointers.set(
-            event.pointerId,
+        const rect = mapContainer.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        pointers.set(event.pointerId,
             {
                 x: x,
                 y: y
             }
         );
 
-
         /*
          * ONE FINGER = PAN
          */
-        if (
-            pointers.size === 1
-        ) {
-
-            const dx =
-                x -
-                panStartX;
-
-            const dy =
-                y -
-                panStartY;
-
-
-            mapOffsetX =
-                panStartOffsetX +
-                dx;
-
-            mapOffsetY =
-                panStartOffsetY +
-                dy;
-
+        if (pointers.size === 1) 
+        {
+            const dx = x - panStartX;
+            const dy = y - panStartY;
+            mapOffsetX = panStartOffsetX + dx;
+            mapOffsetY = panStartOffsetY + dy;
 
             applyMapTransform();
 
             updateMarker();
-
 
             event.preventDefault();
 
             return;
         }
 
-
         /*
          * TWO FINGERS = PINCH ZOOM
          */
-        if (
-            pointers.size === 2
-        ) {
+        if (pointers.size === 2) 
+        {
+            const points = Array.from(pointers.values());
+            const p1 = points[0];
+            const p2 = points[1];
+            const distance = pointerDistance(p1, p2);
 
-            const points =
-                Array.from(
-                    pointers.values()
-                );
-
-
-            const p1 =
-                points[0];
-
-            const p2 =
-                points[1];
-
-
-            const distance =
-                pointerDistance(
-                    p1,
-                    p2
-                );
-
-
-            if (
-                pinchStartDistance <= 0
-            ) {
-
+            if (pinchStartDistance <= 0) 
+            {
                 return;
             }
 
+            const scaleFactor = distance / pinchStartDistance;
+            let newZoom = pinchStartZoom * scaleFactor;
+            newZoom = clamp(newZoom, MIN_ZOOM, MAX_ZOOM);
 
-            const scaleFactor =
-                distance /
-                pinchStartDistance;
-
-
-            let newZoom =
-                pinchStartZoom *
-                scaleFactor;
-
-
-            newZoom =
-                clamp(
-                    newZoom,
-                    MIN_ZOOM,
-                    MAX_ZOOM
-                );
-
-
-            const centre =
-                pointerMidpoint(
-                    p1,
-                    p2
-                );
-
-
-            const newMapScale =
-                fitScale *
-                newZoom;
-
+            const centre = pointerMidpoint(p1, p2);
+            const newMapScale = fitScale * newZoom;
 
             /*
              * Keep the original image point under
              * the pinch centre.
              */
-            mapOffsetX =
-                centre.x -
-                pinchMapX *
-                newMapScale;
+            mapOffsetX = centre.x - pinchMapX * newMapScale;
+            mapOffsetY = centre.y - pinchMapY * newMapScale;
 
-            mapOffsetY =
-                centre.y -
-                pinchMapY *
-                newMapScale;
-
-
-            zoom =
-                newZoom;
-
-            mapScale =
-                newMapScale;
-
+            zoom = newZoom;
+            mapScale = newMapScale;
 
             applyMapTransform();
 
             updateMarker();
-
 
             event.preventDefault();
         }
@@ -1129,63 +719,36 @@ mapContainer.addEventListener(
  * POINTER UP / CANCEL
  * ============================================================ */
 
-function pointerFinished(
-    event
-) {
-
-    pointers.delete(
-        event.pointerId
-    );
-
+function pointerFinished(event) 
+{
+    pointers.delete(event.pointerId);
 
     /*
      * If one finger remains after a pinch,
      * initialise a new pan operation.
      */
-    if (
-        pointers.size === 1
-    ) {
-
-        const entry =
-            Array.from(
-                pointers.entries()
-            )[0];
-
-
-        const point =
-            entry[1];
-
-
-        panStartX =
-            point.x;
-
-        panStartY =
-            point.y;
-
-        panStartOffsetX =
-            mapOffsetX;
-
-        panStartOffsetY =
-            mapOffsetY;
+    if (pointers.size === 1) 
+    {
+        const entry = Array.from(pointers.entries())[0];
+        const point = entry[1];
+        panStartX = point.x;
+        panStartY = point.y;
+        panStartOffsetX = mapOffsetX;
+        panStartOffsetY = mapOffsetY;
     }
-
 
     event.preventDefault();
 }
 
 
-mapContainer.addEventListener(
-    "pointerup",
-    pointerFinished,
+mapContainer.addEventListener("pointerup", pointerFinished,
     {
         passive: false
     }
 );
 
 
-mapContainer.addEventListener(
-    "pointercancel",
-    pointerFinished,
+mapContainer.addEventListener("pointercancel", pointerFinished,
     {
         passive: false
     }
@@ -1196,89 +759,61 @@ mapContainer.addEventListener(
  * GPS POSITION RECEIVED
  * ============================================================ */
 
-function processGPSPosition(
-    position
-) {
-
-    latitude =
-        position.coords.latitude;
-
-    longitude =
-        position.coords.longitude;
-
-    gpsAccuracy =
-        position.coords.accuracy;
-
-
+function processGPSPosition(position)
+{
+  GPSstarted();
+  
+  latitude = position.coords.latitude;
+  longitude = position.coords.longitude;
+  gpsAccuracy = position.coords.accuracy;
+  
+  /*
+   * Convert GPS position to image coordinates.
+   */
+  const p = MapProjection.gpsToPixel(latitude, longitude);
+  
+  /*
+   * Check whether the position is represented
+   * by the map.
+   */
+  const insideMap = isPositionInsideMap(p.x, p.y);
+  
+  /*
+   * User has left the mapped area.
+   */
+  if (!ALLOW_OUTSIDE_MAP && !insideMap)
+  {
     /*
-     * Convert GPS position to image coordinates.
+     * Remove marker immediately.
      */
-    const p =
-        MapProjection.gpsToPixel(
-            latitude,
-            longitude
-        );
-
+    marker.style.display = "none";
+    accuracyCircle.style.display = "none";
+    
     /*
-     * Check whether the position is represented
-     * by the map.
+     * Stop GPS.
      */
-    const insideMap =
-        isPositionInsideMap(
-            p.x,
-            p.y
-        );
-
-
+    stopGPS();
+    
     /*
-     * User has left the mapped area.
+     * Tell the user what happened.
      */
-    if (!RICHARD_DEBUG && !insideMap) 
-    {
-
-        /*
-         * Remove marker immediately.
-         */
-        marker.style.display =
-            "none";
-
-        accuracyCircle.style.display =
-            "none";
-
-
-        /*
-         * Stop GPS.
-         */
-        stopGPS();
-
-
-        /*
-         * Tell the user what happened.
-         */
-		showGPSMessage(
-			"You are not within the map area"
-		);
-
-        return;
-    }
-
-
-    /*
-     * User is inside the map.
-     */
-    updateMarker();
-
-
-    /*
-     * Automatically centre while following GPS.
-     */
-    if (
-        gpsActive &&
-        followGPS
-    ) {
-
-        centreMapOnGPS();
-    }
+    showGPSMessage("You are not within the map area");
+    
+    return;
+  }
+  
+  /*
+   * User is inside the map.
+   */
+  updateMarker();
+  
+  /*
+   * Automatically centre while following GPS.
+   */
+  if (gpsActive && followGPS)
+  {
+    centreMapOnGPS();
+  }
 }
 
 
@@ -1286,15 +821,9 @@ function processGPSPosition(
  * GPS ERROR
  * ============================================================ */
 
-function gpsError(
-    error
-) {
-
-    console.log(
-        "GPS error:",
-        error
-    );
-
+function gpsError(error) 
+{
+    console.log("GPS error:", error);
 
     /*
      * Do not stop GPS merely because one reading
@@ -1308,30 +837,22 @@ function gpsError(
  * START GPS
  * ============================================================ */
 
-function startGPS() {
-
+function startGPS() 
+{
     /*
      * Already running.
      */
-    if (
-        gpsActive
-    ) {
-
+    if (gpsActive) 
+    {
         return;
     }
 
-
-    if (
-        !navigator.geolocation
-    ) {
-
-        showGPSMessage(
-            "GPS location is not available"
-        );
+    if (!navigator.geolocation) 
+    {
+        showGPSMessage("GPS location is not available");
 
         return;
     }
-
 
     /*
      * A new attempt clears any previous temporary
@@ -1339,82 +860,51 @@ function startGPS() {
      */
     clearGPSMessage();
 
-
-    gpsActive =
-        true;
-
-
-    followGPS =
-        FOLLOW_GPS;
-
-    /* Update button moved down by richard
-     * .
-     */
-
-
     /*
      * Start continuous GPS updates.
      */
-    watchId =
-        navigator.geolocation.watchPosition(
-
-            function(position) {
-
-                processGPSPosition(
-                    position
-                );
+    watchId = navigator.geolocation.watchPosition(
+            function(position) 
+            {
+                processGPSPosition(position);
             },
 
-            function(error) {
-
-                gpsError(
-                    error
-                );
+            function(error) 
+            {
+                gpsError(error);
             },
 
             {
-
-                enableHighAccuracy:
-                    true,
-
-                timeout:
-                    20000,
-
-                maximumAge:
-                    2000
+                enableHighAccuracy: true,
+                timeout: 20000,
+                maximumAge: 2000
             }
         );
-
-    /* moved down by richard
-     * Update button.
-     */
-    gpsButton.textContent =
-        "Hide location";
-
-
 
     /*
      * If a previous position is available, centre
      * immediately.
      */
-    if (
-        CENTER_ON_GPS_START &&
-        latitude !== null
-    ) {
-
-        const p =
-            MapProjection.gpsToPixel(
-                latitude,
-                longitude
-            );
-
-
-        if (RICHARD_DEBUG || isPositionInsideMap(p.x, p.y)) 
+    if (CENTER_ON_GPS_START && latitude !== null) 
+    {
+        const p = MapProjection.gpsToPixel(latitude, longitude);
+        if (ALLOW_OUTSIDE_MAP || isPositionInsideMap(p.x, p.y)) 
         {
-
             centreMapOnGPS();
         }
     }
+}
+
+
+function GPSstarted() 
+{
+    gpsActive = true;
+    followGPS = FOLLOW_GPS;
+
+    /* 
+     * Update button.
+     */
+    gpsButton.textContent = "Hide location";
 }
 
 
@@ -1422,30 +912,19 @@ function startGPS() {
  * STOP GPS
  * ============================================================ */
 
-function stopGPS() {
-
+function stopGPS() 
+{
     /*
      * Stop continuous GPS updates.
      */
-    if (
-        watchId !== null
-    ) {
-
-        navigator.geolocation.clearWatch(
-            watchId
-        );
-
-        watchId =
-            null;
+    if (watchId !== null) 
+    {
+        navigator.geolocation.clearWatch(watchId);
+        watchId = null;
     }
 
-
-    gpsActive =
-        false;
-
-    followGPS =
-        false;
-
+    gpsActive = false;
+    followGPS = false;
 
     /*
      * Forget the current GPS position.
@@ -1453,53 +932,303 @@ function stopGPS() {
      * This prevents an old position being displayed
      * after GPS has stopped.
      */
-    latitude =
-        null;
-
-    longitude =
-        null;
-
-    gpsAccuracy =
-        null;
-
+    latitude = null;
+    longitude = null;
+    gpsAccuracy = null;
 
     /*
      * Hide marker.
      */
-    marker.style.display =
-        "none";
-
-    accuracyCircle.style.display =
-        "none";
-
+    marker.style.display = "none";
+    accuracyCircle.style.display = "none";
 
     /*
      * Button returns to the action available
      * when GPS is off.
      */
-    gpsButton.textContent =
-        "Show location";
+    gpsButton.textContent = "Show location";
 }
 
+
+/* ============================================================
+ * POINTS OF INTEREST
+ * ============================================================ */
+
+
+let poisVisible = false;
+
+
+/* ============================================================
+ * CREATE POI PINS
+ * ============================================================ */
+
+function createPOIs()
+{
+    const container = document.getElementById("poi-container");
+
+    if (!container)
+    {
+        console.error("POI container not found");
+        return;
+    }
+
+    /*
+     * Remove any existing pins.
+     */
+    container.innerHTML = "";
+
+    pointsOfInterest.forEach(function(poi)
+    {
+        const pin = document.createElement("div");
+
+        pin.className = "poi-pin";
+        pin.dataset.poiId = poi.id;
+/* richard
+        pin.addEventListener("click", function(event)
+        {
+            event.stopPropagation();
+            alert("POI CLICKED"); //richard
+            showPOI(poi);
+        });
+*/
+
+		pin.addEventListener("pointerdown", function(event)
+		{
+			event.stopPropagation();
+		});
+
+		pin.addEventListener("pointerup", function(event)
+		{
+			event.stopPropagation();
+			showPOI(poi);
+		});
+		
+        container.appendChild(pin);
+
+        poi.element = pin;
+    });
+
+    updatePOIs();
+}
+
+
+/* ============================================================
+ * UPDATE POI POSITIONS
+ * ============================================================ */
+
+function updatePOIs()
+{
+    if (!poisVisible)
+    {
+        return;
+    }
+
+    pointsOfInterest.forEach(function(poi)
+    {
+        if (!poi.element)
+        {
+            return;
+        }
+
+        /*
+         * Convert the original map-image coordinate
+         * into the current screen coordinate.
+         */
+        const screenX =
+            mapOffsetX +
+            poi.x * mapScale;
+
+        const screenY =
+            mapOffsetY +
+            poi.y * mapScale;
+
+        poi.element.style.left = screenX + "px";
+        poi.element.style.top = screenY + "px";
+    });
+}
+
+function showPOIs()
+{
+    poisVisible = true;
+
+    const container =
+        document.getElementById("poi-container");
+
+    if (container)
+    {
+        container.style.display = "block";
+    }
+
+    const button =
+        document.getElementById("poi-button");
+
+    if (button)
+    {
+        button.textContent = "Hide points of interest";
+    }
+
+    createPOIs();
+}
+
+function hidePOIs()
+{
+    poisVisible = false;
+
+    const container =
+        document.getElementById("poi-container");
+
+    if (container)
+    {
+        container.style.display = "none";
+    }
+
+    const button =
+        document.getElementById("poi-button");
+
+    if (button)
+    {
+        button.textContent = "Show points of interest";
+    }
+
+    hidePOI();
+}
+
+
+/* ============================================================
+ * POI BUTTON
+ * ============================================================ */
+
+const poiButton =
+    document.getElementById("poi-button");
+
+if (poiButton)
+{
+    poiButton.addEventListener("click", function()
+    {
+        if (poisVisible)
+        {
+            hidePOIs();
+        }
+        else
+        {
+            showPOIs();
+        }
+    });
+}
+
+
+/* ============================================================
+ * SHOW POI INFORMATION
+ * ============================================================ */
+
+function showPOI(poi)
+{
+    const popup = document.getElementById("poi-popup");
+    const image = document.getElementById("poi-image");
+    const title = document.getElementById("poi-title");
+    const text = document.getElementById("poi-text");
+
+    if (!popup || !image || !title || !text)
+    {
+        return;
+    }
+
+    title.textContent = poi.title;
+    text.textContent = poi.text;
+
+    /*
+     * Clear any previously displayed image.
+     */
+    image.onload = null;
+    image.onerror = null;
+    image.removeAttribute("src");
+    image.style.display = "none";
+
+    /*
+     * Set handlers for this particular image.
+     */
+    image.onload = function()
+    {
+        image.style.display = "block";
+    };
+
+    image.onerror = function()
+    {
+        image.removeAttribute("src");
+        image.style.display = "none";
+
+        text.textContent =
+            poi.text +
+            "\n\nImage could not be loaded.";
+    };
+
+    /*
+     * Now request the new image.
+     */
+    image.src = poi.image;
+
+    popup.style.display = "block";
+}
+
+
+/* ============================================================
+ * HIDE POI INFORMATION
+ * ============================================================ */
+
+function hidePOI()
+{
+    const popup = document.getElementById("poi-popup");
+
+    if (popup)
+    {
+        popup.style.display = "none";
+    }
+}
+
+
+/* ============================================================
+ * POI CLOSE BUTTON
+ * ============================================================ */
+
+const poiClose =
+    document.getElementById("poi-close");
+
+if (poiClose)
+{
+    poiClose.addEventListener("click", function()
+    {
+        hidePOI();
+    });
+}
+
+
+/* ============================================================
+ * INITIAL POI STATE
+ * ============================================================ */
+
+const poiContainer =
+    document.getElementById("poi-container");
+
+if (poiContainer)
+{
+    poiContainer.style.display = "none";
+}
 
 /* ============================================================
  * GPS BUTTON
  * ============================================================ */
 
-gpsButton.addEventListener(
-    "click",
-    function(event) {
-
+gpsButton.addEventListener("click",
+    function(event) 
+    {
         event.stopPropagation();
 
-
-        if (
-            gpsActive
-        ) {
-
+        if (gpsActive) 
+        {
             stopGPS();
-
-        } else {
+        } 
+        else 
+        {
 
             startGPS();
         }
@@ -1511,20 +1240,16 @@ gpsButton.addEventListener(
  * MAP IMAGE LOAD
  * ============================================================ */
 
-mapImage.addEventListener(
-    "load",
-    function() {
-
+mapImage.addEventListener("load",
+    function() 
+    {
         displayMap();
-
 
         /*
          * GPS deliberately does not start here.
          */
-        if (
-            START_GPS_ON_LOAD
-        ) {
-
+        if (START_GPS_ON_LOAD) 
+        {
             startGPS();
         }
     }
@@ -1535,22 +1260,17 @@ mapImage.addEventListener(
  * WINDOW RESIZE
  * ============================================================ */
 
-window.addEventListener(
-    "resize",
-    function() {
-
+window.addEventListener("resize",
+    function() 
+    {
         displayMap();
-
 
         /*
          * Restore GPS centring after a resize if
          * following is active.
          */
-        if (
-            gpsActive &&
-            followGPS
-        ) {
-
+        if (gpsActive && followGPS) 
+        {
             centreMapOnGPS();
         }
     }
@@ -1567,21 +1287,17 @@ createZoomButtons();
 /*
  * If image has already loaded, initialise it.
  */
-if (
-    mapImage.complete
-) {
-
+if (mapImage.complete) 
+{
     displayMap();
-
 
     /*
      * Normally false.
      */
-    if (
-        START_GPS_ON_LOAD
-    ) {
-
+    if (START_GPS_ON_LOAD) 
+    {
         startGPS();
     }
 }
 
+document.getElementById("poi-popup").style.display = "none";

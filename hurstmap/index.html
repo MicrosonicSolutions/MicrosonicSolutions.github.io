@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <title>Cumnor Hurst Map</title>
+
+    <link rel="stylesheet"
+          href="style.css?v=17">
+
+</head>
+
+
+<body>
+  
+    <div id="header">
+        Cumnor Hurst
+    </div>  
+
+    <div id="map-container">
+<!--
+        <img id="map-image"
+             src="HurstMap.jpeg"
+             alt="Cumnor Hurst map">
+        <img id="map-image"
+             src="Spurr.png"
+             alt="Cumnor map">
+-->
+        <img id="map-image"
+             src="cumnor3.jpg"
+             alt="Cumnor map">
+
+
+        <div id="poi-container"></div>
+
+        <div id="accuracy-circle"></div>
+
+        <div id="position-marker"></div>
+
+    </div>
+
+
+	<div id="controls">
+
+		<button id="gps-button">
+			Show location
+		</button>
+    
+    <button id="poi-button">
+        Show points of interest
+    </button>
+
+		<span id="gps-status"></span>
+
+	</div>
+  
+  <div id="poi-popup">
+    <button id="poi-close">×</button>
+
+    <img id="poi-image"
+         src=""
+         alt="">
+
+    <h2 id="poi-title"></h2>
+
+    <p id="poi-text"></p>
+  </div>
+
+  <script src="mapProjection.js?v=18"></script>
+  <script src="pois.js?v=5"></script>
+  <script src="app.js?v=21"></script>
+
+</body>
+
+</html>
