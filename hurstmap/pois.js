@@ -11,8 +11,8 @@ const pointsOfInterest = [
     {
         id: "poi2",
         title: "Triangulation point",
-        x: 1119,
-        y: 739,
+        x: 1112,
+        y: 782,
         image: "poi/TrigPoint.jpg",
         text: "The Triangulation point was used for surveying."
     },
@@ -20,8 +20,8 @@ const pointsOfInterest = [
     {
         id: "poi3",
         title: "Folly",
-        x: 1122,
-        y: 640,
+        x: 1088,
+        y: 652,
         image: "poi/Folly.jpg",
         text: "The history of the folly is unclear.\n" +
           "For some time, it was believed that it simply indicated a clump of trees. " +
@@ -40,8 +40,8 @@ const pointsOfInterest = [
     {
         id: "poi5",
         title: "Spade",
-        x: 1010,
-        y: 709,
+        x: 1005,
+        y: 650,
         image: "poi/Spade.png",
         text: "Can you see something up in the tree? How did it get there?"
     }
