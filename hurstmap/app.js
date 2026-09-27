@@ -28,12 +28,14 @@
 /* ============================================================
  * SETTINGS
  * ============================================================ */
-
+ 
 const MIN_ZOOM = 1.0;
 const MAX_ZOOM = 15.0;
 const BUTTON_ZOOM_STEP = 0.5;
-const RICHARD_DEBUG = false;
-const ALLOW_OUTSIDE_MAP = false;
+ 
+//const urlParams = new URLSearchParams(window.location.search);
+const RICHARD_DEBUG = (urlParams.get("debug") === "1");
+const ALLOW_OUTSIDE_MAP = (urlParams.get("outside") === "1");
 
 /*
  * GPS deliberately starts OFF.
@@ -68,6 +70,17 @@ const accuracyCircle = document.getElementById("accuracy-circle");
 const gpsButton = document.getElementById("gps-button");
 const gpsStatus = document.getElementById("gps-status");
 const poiButton = document.getElementById("poi-button");
+
+if (MAP === "cumnor3")
+{
+    mapImage.src = "cumnor3.jpg";
+    mapImage.alt = "Cumnor map";
+}
+else if (MAP === "spurr")
+{
+    mapImage.src = "Spurr.jpg";
+    mapImage.alt = "Spurr map";
+}
 
 
 /* ============================================================
@@ -146,29 +159,17 @@ function clamp(value, minimum, maximum)
 }
 
 
-function pointerDistance(
-    p1,
-    p2
-) 
+function pointerDistance(p1, p2) 
 {
 
-    const dx =
-        p2.x - p1.x;
+    const dx = p2.x - p1.x;
+    const dy = p2.y - p1.y;
 
-    const dy =
-        p2.y - p1.y;
-
-    return Math.sqrt(
-        dx * dx +
-        dy * dy
-    );
+    return Math.sqrt(dx * dx + dy * dy);
 }
 
 
-function pointerMidpoint(
-    p1,
-    p2
-) 
+function pointerMidpoint(p1, p2) 
 {
 
     return {
@@ -349,13 +350,6 @@ function updateMarker()
      * Convert GPS to image coordinates.
      */
     const p = MapProjection.gpsToPixel(latitude, longitude);
-
-	if (RICHARD_DEBUG)
-	{
-		showGPSMessage("lat=" + latitude + ", long=" + longitude + 
-			", x=" + p.x + ", y=" + p.y + 
-			", inMap=" + isPositionInsideMap(p.x, p.y)); /*richard*/
-	}
 
     /*
      * Don't display a position which isn't represented
@@ -768,9 +762,9 @@ function processGPSPosition(position)
 {
   GPSstarted();
   
-  latitude = position.coords.latitude;
-  longitude = position.coords.longitude;
-  gpsAccuracy = position.coords.accuracy;
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  const gpsAccuracy = position.coords.accuracy;
   
   /*
    * Convert GPS position to image coordinates.
@@ -802,7 +796,19 @@ function processGPSPosition(position)
     /*
      * Tell the user what happened.
      */
-    showGPSMessage("You are not within the map area");
+     
+    let message = "You are not within the map area!"; 
+ 
+	if (RICHARD_DEBUG)
+	{
+		alert("Outside map area!\nlong=" + longitude +
+			"\nlat=" + latitude +
+			"\nx=" + Math.round(p.x) + 
+			"\ny=" + Math.round(p.y)
+			);
+//		message += " (" + Math.round(p.x) + ", " + Math.round(p.y) + ")";
+	}
+    showGPSMessage(message);
     
     return;
   }
@@ -988,14 +994,6 @@ function createPOIs()
 
         pin.className = "poi-pin";
         pin.dataset.poiId = poi.id;
-/* richard
-        pin.addEventListener("click", function(event)
-        {
-            event.stopPropagation();
-            alert("POI CLICKED"); //richard
-            showPOI(poi);
-        });
-*/
 
 		pin.addEventListener("pointerdown", function(event)
 		{
@@ -1039,14 +1037,8 @@ function updatePOIs()
          * Convert the original map-image coordinate
          * into the current screen coordinate.
          */
-        const screenX =
-            mapOffsetX +
-            poi.x * mapScale;
-
-        const screenY =
-            mapOffsetY +
-            poi.y * mapScale;
-
+        const screenX = mapOffsetX + (poi.x * mapScale);
+        const screenY = mapOffsetY + (poi.y * mapScale);
         poi.element.style.left = screenX + "px";
         poi.element.style.top = screenY + "px";
     });
@@ -1056,17 +1048,13 @@ function showPOIs()
 {
     poisVisible = true;
 
-    const container =
-        document.getElementById("poi-container");
-
+    const container = document.getElementById("poi-container");
     if (container)
     {
         container.style.display = "block";
     }
 
-    const button =
-        document.getElementById("poi-button");
-
+    const button = document.getElementById("poi-button");
     if (button)
     {
         button.textContent = "Hide points of interest";
@@ -1079,17 +1067,13 @@ function hidePOIs()
 {
     poisVisible = false;
 
-    const container =
-        document.getElementById("poi-container");
-
+    const container = document.getElementById("poi-container");
     if (container)
     {
         container.style.display = "none";
     }
 
-    const button =
-        document.getElementById("poi-button");
-
+    const button = document.getElementById("poi-button");
     if (button)
     {
         button.textContent = "Show points of interest";
@@ -1141,9 +1125,7 @@ function showPOI(poi)
     /*
      * Give this image request a unique number.
      */
-    const requestId =
-        (image.dataset.requestId || 0) * 1 + 1;
-
+    const requestId = (image.dataset.requestId || 0) * 1 + 1;
     image.dataset.requestId = requestId;
 
     /*
@@ -1185,9 +1167,7 @@ function showPOI(poi)
 			return;
 		}
 
-		text.textContent =
-			poi.text +
-			"\n\nImage failed to load.";
+		text.textContent = poi.text + "\n\nImage failed to load.";
 
 		image.removeAttribute("src");
 		image.style.display = "none";
@@ -1221,8 +1201,7 @@ function hidePOI()
  * POI CLOSE BUTTON
  * ============================================================ */
 
-const poiClose =
-    document.getElementById("poi-close");
+const poiClose = document.getElementById("poi-close");
 
 if (poiClose)
 {
@@ -1237,8 +1216,7 @@ if (poiClose)
  * INITIAL POI STATE
  * ============================================================ */
 
-const poiContainer =
-    document.getElementById("poi-container");
+const poiContainer = document.getElementById("poi-container");
 
 if (poiContainer)
 {
