@@ -340,6 +340,10 @@ function updateMarker()
      */
     if (latitude === null || longitude === null) 
     {
+		if (RICHARD_DEBUG)
+		{
+			showGPSMessage("No GPS position");
+		}
         marker.style.display = "none";
         accuracyCircle.style.display = "none";
 
@@ -762,9 +766,11 @@ function processGPSPosition(position)
 {
   GPSstarted();
   
-  const latitude = position.coords.latitude;
-  const longitude = position.coords.longitude;
-  const gpsAccuracy = position.coords.accuracy;
+  latitude = position.coords.latitude;
+  longitude = position.coords.longitude;
+  gpsAccuracy = position.coords.accuracy;
+  const debug_latitude = latitude;
+  const debug_longitude = longitude;
   
   /*
    * Convert GPS position to image coordinates.
@@ -776,6 +782,22 @@ function processGPSPosition(position)
    * by the map.
    */
   const insideMap = isPositionInsideMap(p.x, p.y);
+  
+  	if (RICHARD_DEBUG)
+	{
+		let debug_message = "Outside map area!";
+		if (insideMap)
+		{
+			debug_message = "Inside map area!";
+		}
+		alert("\nlong = " + debug_longitude +
+			"\nlat = " + debug_latitude +
+			"\nx = " + Math.round(p.x) + 
+			"\ny = " + Math.round(p.y)
+			);
+//		message += " (" + Math.round(p.x) + ", " + Math.round(p.y) + ")";
+	}
+
   
   /*
    * User has left the mapped area.
@@ -799,15 +821,6 @@ function processGPSPosition(position)
      
     let message = "You are not within the map area!"; 
  
-	if (RICHARD_DEBUG)
-	{
-		alert("Outside map area!\nlong=" + longitude +
-			"\nlat=" + latitude +
-			"\nx=" + Math.round(p.x) + 
-			"\ny=" + Math.round(p.y)
-			);
-//		message += " (" + Math.round(p.x) + ", " + Math.round(p.y) + ")";
-	}
     showGPSMessage(message);
     
     return;
@@ -1310,3 +1323,4 @@ if (mapImage.complete)
 }
 
 document.getElementById("poi-popup").style.display = "none";
+
