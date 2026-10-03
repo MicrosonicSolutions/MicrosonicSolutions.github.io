@@ -2,8 +2,8 @@ const pointsOfInterest = [
     {
         id: "poi1",
         title: "Community Orchard",
-        x: 108,
-        y: 471,
+        x: 147,
+        y: 495,
         image: "poi/Orchard.jpg",
         text: "The Cumnor Community Orchard was planted by volunteers in late 2025."
     },
@@ -31,8 +31,8 @@ const pointsOfInterest = [
     {
         id: "poi4",
         title: "Rhino",
-        x: 207,
-        y: 516,
+        x: 223,
+        y: 504,
         image: "poi/Rhino.png",
         text: "It's a nature reserve so there is wildlife here."
     },
