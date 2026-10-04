@@ -44,6 +44,16 @@ const pointsOfInterest = [
         y: 650,
         image: "poi/Spade.png",
         text: "Can you see something up in the tree? How did it get there?"
+    },
+    
+    {
+        id: "poi6",
+        title: "Viewpoint",
+        x: 976,
+        y: 922,
+        image: "poi/Viewpoint.jpg",
+        text: "I can see for miles and miles and miles and miles and miles?"
     }
+    
     
 ];
