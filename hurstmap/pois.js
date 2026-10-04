@@ -52,7 +52,7 @@ const pointsOfInterest = [
         x: 976,
         y: 922,
         image: "poi/Viewpoint.jpg",
-        text: "I can see for miles and miles and miles and miles and miles?"
+        text: "I can see for miles and miles and miles and miles and miles!"
     }
     
     
