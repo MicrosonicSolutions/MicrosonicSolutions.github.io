@@ -25,7 +25,7 @@ const pointsOfInterest = [
         image: "poi/Folly.jpg",
         text: "The history of the folly is unclear.\n" +
           "For some time, it was believed that it simply indicated a clump of trees. " +
-          "However recent work has revealed the remains of a building.\n"
+          "However recent work has revealed stonework that looks to have been intentionally placed there.\n"
     },
     
     {
@@ -33,16 +33,16 @@ const pointsOfInterest = [
         title: "Rhino",
         x: 223,
         y: 504,
-        image: "poi/Rhino.png",
+        image: "poi/Rhino.jpg",
         text: "It's a nature reserve so there is wildlife here."
     },
 
     {
         id: "poi5",
-        title: "Spade",
+        title: "Shovel",
         x: 1005,
         y: 650,
-        image: "poi/Spade.png",
+        image: "poi/Spade.jpg",
         text: "Can you see something up in the tree? How did it get there?"
     },
     

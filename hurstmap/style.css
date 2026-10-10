@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
 html,
 body {
     margin: 0;
@@ -12,32 +14,43 @@ body {
 }
 
 /* ============================================================
-   HEADER
+   BACK TO MAIN SITE
    ============================================================ */
 
 #header {
-
     position: absolute;
-
     left: 0;
     top: 0;
     right: 0;
+    height: 0;
+    z-index: 20;
+}
 
-    height: 44px;
+#header .back-link {
+    position: absolute;
+    left: 12px;
+    top: 12px;
 
-    background: #263d19;
+    padding: 7px 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+
+    background: rgba(38, 61, 25, 0.75);
 
     color: white;
 
-    display: flex;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
 
-    align-items: center;
-    justify-content: center;
+    text-decoration: none;
 
-    font-size: 18px;
-    font-weight: 600;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
 
-    z-index: 20;
+#header .back-link:hover {
+    background: rgba(38, 61, 25, 0.95);
 }
 
 /* ============================================================
@@ -49,7 +62,7 @@ body {
     position: absolute;
 
     left: 0;
-    top: 44px;
+    top: 0px;
     right: 0;
     bottom: 52px;
 

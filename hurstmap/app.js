@@ -1148,7 +1148,7 @@ function showPOI(poi)
     image.onerror = null;
 
     image.style.display = "none";
-    image.removeAttribute("src");
+//richard    image.removeAttribute("src");
 
     /*
      * Handle successful loading.
