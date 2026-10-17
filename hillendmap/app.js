@@ -783,7 +783,7 @@ function processGPSPosition(position)
    */
   const insideMap = isPositionInsideMap(p.x, p.y);
   
-  	if (RICHARD_DEBUG)
+  if (RICHARD_DEBUG)
 	{
 		let debug_message = "Outside map area!";
 		if (insideMap)
@@ -1066,13 +1066,13 @@ function showPOIs()
     {
         container.style.display = "block";
     }
-
+/*
     const button = document.getElementById("poi-button");
     if (button)
     {
         button.textContent = "Hide points of interest";
     }
-
+*/
     createPOIs();
 }
 
@@ -1085,33 +1085,50 @@ function hidePOIs()
     {
         container.style.display = "none";
     }
-
+/*
     const button = document.getElementById("poi-button");
     if (button)
     {
         button.textContent = "Show points of interest";
     }
+*/
 
     hidePOI();
 }
 
 
 /* ============================================================
- * POI BUTTON
+ * MAP OPTIONS
  * ============================================================ */
 
-if (poiButton)
-{
-    poiButton.addEventListener("click", function()
-    {
-        if (poisVisible)
-        {
+const optionsPopup = document.getElementById("options-popup");
+const poiCheckbox = document.getElementById("poi-checkbox");
+const optionsApply = document.getElementById("options-apply");
+const optionsCancel = document.getElementById("options-cancel");
+
+if (poiButton) {
+    poiButton.addEventListener("click", function () {
+        poiCheckbox.checked = poisVisible;
+        optionsPopup.style.display = "block";
+    });
+}
+
+if (optionsCancel) {
+    optionsCancel.addEventListener("click", function () {
+        // Discard changes and leave the map as it was.
+        optionsPopup.style.display = "none";
+    });
+}
+
+if (optionsApply) {
+    optionsApply.addEventListener("click", function () {
+        if (poiCheckbox.checked && !poisVisible) {
+            showPOIs();
+        } else if (!poiCheckbox.checked && poisVisible) {
             hidePOIs();
         }
-        else
-        {
-            showPOIs();
-        }
+
+        optionsPopup.style.display = "none";
     });
 }
 
