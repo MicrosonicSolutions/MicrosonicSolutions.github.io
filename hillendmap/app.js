@@ -982,6 +982,36 @@ let poisVisible = false;
 let manholesVisible = false;
 
 
+function getMapPointCoordinates(point)
+{
+    // GPS coordinates take precedence when both are supplied.
+    if (
+        typeof point.latitude === "number" &&
+        Number.isFinite(point.latitude) &&
+        typeof point.longitude === "number" &&
+        Number.isFinite(point.longitude)
+    ) {
+        return MapProjection.gpsToPixel(
+            point.latitude,
+            point.longitude
+        );
+    }
+
+    // Otherwise use the existing image pixel coordinates.
+    if (
+        typeof point.x === "number" &&
+        Number.isFinite(point.x) &&
+        typeof point.y === "number" &&
+        Number.isFinite(point.y)
+    ) {
+        return { x: point.x, y: point.y };
+    }
+
+    console.error("Map point has no valid coordinates:", point);
+    return null;
+}
+
+
 /*
  * Create markers for either array using the same structure.
  */
@@ -1060,8 +1090,15 @@ function updateMapPoints()
                 return;
             }
 
-            const screenX = mapOffsetX + point.x * mapScale;
-            const screenY = mapOffsetY + point.y * mapScale;
+            const imagePoint = getMapPointCoordinates(point);
+
+            if (!imagePoint) {
+                point.element.style.display = "none";
+                return;
+            }
+
+            const screenX = mapOffsetX + imagePoint.x * mapScale;
+            const screenY = mapOffsetY + imagePoint.y * mapScale;
 
             point.element.style.left = screenX + "px";
             point.element.style.top = screenY + "px";

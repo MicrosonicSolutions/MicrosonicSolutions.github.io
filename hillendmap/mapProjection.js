@@ -1,5 +1,5 @@
 /*
- * Cumnor Hurst GPS -> image coordinate conversion.
+ * GPS -> image coordinate conversion.
  *
  * This reproduces the approach used by the
  * original Android application:
@@ -28,18 +28,18 @@
 //hurst map
 let ref1 = 
 {
-    x: 281,
-    y: 450,
-    latitude: 51.73533848,
-    longitude: -1.317214914
+    x: 935,
+    y: 1538,
+    latitude: 51.752818,
+    longitude: -1.3267024
 };
 
 let ref2 = 
 {
-    x: 1468,
-    y: 27,
-    latitude: 51.737295052,
-    longitude: -1.30823373537
+    x: 283,
+    y: 328,
+    latitude: 51.759276,
+    longitude: -1.3323437
 };
  
 if (MAP === "cumnor3")
