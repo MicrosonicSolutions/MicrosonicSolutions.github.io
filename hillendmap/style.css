@@ -259,7 +259,8 @@ body {
     font-size: 17px;
 }
 
-#poi-checkbox {
+#poi-checkbox,
+#manholes-checkbox {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
@@ -323,30 +324,34 @@ body {
    ============================================================ */
 
 
-/*
- * Small circular points of interest.
- */
-.poi-pin {
+
+/* Shared style for all map points. */
+.map-point {
     position: absolute;
     width: 12px;
     height: 12px;
-
-    /* Centre the circle on the specified location. */
     margin-left: -6px;
     margin-top: -6px;
-
-    background: #d22;
     border: 2px solid white;
     border-radius: 50%;
-
-    box-shadow: 0 1px 4px rgba(255, 0, 0, 0.45);
-
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
     z-index: 9;
-
     cursor: pointer;
     pointer-events: auto;
     touch-action: manipulation;
+    box-sizing: content-box;
 }
+
+/* Existing points of interest: red. */
+.poi-marker {
+    background: #d22;
+}
+
+/* Manholes: blue. */
+.manhole-marker {
+    background: #1677d2;
+}
+
 
 
 /* ============================================================

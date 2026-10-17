@@ -249,13 +249,13 @@ function calculateMapScale()
  * APPLY MAP TRANSFORM
  * ============================================================ */
  
-function applyMapTransform() 
+function applyMapTransform()
 {
     mapImage.style.transform =
         "translate(" + mapOffsetX + "px, " +
         mapOffsetY + "px) scale(" + mapScale + ")";
 
-    updatePOIs();
+    updateMapPoints();
 }
 
 /* ============================================================
@@ -975,124 +975,135 @@ function stopGPS()
 
 
 /* ============================================================
- * POINTS OF INTEREST
+ * MAP POINTS
  * ============================================================ */
-
 
 let poisVisible = false;
+let manholesVisible = false;
 
 
-/* ============================================================
- * CREATE POI PINS
- * ============================================================ */
-
-function createPOIs()
+/*
+ * Create markers for either array using the same structure.
+ */
+function createMapPoints(points, markerClass)
 {
     const container = document.getElementById("poi-container");
 
     if (!container)
     {
-        console.error("POI container not found");
+        console.error("Map point container not found");
         return;
     }
 
-    /*
-     * Remove any existing pins.
-     */
-    container.innerHTML = "";
-
-    pointsOfInterest.forEach(function(poi)
+    points.forEach(function(point)
     {
-        const pin = document.createElement("div");
-
-        pin.className = "poi-pin";
-        pin.dataset.poiId = poi.id;
-
-		pin.addEventListener("pointerdown", function(event)
-		{
-			event.stopPropagation();
-		});
-
-		pin.addEventListener("pointerup", function(event)
-		{
-			event.stopPropagation();
-			showPOI(poi);
-		});
-		
-        container.appendChild(pin);
-
-        poi.element = pin;
-    });
-
-    updatePOIs();
-}
-
-
-/* ============================================================
- * UPDATE POI POSITIONS
- * ============================================================ */
-
-function updatePOIs()
-{
-    if (!poisVisible)
-    {
-        return;
-    }
-
-    pointsOfInterest.forEach(function(poi)
-    {
-        if (!poi.element)
+        // Avoid creating duplicate markers.
+        if (point.element)
         {
             return;
         }
 
-        /*
-         * Convert the original map-image coordinate
-         * into the current screen coordinate.
-         */
-        const screenX = mapOffsetX + (poi.x * mapScale);
-        const screenY = mapOffsetY + (poi.y * mapScale);
-        poi.element.style.left = screenX + "px";
-        poi.element.style.top = screenY + "px";
+        const pin = document.createElement("div");
+
+        pin.className = "map-point " + markerClass;
+        pin.dataset.pointId = point.id;
+        pin.style.display = "none";
+
+        pin.addEventListener("pointerdown", function(event)
+        {
+            event.stopPropagation();
+        });
+
+        pin.addEventListener("pointerup", function(event)
+        {
+            event.stopPropagation();
+
+            const hasImage =
+                typeof point.image === "string" &&
+                point.image.trim() !== "";
+
+            const hasText =
+                typeof point.text === "string" &&
+                point.text.trim() !== "";
+
+            // Points without information have no popup.
+            if (hasImage || hasText)
+            {
+                showPOI(point);
+            }
+        });
+
+        container.appendChild(pin);
+        point.element = pin;
+    });
+
+    updateMapPoints();
+}
+
+
+/*
+ * Update the position and visibility of both marker sets.
+ */
+function updateMapPoints()
+{
+    const sets = [
+        { points: pointsOfInterest, visible: poisVisible },
+        { points: manholes, visible: manholesVisible }
+    ];
+
+    sets.forEach(function(set)
+    {
+        set.points.forEach(function(point)
+        {
+            if (!point.element)
+            {
+                return;
+            }
+
+            const screenX = mapOffsetX + point.x * mapScale;
+            const screenY = mapOffsetY + point.y * mapScale;
+
+            point.element.style.left = screenX + "px";
+            point.element.style.top = screenY + "px";
+            point.element.style.display =
+                set.visible ? "block" : "none";
+        });
     });
 }
+
+
+/* ============================================================
+ * POINTS OF INTEREST VISIBILITY
+ * ============================================================ */
 
 function showPOIs()
 {
     poisVisible = true;
-
-    const container = document.getElementById("poi-container");
-    if (container)
-    {
-        container.style.display = "block";
-    }
-/*
-    const button = document.getElementById("poi-button");
-    if (button)
-    {
-        button.textContent = "Hide points of interest";
-    }
-*/
-    createPOIs();
+    createMapPoints(pointsOfInterest, "poi-marker");
 }
 
 function hidePOIs()
 {
     poisVisible = false;
+    updateMapPoints();
+    hidePOI();
+}
 
-    const container = document.getElementById("poi-container");
-    if (container)
-    {
-        container.style.display = "none";
-    }
-/*
-    const button = document.getElementById("poi-button");
-    if (button)
-    {
-        button.textContent = "Show points of interest";
-    }
-*/
 
+/* ============================================================
+ * MANHOLE VISIBILITY
+ * ============================================================ */
+
+function showManholes()
+{
+    manholesVisible = true;
+    createMapPoints(manholes, "manhole-marker");
+}
+
+function hideManholes()
+{
+    manholesVisible = false;
+    updateMapPoints();
     hidePOI();
 }
 
@@ -1103,33 +1114,65 @@ function hidePOIs()
 
 const optionsPopup = document.getElementById("options-popup");
 const poiCheckbox = document.getElementById("poi-checkbox");
+const manholesCheckbox =
+    document.getElementById("manholes-checkbox");
 const optionsApply = document.getElementById("options-apply");
 const optionsCancel = document.getElementById("options-cancel");
 
-if (poiButton) {
-    poiButton.addEventListener("click", function () {
+if (poiButton)
+{
+    poiButton.addEventListener("click", function()
+    {
         poiCheckbox.checked = poisVisible;
+        manholesCheckbox.checked = manholesVisible;
         optionsPopup.style.display = "block";
     });
 }
 
-if (optionsCancel) {
-    optionsCancel.addEventListener("click", function () {
-        // Discard changes and leave the map as it was.
+if (optionsCancel)
+{
+    optionsCancel.addEventListener("click", function()
+    {
         optionsPopup.style.display = "none";
     });
 }
 
-if (optionsApply) {
-    optionsApply.addEventListener("click", function () {
-        if (poiCheckbox.checked && !poisVisible) {
+if (optionsApply)
+{
+    optionsApply.addEventListener("click", function()
+    {
+        if (poiCheckbox.checked)
+        {
             showPOIs();
-        } else if (!poiCheckbox.checked && poisVisible) {
+        }
+        else
+        {
             hidePOIs();
+        }
+
+        if (manholesCheckbox.checked)
+        {
+            showManholes();
+        }
+        else
+        {
+            hideManholes();
         }
 
         optionsPopup.style.display = "none";
     });
+}
+
+
+/* ============================================================
+ * INITIAL MARKER STATE
+ * ============================================================ */
+
+const poiContainer = document.getElementById("poi-container");
+
+if (poiContainer)
+{
+    poiContainer.style.display = "block";
 }
 
 
@@ -1241,17 +1284,6 @@ if (poiClose)
     });
 }
 
-
-/* ============================================================
- * INITIAL POI STATE
- * ============================================================ */
-
-const poiContainer = document.getElementById("poi-container");
-
-if (poiContainer)
-{
-    poiContainer.style.display = "none";
-}
 
 /* ============================================================
  * GPS BUTTON
