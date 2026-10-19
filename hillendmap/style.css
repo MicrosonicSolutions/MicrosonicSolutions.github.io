@@ -260,7 +260,9 @@ body {
 }
 
 #poi-checkbox,
-#manholes-checkbox {
+#manholes-checkbox,
+#manholes1-checkbox 
+{
     width: 20px;
     height: 20px;
     flex-shrink: 0;
@@ -352,6 +354,11 @@ body {
     background: #1677d2;
 }
 
+
+/* Manholes1: blue. */
+.manhole1-marker {
+    background: #BF1E8F;
+}
 
 
 /* ============================================================

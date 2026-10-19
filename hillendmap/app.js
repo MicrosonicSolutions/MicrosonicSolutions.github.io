@@ -980,6 +980,7 @@ function stopGPS()
 
 let poisVisible = false;
 let manholesVisible = false;
+let manholes1Visible = false;
 
 
 function getMapPointCoordinates(point)
@@ -1078,7 +1079,8 @@ function updateMapPoints()
 {
     const sets = [
         { points: pointsOfInterest, visible: poisVisible },
-        { points: manholes, visible: manholesVisible }
+        { points: manholes, visible: manholesVisible },
+        { points: manholes1, visible: manholes1Visible }
     ];
 
     sets.forEach(function(set)
@@ -1144,6 +1146,19 @@ function hideManholes()
     hidePOI();
 }
 
+function showManholes1()
+{
+    manholes1Visible = true;
+    createMapPoints(manholes1, "manhole1-marker");
+}
+
+function hideManholes1()
+{
+    manholes1Visible = false;
+    updateMapPoints();
+    hidePOI();
+}
+
 
 /* ============================================================
  * MAP OPTIONS
@@ -1151,8 +1166,8 @@ function hideManholes()
 
 const optionsPopup = document.getElementById("options-popup");
 const poiCheckbox = document.getElementById("poi-checkbox");
-const manholesCheckbox =
-    document.getElementById("manholes-checkbox");
+const manholesCheckbox = document.getElementById("manholes-checkbox");
+const manholes1Checkbox = document.getElementById("manholes1-checkbox");
 const optionsApply = document.getElementById("options-apply");
 const optionsCancel = document.getElementById("options-cancel");
 
@@ -1162,6 +1177,7 @@ if (poiButton)
     {
         poiCheckbox.checked = poisVisible;
         manholesCheckbox.checked = manholesVisible;
+        manholes1Checkbox.checked = manholes1Visible;
         optionsPopup.style.display = "block";
     });
 }
@@ -1194,6 +1210,15 @@ if (optionsApply)
         else
         {
             hideManholes();
+        }
+        
+        if (manholes1Checkbox.checked)
+        {
+            showManholes1();
+        }
+        else
+        {
+            hideManholes1();
         }
 
         optionsPopup.style.display = "none";

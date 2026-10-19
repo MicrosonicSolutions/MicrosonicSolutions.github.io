@@ -250,3 +250,133 @@ const manholes = [
 
 ];
 
+const manholes1 = [
+/*
+    ///memory.guess.ledge       
+    {
+        id: "manhole1",
+        title: "Manhole 1",
+        x: 931.533333333333,
+        y: 802.666666666667,
+        image: "",
+        text: "1 ///memory.guess.ledge"
+    },
+    ///pops.email.basin       
+    {
+        id: "manhole2",
+        title: "Manhole 2",
+        x: 936.866666666667,
+        y: 777,
+        image: "",
+        text: "2 ///pops.email.basin"
+    },
+    ///delay.skill.sound       
+    {
+        id: "manhole3",
+        title: "Manhole 3",
+        x: 942.6,
+        y: 745.6,
+        image: "",
+        text: "3 ///delay.skill.sound"
+    },
+    ///rents.glitz.cared       
+    {
+        id: "manhole4",
+        title: "Manhole 4",
+        x: 948.333333333333,
+        y: 716.933333333333,
+        image: "",
+        text: "4 ///rents.glitz.cared"
+    },
+    ///encounter.retail.atom       
+    {
+        id: "manhole5",
+        title: "Manhole 5",
+        x: 954.666666666667,
+        y: 686.866666666667,
+        image: "",
+        text: "5 ///encounter.retail.atom"
+    },
+    ///peanut.nature.began       
+    {
+        id: "manhole6",
+        title: "Manhole 6",
+        x: 959.266666666667,
+        y: 663.933333333333,
+        image: "",
+        text: "6 ///peanut.nature.began"
+    },
+    ///spite.dots.food       
+    {
+        id: "manhole7",
+        title: "Manhole 7",
+        x: 963.266666666667,
+        y: 643.466666666667,
+        image: "",
+        text: "7 ///spite.dots.food"
+    },
+    ///wink.laws.churn       
+    {
+        id: "manhole8",
+        title: "Manhole 8",
+        x: 966.733333333333,
+        y: 623.933333333333,
+        image: "",
+        text: "8 ///wink.laws.churn"
+    },
+    ///alarm.silly.price       
+    {
+        id: "manhole9",
+        title: "Manhole 9",
+        x: 963.666666666667,
+        y: 740.266666666667,
+        image: "",
+        text: "9 ///alarm.silly.price"
+    },
+    ///shield.flying.shin       
+    {
+        id: "manhole10",
+        title: "Manhole 10",
+        x: 992,
+        y: 732.8,
+        image: "",
+        text: "10 ///shield.flying.shin"
+    },
+    ///unique.sound.lawn       
+    {
+        id: "manhole11",
+        title: "Manhole 11",
+        x: 1014.4,
+        y: 727.266666666667,
+        image: "",
+        text: "11 ///unique.sound.lawn"
+    },
+    ///editor.pillow.excuse       
+    {
+        id: "manhole12",
+        title: "Manhole 12",
+        x: 1033.53333333333,
+        y: 722.133333333333,
+        image: "",
+        text: "12 ///editor.pillow.excuse"
+    },
+    ///issue.doors.plots       
+    {
+        id: "manhole13",
+        title: "Manhole 13",
+        x: 1054,
+        y: 717.533333333333,
+        image: "",
+        text: "13 ///issue.doors.plots"
+    },
+    ///agenda.design.answer       
+    {
+        id: "manhole14",
+        title: "Manhole 14",
+        x: 1069.46666666667,
+        y: 712.533333333333,
+        image: "",
+        text: "14 ///agenda.design.answer"
+    },
+*/
+];
