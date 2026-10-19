@@ -1,3 +1,7 @@
+const mapOverlays = [
+];
+
+
 const pointsOfInterest = [
     {
         id: "poi1",
@@ -63,6 +67,17 @@ const pointsOfInterest = [
 
     
 ];
+
+mapOverlays.push(
+{
+    id: "pois",
+    title: "Points of interest",
+    data: pointsOfInterest,
+    markerClass: "poi-marker",
+    visible: false
+});
+
+
 
 
 const manholes = [
@@ -250,6 +265,18 @@ const manholes = [
 
 ];
 
+mapOverlays.push(
+{
+  id: "manholes",
+  title: "Manholes",
+  data: manholes,
+  markerClass: "manhole-marker",
+  visible: false
+});
+
+
+
+
 const manholes1 = [
 /*
     ///memory.guess.ledge       
@@ -380,3 +407,15 @@ const manholes1 = [
     },
 */
 ];
+
+mapOverlays.push(
+{
+
+    id: "manholes1",
+    title: "Manholes1",
+    data: manholes1,
+    markerClass: "manhole1-marker",
+    visible: false
+});
+
+

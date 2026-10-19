@@ -69,18 +69,7 @@ const marker = document.getElementById("position-marker");
 const accuracyCircle = document.getElementById("accuracy-circle");
 const gpsButton = document.getElementById("gps-button");
 const gpsStatus = document.getElementById("gps-status");
-const poiButton = document.getElementById("poi-button");
-
-if (MAP === "cumnor3")
-{
-    mapImage.src = "cumnor3.jpg";
-    mapImage.alt = "Cumnor map";
-}
-else if (MAP === "spurr")
-{
-    mapImage.src = "Spurr.jpg";
-    mapImage.alt = "Spurr map";
-}
+const optionButton = document.getElementById("option-button");
 
 
 /* ============================================================
@@ -199,7 +188,7 @@ function showGPSMessage(message)
      * is being displayed.
      */
     gpsButton.style.display = "none";
-    poiButton.style.display = "none";
+    optionButton.style.display = "none";
 
     gpsStatus.textContent = message;
 
@@ -212,7 +201,7 @@ function showGPSMessage(message)
             gpsStatus.textContent = "";
 
             gpsButton.style.display = "";
-            poiButton.style.display = "";
+            optionButton.style.display = "";
 
             gpsMessageTimer = null;
         },
@@ -978,10 +967,6 @@ function stopGPS()
  * MAP POINTS
  * ============================================================ */
 
-let poisVisible = false;
-let manholesVisible = false;
-let manholes1Visible = false;
-
 
 function getMapPointCoordinates(point)
 {
@@ -1075,109 +1060,57 @@ function createMapPoints(points, markerClass)
 /*
  * Update the position and visibility of both marker sets.
  */
-function updateMapPoints()
-{
-    const sets = [
-        { points: pointsOfInterest, visible: poisVisible },
-        { points: manholes, visible: manholesVisible },
-        { points: manholes1, visible: manholes1Visible }
-    ];
-
-    sets.forEach(function(set)
-    {
-        set.points.forEach(function(point)
-        {
-            if (!point.element)
-            {
-                return;
-            }
+function updateMapPoints() {
+    for (const overlay of mapOverlays) {
+        for (const point of overlay.data) {
+            if (!point.element) continue;
 
             const imagePoint = getMapPointCoordinates(point);
 
             if (!imagePoint) {
                 point.element.style.display = "none";
-                return;
+                continue;
             }
 
-            const screenX = mapOffsetX + imagePoint.x * mapScale;
-            const screenY = mapOffsetY + imagePoint.y * mapScale;
+            const screen = imageToScreen(imagePoint.x, imagePoint.y);
 
-            point.element.style.left = screenX + "px";
-            point.element.style.top = screenY + "px";
+            point.element.style.left = screen.x + "px";
+            point.element.style.top = screen.y + "px";
             point.element.style.display =
-                set.visible ? "block" : "none";
-        });
-    });
+                overlay.visible ? "block" : "none";
+        }
+    }
 }
-
 
 /* ============================================================
- * POINTS OF INTEREST VISIBILITY
+ * OVERLAY VISIBILITY
  * ============================================================ */
 
-function showPOIs()
-{
-    poisVisible = true;
-    createMapPoints(pointsOfInterest, "poi-marker");
-}
+function setOverlayVisibility(overlayId, visible) {
+    const overlay = mapOverlays.find(
+        item => item.id === overlayId
+    );
 
-function hidePOIs()
-{
-    poisVisible = false;
+    if (!overlay) return;
+
+    overlay.visible = visible;
     updateMapPoints();
-    hidePOI();
 }
-
-
-/* ============================================================
- * MANHOLE VISIBILITY
- * ============================================================ */
-
-function showManholes()
-{
-    manholesVisible = true;
-    createMapPoints(manholes, "manhole-marker");
-}
-
-function hideManholes()
-{
-    manholesVisible = false;
-    updateMapPoints();
-    hidePOI();
-}
-
-function showManholes1()
-{
-    manholes1Visible = true;
-    createMapPoints(manholes1, "manhole1-marker");
-}
-
-function hideManholes1()
-{
-    manholes1Visible = false;
-    updateMapPoints();
-    hidePOI();
-}
-
 
 /* ============================================================
  * MAP OPTIONS
  * ============================================================ */
 
 const optionsPopup = document.getElementById("options-popup");
-const poiCheckbox = document.getElementById("poi-checkbox");
-const manholesCheckbox = document.getElementById("manholes-checkbox");
-const manholes1Checkbox = document.getElementById("manholes1-checkbox");
 const optionsApply = document.getElementById("options-apply");
 const optionsCancel = document.getElementById("options-cancel");
 
-if (poiButton)
+if (optionButton)
 {
-    poiButton.addEventListener("click", function()
+    optionButton.addEventListener("click", function()
     {
-        poiCheckbox.checked = poisVisible;
-        manholesCheckbox.checked = manholesVisible;
-        manholes1Checkbox.checked = manholes1Visible;
+
+        buildOverlayOptions();
         optionsPopup.style.display = "block";
     });
 }
@@ -1192,37 +1125,45 @@ if (optionsCancel)
 
 if (optionsApply)
 {
-    optionsApply.addEventListener("click", function()
-    {
-        if (poiCheckbox.checked)
-        {
-            showPOIs();
-        }
-        else
-        {
-            hidePOIs();
-        }
+    optionsApply.addEventListener("click", function() {
+        document
+            .querySelectorAll("#overlay-options input[type='checkbox']")
+            .forEach(checkbox => {
+                const overlay = mapOverlays.find(
+                    item => item.id === checkbox.dataset.overlayId
+                );
 
-        if (manholesCheckbox.checked)
-        {
-            showManholes();
-        }
-        else
-        {
-            hideManholes();
-        }
-        
-        if (manholes1Checkbox.checked)
-        {
-            showManholes1();
-        }
-        else
-        {
-            hideManholes1();
-        }
+                if (overlay) {
+                    overlay.visible = checkbox.checked;
+                }
+            });
 
+        updateMapPoints();
         optionsPopup.style.display = "none";
     });
+}
+
+function buildOverlayOptions() {
+    const container =
+        document.getElementById("overlay-options");
+
+    container.replaceChildren();
+
+    for (const overlay of mapOverlays) {
+        const label = document.createElement("label");
+        const checkbox = document.createElement("input");
+
+        checkbox.type = "checkbox";
+        checkbox.checked = overlay.visible;
+        checkbox.dataset.overlayId = overlay.id;
+
+        label.append(checkbox);
+        label.append(
+            document.createTextNode(overlay.title)
+        );
+
+        container.append(label);
+    }
 }
 
 
@@ -1413,6 +1354,13 @@ window.addEventListener("resize",
 /* ============================================================
  * INITIALISE
  * ============================================================ */
+
+// Create markers for every registered overlay.
+for (const overlay of mapOverlays) {
+    createMapPoints(overlay.data, overlay.markerClass);
+}
+
+updateMapPoints();
 
 createZoomButtons();
 
