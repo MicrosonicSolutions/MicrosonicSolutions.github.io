@@ -2,83 +2,6 @@ const mapOverlays = [
 ];
 
 
-const pointsOfInterest = [
-    {
-        id: "poi1",
-        title: "Community Orchard",
-        x: 147,
-        y: 495,
-        image: "https://gordonstokes.co.uk/temp/Orchard.jpg",
-        text: "The Cumnor Community orchard was planted by volunteers in late 2025.\n" + 
-          "You can 'adopt a tree' to look after if you want to. Contact Cumnor Conservation Group if you're interested."
-    },
-
-    {
-        id: "poi2",
-        title: "Triangulation point",
-        x: 1112,
-        y: 782,
-        image: "https://gordonstokes.co.uk/temp/TrigPoint.jpg",
-        text: "Triangulation (or 'Trig') points were used from the start of the 19th century for Ordnance Survey mapping.\n" +
-          "From 1936 they put up new concrete ones for updated mapping. " +
-          "The Cumnor Hurst one was moved 100 metres south from the Folly, probably because it had a better view to other trig points.\n" + 
-          "After 90 years the woods have grown up and the only view of any distance is towards the Viewpoint to the South West."
-    },
-
-    {
-        id: "poi3",
-        title: "Folly",
-        x: 1088,
-        y: 652,
-        image: "https://gordonstokes.co.uk/temp/Folly.jpg",
-        text: "The history of the folly is unclear.\n" +
-          "For some time, it was believed that it simply indicated a clump of trees " + 
-          "(tall trees which were used as landmarks for ancient tracks and roads were sometimes called follies " + 
-          "and Hurst Lane was part of the main road from Faringdon to Oxford).\n" +
-          "However recent work has revealed stonework that looks to have been intentionally placed there.\n"
-    },
-    
-    {
-        id: "poi4",
-        title: "Rhino",
-        x: 223,
-        y: 504,
-        image: "https://gordonstokes.co.uk/temp/Rhino.jpg",
-        text: "See if you can spot the rhinocerous here. It isn't dangerous and doesn't move much."
-    },
-
-    {
-        id: "poi5",
-        title: "Shovel",
-        x: 1005,
-        y: 650,
-        image: "https://gordonstokes.co.uk/temp/Shovel.jpg",
-        text: "It's hard to spot but it's been hanging in the tree for a long time. Nobody knows why, or how it got there."
-    },
-    
-    {
-        id: "poi6",
-        title: "Viewpoint",
-        x: 976,
-        y: 922,
-        image: "https://gordonstokes.co.uk/temp/Viewpoint.jpg",
-        text: "You can see much of the Vale of the White Horse from here, including Uffington White Horse, and even Swindon on a clear day."
-    }
-
-    
-];
-
-mapOverlays.push(
-{
-    id: "pois",
-    title: "Points of interest",
-    data: pointsOfInterest,
-    markerStyle: { background: "#d22" },
-    visible: false
-});
-
-
-
 const manholes = [
     //memory.guess.ledge       
     {
@@ -274,9 +197,9 @@ mapOverlays.push(
 });
 
 
-
-const manholes1 = [
 /*
+const manholes1 = [
+
     ///memory.guess.ledge       
     {
         id: "manhole1",
@@ -403,7 +326,7 @@ const manholes1 = [
         image: "",
         text: "14 ///agenda.design.answer"
     },
-*/
+
 ];
 
 mapOverlays.push(
@@ -415,7 +338,7 @@ mapOverlays.push(
     markerStyle: { background: "#0" },
     visible: false
 });
-
+*/
 
 const orienteering = [
 
@@ -781,6 +704,274 @@ mapOverlays.push(
     title: "Orienteering",
     data: orienteering,
     markerStyle: { background: "#BF1E8F" },
+    visible: false
+});
+
+
+const orienteering1 = [
+
+    /////smoke.fairly.juror A       
+    {
+        id: "orienteering83",
+        title: "Orienteering 83",
+        latitude: 51.75535,
+        longitude: -1.324507,
+        image: "",
+        text: "///smoke.fairly.juror A"
+    },
+    /////swept.actor.tooth B       
+    {
+        id: "orienteering84",
+        title: "Orienteering 84",
+        latitude: 51.755835,
+        longitude: -1.323636,
+        image: "",
+        text: "///swept.actor.tooth B"
+    },
+    /////chats.undulation.scare D       
+    {
+        id: "orienteering85",
+        title: "Orienteering 85",
+        latitude: 51.755458,
+        longitude: -1.32259,
+        image: "",
+        text: "///chats.undulation.scare D"
+    },
+    /////gather.blur.limp E       
+    {
+        id: "orienteering86",
+        title: "Orienteering 86",
+        latitude: 51.754676,
+        longitude: -1.325161,
+        image: "",
+        text: "///gather.blur.limp E"
+    },
+    /////alone.agent.cage E       
+    {
+        id: "orienteering87",
+        title: "Orienteering 87",
+        latitude: 51.756104,
+        longitude: -1.323897,
+        image: "",
+        text: "///alone.agent.cage E"
+    },
+    /////secure.limbs.market G       
+    {
+        id: "orienteering88",
+        title: "Orienteering 88",
+        latitude: 51.755026,
+        longitude: -1.32442,
+        image: "",
+        text: "///secure.limbs.market G"
+    },
+    /////frost.rinse.margin L       
+    {
+        id: "orienteering89",
+        title: "Orienteering 89",
+        latitude: 51.755053,
+        longitude: -1.322938,
+        image: "",
+        text: "///frost.rinse.margin L"
+    },
+    /////coast.soap.zips N       
+    {
+        id: "orienteering90",
+        title: "Orienteering 90",
+        latitude: 51.755377,
+        longitude: -1.324072,
+        image: "",
+        text: "///coast.soap.zips N"
+    },
+    /////edits.winks.flute R       
+    {
+        id: "orienteering91",
+        title: "Orienteering 91",
+        latitude: 51.754407,
+        longitude: -1.323854,
+        image: "",
+        text: "///edits.winks.flute R"
+    },
+    /////newly.bricks.among T       
+    {
+        id: "orienteering92",
+        title: "Orienteering 92",
+        latitude: 51.754541,
+        longitude: -1.324856,
+        image: "",
+        text: "///newly.bricks.among T"
+    },
+    /////vibrates.tooth.extra W       
+    {
+        id: "orienteering93",
+        title: "Orienteering 93",
+        latitude: 51.756131,
+        longitude: -1.322633,
+        image: "",
+        text: "///vibrates.tooth.extra W"
+    },
+    /////today.field.transit W       
+    {
+        id: "orienteering94",
+        title: "Orienteering 94",
+        latitude: 51.755619,
+        longitude: -1.323941,
+        image: "",
+        text: "///today.field.transit W"
+    },
+    /////still.exist.fines bA       
+    {
+        id: "orienteering95",
+        title: "Orienteering 95",
+        latitude: 51.755242,
+        longitude: -1.326774,
+        image: "",
+        text: "///still.exist.fines bA"
+    },
+    /////loans.cried.piper bD       
+    {
+        id: "orienteering96",
+        title: "Orienteering 96",
+        latitude: 51.756266,
+        longitude: -1.325118,
+        image: "",
+        text: "///loans.cried.piper bD"
+    },
+    /////visual.precautions.chair bR       
+    {
+        id: "orienteering97",
+        title: "Orienteering 97",
+        latitude: 51.755107,
+        longitude: -1.32442,
+        image: "",
+        text: "///visual.precautions.chair bR"
+    },
+    /////brands.rang.gross bZ       
+    {
+        id: "orienteering98",
+        title: "Orienteering 98",
+        latitude: 51.755242,
+        longitude: -1.325248,
+        image: "",
+        text: "///brands.rang.gross bZ"
+    },
+    /////thanks.loads.region bZ       
+    {
+        id: "orienteering99",
+        title: "Orienteering 99",
+        latitude: 51.754892,
+        longitude: -1.326774,
+        image: "",
+        text: "///thanks.loads.region bZ"
+    },
+    /////oiled.artist.limp sL       
+    {
+        id: "orienteering100",
+        title: "Orienteering 100",
+        latitude: 51.754838,
+        longitude: -1.326033,
+        image: "",
+        text: "///oiled.artist.limp sL"
+    },
+    /////cars.knots.ranked owl       
+    {
+        id: "orienteering101",
+        title: "Orienteering 101",
+        latitude: 51.758988,
+        longitude: -1.324028,
+        image: "",
+        text: "///cars.knots.ranked owl"
+    },
+    /////spark.cheat.shirts leaf       
+    {
+        id: "orienteering102",
+        title: "Orienteering 102",
+        latitude: 51.758988,
+        longitude: -1.324028,
+        image: "",
+        text: "///spark.cheat.shirts leaf"
+    },
+    /////globe.money.quest newt       
+    {
+        id: "orienteering103",
+        title: "Orienteering 103",
+        latitude: 51.754838,
+        longitude: -1.326338,
+        image: "",
+        text: "///globe.money.quest newt"
+    },
+    /////chair.dimes.horses beetle       
+    {
+        id: "orienteering104",
+        title: "Orienteering 104",
+        latitude: 51.754838,
+        longitude: -1.326338,
+        image: "",
+        text: "///chair.dimes.horses beetle"
+    },
+    /////vibes.linked.record rabbit       
+    {
+        id: "orienteering105",
+        title: "Orienteering 105",
+        latitude: 51.754838,
+        longitude: -1.326338,
+        image: "",
+        text: "///vibes.linked.record rabbit"
+    },
+    /////owners.scales.reason oak leaf       
+    {
+        id: "orienteering106",
+        title: "Orienteering 106",
+        latitude: 51.757614,
+        longitude: -1.32782,
+        image: "",
+        text: "///owners.scales.reason oak leaf"
+    },
+    /////points.amused.swing dragonfly       
+    {
+        id: "orienteering107",
+        title: "Orienteering 107",
+        latitude: 51.756724,
+        longitude: -1.325248,
+        image: "",
+        text: "///points.amused.swing dragonfly"
+    },
+    /////laptop.speak.nearly squirrel        
+    {
+        id: "orienteering108",
+        title: "Orienteering 108",
+        latitude: 51.754838,
+        longitude: -1.325466,
+        image: "",
+        text: "///laptop.speak.nearly squirrel "
+    },
+    /////codes.trees.gates woodlouse       
+    {
+        id: "orienteering109",
+        title: "Orienteering 109",
+        latitude: 51.755188,
+        longitude: -1.324464,
+        image: "",
+        text: "///codes.trees.gates woodlouse"
+    },
+    /////vote.crest.panels kingfisher       
+    {
+        id: "orienteering110",
+        title: "Orienteering 110",
+        latitude: 51.756104,
+        longitude: -1.328081,
+        image: "",
+        text: "///vote.crest.panels kingfisher"
+    }
+
+];
+
+mapOverlays.push(
+{
+
+    id: "orienteering1",
+    title: "Orienteering1",
+    data: orienteering1,
+    markerStyle: { background: "#2F7E8F" },
     visible: false
 });
 
