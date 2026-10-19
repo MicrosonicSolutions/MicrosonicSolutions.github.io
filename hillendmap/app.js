@@ -1001,7 +1001,7 @@ function getMapPointCoordinates(point)
 /*
  * Create markers for either array using the same structure.
  */
-function createMapPoints(points, markerClass)
+function createMapPoints(points, markerStyle)
 {
     const container = document.getElementById("poi-container");
 
@@ -1021,7 +1021,8 @@ function createMapPoints(points, markerClass)
 
         const pin = document.createElement("div");
 
-        pin.className = "map-point " + markerClass;
+        pin.className = "map-point";
+        Object.assign(pin.style, markerStyle || {});
         pin.dataset.pointId = point.id;
         pin.style.display = "none";
 
@@ -1357,7 +1358,7 @@ window.addEventListener("resize",
 
 // Create markers for every registered overlay.
 for (const overlay of mapOverlays) {
-    createMapPoints(overlay.data, overlay.markerClass);
+    createMapPoints(overlay.data, overlay.markerStyle);
 }
 
 updateMapPoints();

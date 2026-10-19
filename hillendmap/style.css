@@ -344,21 +344,6 @@ body {
     box-sizing: content-box;
 }
 
-/* Existing points of interest: red. */
-.poi-marker {
-    background: #d22;
-}
-
-/* Manholes: blue. */
-.manhole-marker {
-    background: #1677d2;
-}
-
-
-/* Manholes1: blue. */
-.manhole1-marker {
-    background: #BF1E8F;
-}
 
 
 /* ============================================================
