@@ -342,12 +342,12 @@ mapOverlays.push(
 
 const orienteering = [
 
-    //1 ///output.puddles.supper       
+    //1 ///       
     {
         id: "orienteering37",
         title: "Orienteering 37",
-        latitude: 51.755565,
-        longitude: -1.326905,
+        x: 915,
+        y: 1050,
         image: "",
         text: "1 ///output.puddles.supper"
     },
@@ -367,7 +367,7 @@ const orienteering = [
         x: 1003,
         y: 897,
         image: "",
-        text: ""
+        text: "3"
     },
     //4 ///energy.brief.case       
     {
@@ -385,7 +385,7 @@ const orienteering = [
         x: 1190,
         y: 899,
         image: "",
-        text: ""
+        text: "5"
     },
     //6 ///urban.damp.fuel       
     {
@@ -405,12 +405,12 @@ const orienteering = [
         image: "",
         text: "7 ///foster.arena.pipe"
     },
-    //8 ///allow.shop.decide       
+    //8 ///
     {
         id: "orienteering44",
         title: "Orienteering 44",
-        latitude: 51.755242,
-        longitude: -1.324202,
+        x: 1172,
+        y: 1095,
         image: "",
         text: "8 ///allow.shop.decide"
     },
@@ -630,14 +630,14 @@ const orienteering = [
         image: "",
         text: "32 ///proven.charm.leap✓"
     },
-    //       
+    //33       
     {
         id: "orienteering69",
         title: "Orienteering 69",
         x: 1073,
         y: 515,
         image: "",
-        text: ""
+        text: "33"
     },
     //34 ✓       
     {
@@ -661,8 +661,8 @@ const orienteering = [
     {
         id: "orienteering72",
         title: "Orienteering 72",
-        latitude: 51.757183,
-        longitude: -1.326948,
+        latitude: 51.757452, 
+        longitude: -1.327428,
         image: "",
         text: "36///wished.apple.dishes✓"
     },
@@ -708,12 +708,118 @@ mapOverlays.push(
 });
 
 
-const orienteering1 = [
+const naturetrail = [
+
+    /////cars.knots.ranked owl       
+    {
+        id: "naturetrail 1",
+        title: "Nature Trail  1",
+        latitude: 51.758988,
+        longitude: -1.324028,
+        image: "",
+        text: "///cars.knots.ranked owl"
+    },
+    /////spark.cheat.shirts leaf       
+    {
+        id: "naturetrail 2",
+        title: "Nature Trail  2",
+        latitude: 51.755727,
+        longitude: -1.324769,
+        image: "",
+        text: "///spark.cheat.shirts leaf"
+    },
+    /////globe.money.quest newt       
+    {
+        id: "naturetrail 3",
+        title: "Nature Trail  3",
+        latitude: 51.754838,
+        longitude: -1.326338,
+        image: "",
+        text: "///globe.money.quest newt"
+    },
+    /////chair.dimes.horses beetle       
+    {
+        id: "naturetrail 4",
+        title: "Nature Trail  4",
+        latitude: 51.758449,
+        longitude: -1.324769,
+        image: "",
+        text: "///chair.dimes.horses beetle"
+    },
+    /////vibes.linked.record rabbit       
+    {
+        id: "naturetrail 5",
+        title: "Nature Trail  5",
+        latitude: 51.757614,
+        longitude: -1.32782,
+        image: "",
+        text: "///vibes.linked.record rabbit"
+    },
+    /////owners.scales.reason oak leaf       
+    {
+        id: "naturetrail 6",
+        title: "Nature Trail  6",
+        latitude: 51.755565,
+        longitude: -1.323287,
+        image: "",
+        text: "///owners.scales.reason oak leaf"
+    },
+    /////points.amused.swing dragonfly       
+    {
+        id: "naturetrail 7",
+        title: "Nature Trail  7",
+        latitude: 51.756724,
+        longitude: -1.325248,
+        image: "",
+        text: "///points.amused.swing dragonfly"
+    },
+    /////laptop.speak.nearly squirrel        
+    {
+        id: "naturetrail 8",
+        title: "Nature Trail  8",
+        latitude: 51.754838,
+        longitude: -1.325466,
+        image: "",
+        text: "///laptop.speak.nearly squirrel "
+    },
+    /////codes.trees.gates woodlouse       
+    {
+        id: "naturetrail 9",
+        title: "Nature Trail  9",
+        latitude: 51.755188,
+        longitude: -1.324464,
+        image: "",
+        text: "///codes.trees.gates woodlouse"
+    },
+    /////vote.crest.panels kingfisher       
+    {
+        id: "naturetrail 10",
+        title: "Nature Trail  10",
+        latitude: 51.756104,
+        longitude: -1.328081,
+        image: "",
+        text: "///vote.crest.panels kingfisher"
+    },
+
+
+];
+
+mapOverlays.push(
+{
+
+    id: "naturetrail",
+    title: "Nature Trail",
+    data: naturetrail,
+    markerStyle: { background: "#2F7E8F" },
+    visible: false
+});
+
+const willows = [
 
     /////smoke.fairly.juror A       
     {
-        id: "orienteering83",
-        title: "Orienteering 83",
+        id: "willows1",
+        title: "Willows 1",
         latitude: 51.75535,
         longitude: -1.324507,
         image: "",
@@ -721,8 +827,8 @@ const orienteering1 = [
     },
     /////swept.actor.tooth B       
     {
-        id: "orienteering84",
-        title: "Orienteering 84",
+        id: "willows2",
+        title: "Willows 2",
         latitude: 51.755835,
         longitude: -1.323636,
         image: "",
@@ -730,8 +836,8 @@ const orienteering1 = [
     },
     /////chats.undulation.scare D       
     {
-        id: "orienteering85",
-        title: "Orienteering 85",
+        id: "willows3",
+        title: "Willows 3",
         latitude: 51.755458,
         longitude: -1.32259,
         image: "",
@@ -739,8 +845,8 @@ const orienteering1 = [
     },
     /////gather.blur.limp E       
     {
-        id: "orienteering86",
-        title: "Orienteering 86",
+        id: "willows4",
+        title: "Willows 4",
         latitude: 51.754676,
         longitude: -1.325161,
         image: "",
@@ -748,8 +854,8 @@ const orienteering1 = [
     },
     /////alone.agent.cage E       
     {
-        id: "orienteering87",
-        title: "Orienteering 87",
+        id: "willows5",
+        title: "Willows 5",
         latitude: 51.756104,
         longitude: -1.323897,
         image: "",
@@ -757,8 +863,8 @@ const orienteering1 = [
     },
     /////secure.limbs.market G       
     {
-        id: "orienteering88",
-        title: "Orienteering 88",
+        id: "willows6",
+        title: "Willows 6",
         latitude: 51.755026,
         longitude: -1.32442,
         image: "",
@@ -766,8 +872,8 @@ const orienteering1 = [
     },
     /////frost.rinse.margin L       
     {
-        id: "orienteering89",
-        title: "Orienteering 89",
+        id: "willows7",
+        title: "Willows 7",
         latitude: 51.755053,
         longitude: -1.322938,
         image: "",
@@ -775,8 +881,8 @@ const orienteering1 = [
     },
     /////coast.soap.zips N       
     {
-        id: "orienteering90",
-        title: "Orienteering 90",
+        id: "willows8",
+        title: "Willows 8",
         latitude: 51.755377,
         longitude: -1.324072,
         image: "",
@@ -784,8 +890,8 @@ const orienteering1 = [
     },
     /////edits.winks.flute R       
     {
-        id: "orienteering91",
-        title: "Orienteering 91",
+        id: "willows9",
+        title: "Willows 9",
         latitude: 51.754407,
         longitude: -1.323854,
         image: "",
@@ -793,8 +899,8 @@ const orienteering1 = [
     },
     /////newly.bricks.among T       
     {
-        id: "orienteering92",
-        title: "Orienteering 92",
+        id: "willows10",
+        title: "Willows 10",
         latitude: 51.754541,
         longitude: -1.324856,
         image: "",
@@ -802,8 +908,8 @@ const orienteering1 = [
     },
     /////vibrates.tooth.extra W       
     {
-        id: "orienteering93",
-        title: "Orienteering 93",
+        id: "willows11",
+        title: "Willows 11",
         latitude: 51.756131,
         longitude: -1.322633,
         image: "",
@@ -811,17 +917,42 @@ const orienteering1 = [
     },
     /////today.field.transit W       
     {
-        id: "orienteering94",
-        title: "Orienteering 94",
+        id: "willows12",
+        title: "Willows 12",
         latitude: 51.755619,
         longitude: -1.323941,
         image: "",
         text: "///today.field.transit W"
     },
+    /////O       
+    {
+        id: "willows13",
+        title: "Willows 13",
+        x: 1344,
+        y: 1033,
+        image: "",
+        text: "O 1344, 1033"
+    },
+
+];
+
+mapOverlays.push(
+{
+
+    id: "willows",
+    title: "Willows Code Breaker",
+    data: willows,
+    markerStyle: { background: "#4F2EcF" },
+    visible: false
+});
+
+
+const butterfly = [
+
     /////still.exist.fines bA       
     {
         id: "orienteering95",
-        title: "Orienteering 95",
+        title: "Butterfly 1",
         latitude: 51.755242,
         longitude: -1.326774,
         image: "",
@@ -830,7 +961,7 @@ const orienteering1 = [
     /////loans.cried.piper bD       
     {
         id: "orienteering96",
-        title: "Orienteering 96",
+        title: "Butterfly 2",
         latitude: 51.756266,
         longitude: -1.325118,
         image: "",
@@ -839,7 +970,7 @@ const orienteering1 = [
     /////visual.precautions.chair bR       
     {
         id: "orienteering97",
-        title: "Orienteering 97",
+        title: "Butterfly 3",
         latitude: 51.755107,
         longitude: -1.32442,
         image: "",
@@ -848,7 +979,7 @@ const orienteering1 = [
     /////brands.rang.gross bZ       
     {
         id: "orienteering98",
-        title: "Orienteering 98",
+        title: "Butterfly 4",
         latitude: 51.755242,
         longitude: -1.325248,
         image: "",
@@ -857,122 +988,66 @@ const orienteering1 = [
     /////thanks.loads.region bZ       
     {
         id: "orienteering99",
-        title: "Orienteering 99",
+        title: "Butterfly 5",
         latitude: 51.754892,
         longitude: -1.326774,
         image: "",
         text: "///thanks.loads.region bZ"
     },
-    /////oiled.artist.limp sL       
+    //
     {
-        id: "orienteering100",
-        title: "Orienteering 100",
-        latitude: 51.754838,
-        longitude: -1.326033,
+        id: "butterfly6",
+        title: "Butterfly 6",
+        x: 927,
+        y: 992,
         image: "",
-        text: "///oiled.artist.limp sL"
+        text: "927, 992"
     },
-    /////cars.knots.ranked owl       
+    //
     {
-        id: "orienteering101",
-        title: "Orienteering 101",
-        latitude: 51.758988,
-        longitude: -1.324028,
+        id: "butterfly7",
+        title: "Butterfly 7",
+        x: 1126,
+        y: 979,
         image: "",
-        text: "///cars.knots.ranked owl"
+        text: "1126, 979,"
     },
-    /////spark.cheat.shirts leaf       
-    {
-        id: "orienteering102",
-        title: "Orienteering 102",
-        latitude: 51.758988,
-        longitude: -1.324028,
-        image: "",
-        text: "///spark.cheat.shirts leaf"
-    },
-    /////globe.money.quest newt       
-    {
-        id: "orienteering103",
-        title: "Orienteering 103",
-        latitude: 51.754838,
-        longitude: -1.326338,
-        image: "",
-        text: "///globe.money.quest newt"
-    },
-    /////chair.dimes.horses beetle       
-    {
-        id: "orienteering104",
-        title: "Orienteering 104",
-        latitude: 51.754838,
-        longitude: -1.326338,
-        image: "",
-        text: "///chair.dimes.horses beetle"
-    },
-    /////vibes.linked.record rabbit       
-    {
-        id: "orienteering105",
-        title: "Orienteering 105",
-        latitude: 51.754838,
-        longitude: -1.326338,
-        image: "",
-        text: "///vibes.linked.record rabbit"
-    },
-    /////owners.scales.reason oak leaf       
-    {
-        id: "orienteering106",
-        title: "Orienteering 106",
-        latitude: 51.757614,
-        longitude: -1.32782,
-        image: "",
-        text: "///owners.scales.reason oak leaf"
-    },
-    /////points.amused.swing dragonfly       
-    {
-        id: "orienteering107",
-        title: "Orienteering 107",
-        latitude: 51.756724,
-        longitude: -1.325248,
-        image: "",
-        text: "///points.amused.swing dragonfly"
-    },
-    /////laptop.speak.nearly squirrel        
-    {
-        id: "orienteering108",
-        title: "Orienteering 108",
-        latitude: 51.754838,
-        longitude: -1.325466,
-        image: "",
-        text: "///laptop.speak.nearly squirrel "
-    },
-    /////codes.trees.gates woodlouse       
-    {
-        id: "orienteering109",
-        title: "Orienteering 109",
-        latitude: 51.755188,
-        longitude: -1.324464,
-        image: "",
-        text: "///codes.trees.gates woodlouse"
-    },
-    /////vote.crest.panels kingfisher       
-    {
-        id: "orienteering110",
-        title: "Orienteering 110",
-        latitude: 51.756104,
-        longitude: -1.328081,
-        image: "",
-        text: "///vote.crest.panels kingfisher"
-    }
 
 ];
 
 mapOverlays.push(
 {
 
-    id: "orienteering1",
-    title: "Orienteering1",
-    data: orienteering1,
-    markerStyle: { background: "#2F7E8F" },
+    id: "butterfly",
+    title: "Butterfly Trail",
+    data: butterfly,
+    markerStyle: { background: "#567E2F" },
     visible: false
 });
 
+
+
+
+const other = [
+
+    /////oiled.artist.limp sL       
+    {
+        id: "other1",
+        title: "Other 1",
+        latitude: 51.754838,
+        longitude: -1.326033,
+        image: "",
+        text: "///oiled.artist.limp sL"
+    },
+
+];
+
+mapOverlays.push(
+{
+    id: "other",
+    title: "Other",
+    data: other,
+    markerStyle: { background: "#89c8E5" },
+    visible: false
+});
 

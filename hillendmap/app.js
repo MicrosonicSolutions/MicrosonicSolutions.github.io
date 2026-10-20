@@ -970,7 +970,17 @@ function stopGPS()
 
 function getMapPointCoordinates(point)
 {
-    // GPS coordinates take precedence when both are supplied.
+    // Image pixel coordinates take precedence when both are supplied.
+    if (
+        typeof point.x === "number" &&
+        Number.isFinite(point.x) &&
+        typeof point.y === "number" &&
+        Number.isFinite(point.y)
+    ) {
+        return { x: point.x, y: point.y };
+    }
+
+    // Otherwise use the existing GPS coordinates.
     if (
         typeof point.latitude === "number" &&
         Number.isFinite(point.latitude) &&
@@ -983,15 +993,6 @@ function getMapPointCoordinates(point)
         );
     }
 
-    // Otherwise use the existing image pixel coordinates.
-    if (
-        typeof point.x === "number" &&
-        Number.isFinite(point.x) &&
-        typeof point.y === "number" &&
-        Number.isFinite(point.y)
-    ) {
-        return { x: point.x, y: point.y };
-    }
 
     console.error("Map point has no valid coordinates:", point);
     return null;
