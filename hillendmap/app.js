@@ -1,6 +1,6 @@
 
 /*
- * Cumnor Hurst Map
+ * Hill End Map
  *
  * GPS behaviour:
  *
@@ -1002,7 +1002,7 @@ function getMapPointCoordinates(point)
 /*
  * Create markers for either array using the same structure.
  */
-function createMapPoints(points, markerStyle)
+function createMapPoints(points, markerStyle, markerClass)
 {
     const container = document.getElementById("poi-container");
 
@@ -1022,7 +1022,7 @@ function createMapPoints(points, markerStyle)
 
         const pin = document.createElement("div");
 
-        pin.className = "map-point";
+        pin.className = markerClass || "map-point";
         Object.assign(pin.style, markerStyle || {});
         pin.dataset.pointId = point.id;
         pin.style.display = "none";
@@ -1359,7 +1359,7 @@ window.addEventListener("resize",
 
 // Create markers for every registered overlay.
 for (const overlay of mapOverlays) {
-    createMapPoints(overlay.data, overlay.markerStyle);
+    createMapPoints(overlay.data, overlay.markerStyle, overlay.markerClass);
 }
 
 updateMapPoints();

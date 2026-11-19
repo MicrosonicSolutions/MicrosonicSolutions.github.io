@@ -193,7 +193,8 @@ mapOverlays.push(
   title: "Manholes",
   data: manholes,
   markerStyle: { background: "#1677d2" },
-  visible: false
+  visible: false,
+  markerClass: "map-point"
 });
 
 
@@ -556,11 +557,12 @@ const orienteering = [
 
 mapOverlays.push(
 {
-    id: "orienteering",
-    title: "Orienteering",
-    data: orienteering,
-    markerStyle: { background: "#BF1E8F" },
-    visible: false
+  id: "orienteering",
+  title: "Orienteering",
+  data: orienteering,
+  markerStyle: { background: "#BF1E8F" },
+  visible: false,
+  markerClass: "map-point"
 });
 
 
@@ -662,12 +664,12 @@ const naturetrail = [
 
 mapOverlays.push(
 {
-
-    id: "naturetrail",
-    title: "Nature Trail",
-    data: naturetrail,
-    markerStyle: { background: "#2F7E8F" },
-    visible: false
+  id: "naturetrail",
+  title: "Nature Trail",
+  data: naturetrail,
+  markerStyle: { background: "#2F7E8F" },
+  visible: false,
+  markerClass: "map-point"
 });
 
 const willows = [
@@ -794,12 +796,12 @@ const willows = [
 
 mapOverlays.push(
 {
-
-    id: "willows",
-    title: "Willows Code Breaker",
-    data: willows,
-    markerStyle: { background: "#4F2EcF" },
-    visible: false
+  id: "willows",
+  title: "Willows Code Breaker",
+  data: willows,
+  markerStyle: { background: "#4F2EcF" },
+  visible: false,
+  markerClass: "map-point"
 });
 
 
@@ -873,12 +875,12 @@ const butterfly = [
 
 mapOverlays.push(
 {
-
-    id: "butterfly",
-    title: "Butterfly Trail",
-    data: butterfly,
-    markerStyle: { background: "#567E2F" },
-    visible: false
+  id: "butterfly",
+  title: "Butterfly Trail",
+  data: butterfly,
+  markerStyle: { background: "#567E2F" },
+  visible: false,
+  markerClass: "map-point"
 });
 
 
@@ -910,10 +912,11 @@ const star = [
 
 mapOverlays.push(
 {
-    id: "star",
-    title: "Star Trail",
-    data: star,
-    markerStyle: { background: "#89c8E5" },
-    visible: false
+  id: "star",
+  title: "Star Trail",
+  data: star,
+  markerStyle: { background: "#89c8E5" },
+  visible: false,
+  markerClass: "map-point"
 });
 
