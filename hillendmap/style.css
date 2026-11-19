@@ -325,6 +325,47 @@ body {
    POINTS OF INTEREST PINS
    ============================================================ */
 
+.poi-pin {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    margin-left: -14px;
+    margin-top: -28px;
+
+    background: #d22;
+    border: 2px solid white;
+    border-radius: 50% 50% 50% 0;
+
+    transform: rotate(-45deg);
+
+    box-shadow:
+        0 1px 4px
+        rgba(0, 0, 0, 0.45);
+
+    z-index: 9;
+
+    cursor: pointer;
+    pointer-events: auto;
+    touch-action: manipulation;
+}
+
+
+/*
+ * The centre of the pin.
+ */
+.poi-pin::after {
+    content: "";
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    left: 7px;
+    top: 7px;
+
+    background: white;
+    border-radius: 50%;
+}
 
 
 /* Shared style for all map points. */
