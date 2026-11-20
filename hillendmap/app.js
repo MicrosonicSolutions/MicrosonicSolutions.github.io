@@ -244,6 +244,8 @@ function applyMapTransform()
         "translate(" + mapOffsetX + "px, " +
         mapOffsetY + "px) scale(" + mapScale + ")";
 
+    updateImageOverlays();
+
     updateMapPoints();
 }
 
@@ -1058,18 +1060,94 @@ function createMapPoints(points, markerStyle, markerClass)
     updateMapPoints();
 }
 
+/*
+ * Create an image overlay.
+ */
+function createImageOverlay(overlay)
+{
+    // Create the overlay container if necessary.
+    let container = document.getElementById("overlay-container");
+
+    if (!container)
+    {
+        container = document.createElement("div");
+        container.id = "overlay-container";
+        mapContainer.appendChild(container);
+    }
+
+    // Avoid creating duplicate images.
+    if (overlay.element)
+    {
+        return;
+    }
+
+    const image = document.createElement("img");
+
+    image.id = "overlay-" + overlay.id;
+    image.className = "map-image-overlay";
+    image.src = overlay.image;
+    image.alt = overlay.title || "";
+    image.draggable = false;
+
+    image.style.display = "none";
+
+    container.appendChild(image);
+
+    overlay.element = image;
+}
 
 /*
- * Update the position and visibility of both marker sets.
+ * Update the position, size and visibility of image overlays.
  */
-function updateMapPoints() {
-    for (const overlay of mapOverlays) {
-        for (const point of overlay.data) {
+function updateImageOverlays()
+{
+    for (const overlay of mapOverlays)
+    {
+        if (overlay.type !== "image" || !overlay.element)
+        {
+            continue;
+        }
+
+        const image = overlay.element;
+
+        // Match the underlying map dimensions.
+        image.style.width = mapImage.naturalWidth + "px";
+        image.style.height = mapImage.naturalHeight + "px";
+
+        // Match the map transformation.
+        image.style.transform = mapImage.style.transform;
+
+        // Apply overlay visibility.
+        image.style.display = overlay.visible ? "block" : "none";
+    }
+}
+
+/*
+ * Update the position and visibility of all point overlays.
+ */
+function updateMapPoints()
+{
+    for (const overlay of mapOverlays)
+    {
+        // Ignore image overlays.
+        if (overlay.type !== "points")
+        {
+            continue;
+        }
+
+        if (!Array.isArray(overlay.data))
+        {
+            continue;
+        }
+
+        for (const point of overlay.data)
+        {
             if (!point.element) continue;
 
             const imagePoint = getMapPointCoordinates(point);
 
-            if (!imagePoint) {
+            if (!imagePoint)
+            {
                 point.element.style.display = "none";
                 continue;
             }
@@ -1140,6 +1218,7 @@ if (optionsApply)
                 }
             });
 
+        updateImageOverlays();
         updateMapPoints();
         optionsPopup.style.display = "none";
     });
@@ -1357,11 +1436,24 @@ window.addEventListener("resize",
  * INITIALISE
  * ============================================================ */
 
-// Create markers for every registered overlay.
-for (const overlay of mapOverlays) {
-    createMapPoints(overlay.data, overlay.markerStyle, overlay.markerClass);
+// Create elements for every registered overlay.
+for (const overlay of mapOverlays)
+{
+    if (overlay.type === "image")
+    {
+        createImageOverlay(overlay);
+    }
+    else if (overlay.type === "points")
+    {
+        createMapPoints(
+            overlay.data,
+            overlay.markerStyle,
+            overlay.markerClass
+        );
+    }
 }
 
+updateImageOverlays();
 updateMapPoints();
 
 createZoomButtons();

@@ -191,6 +191,7 @@ mapOverlays.push(
 {
   id: "manholes",
   title: "Manholes",
+  type: "points",
   data: manholes,
   markerStyle: { background: "#1677d2" },
   visible: false,
@@ -559,6 +560,7 @@ mapOverlays.push(
 {
   id: "orienteering",
   title: "Orienteering",
+  type: "points",
   data: orienteering,
   markerStyle: { background: "#BF1E8F" },
   visible: false,
@@ -666,6 +668,7 @@ mapOverlays.push(
 {
   id: "naturetrail",
   title: "Nature Trail",
+  type: "points",
   data: naturetrail,
   markerStyle: { background: "#2F7E8F" },
   visible: false,
@@ -798,6 +801,7 @@ mapOverlays.push(
 {
   id: "willows",
   title: "Willows Code Breaker",
+  type: "points",
   data: willows,
   markerStyle: { background: "#4F2EcF" },
   visible: false,
@@ -877,6 +881,7 @@ mapOverlays.push(
 {
   id: "butterfly",
   title: "Butterfly Trail",
+  type: "points",
   data: butterfly,
   markerStyle: { background: "#567E2F" },
   visible: false,
@@ -914,6 +919,7 @@ mapOverlays.push(
 {
   id: "star",
   title: "Star Trail",
+  type: "points",
   data: star,
   markerStyle: { background: "#89c8E5" },
   visible: false,
