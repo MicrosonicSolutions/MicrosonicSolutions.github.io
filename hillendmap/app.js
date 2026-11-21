@@ -1375,6 +1375,7 @@ if (poiContainer)
  * SHOW POI INFORMATION
  * ============================================================ */
 
+
 function showPOI(poi)
 {
     const popup = document.getElementById("poi-popup");
@@ -1387,64 +1388,50 @@ function showPOI(poi)
         return;
     }
 
-	title.textContent = poi.title;
-	text.textContent = poi.text + "\n\nLoading image...";
+    title.textContent = poi.title;
+    text.textContent = poi.text;
 
-    /*
-     * Give this image request a unique number.
-     */
+    // Give this image request a unique number.
     const requestId = (image.dataset.requestId || 0) * 1 + 1;
     image.dataset.requestId = requestId;
 
-    /*
-     * Hide and clear the previous image.
-     */
+    // Clear and hide any previous image.
     image.onload = null;
     image.onerror = null;
-
     image.style.display = "none";
-//richard    image.removeAttribute("src");
+    image.removeAttribute("src");
 
-    /*
-     * Handle successful loading.
-     */
-    image.onload = function()
+    // Only attempt to load an image if one is specified.
+    if (poi.image)
     {
-        /*
-         * Ignore an old image request.
-         */
-        if (image.dataset.requestId != requestId)
+        text.textContent = poi.text + "\n\nLoading image...";
+
+        image.onload = function()
         {
-            return;
-        }
-        
-		text.textContent = poi.text;
-        image.style.display = "block";
-    };
+            if (image.dataset.requestId != requestId)
+            {
+                return;
+            }
 
-    /*
-     * Handle failed loading.
-     */
-	image.onerror = function()
-	{
-		/*
-		 * Ignore an old image request.
-		 */
-		if (image.dataset.requestId != requestId)
-		{
-			return;
-		}
+            text.textContent = poi.text;
+            image.style.display = "block";
+        };
 
-		text.textContent = poi.text + "\n\nImage failed to load.";
+        image.onerror = function()
+        {
+            if (image.dataset.requestId != requestId)
+            {
+                return;
+            }
 
-		image.removeAttribute("src");
-		image.style.display = "none";
-	};
+            text.textContent = poi.text + "\n\nImage failed to load.";
 
-    /*
-     * Start loading the new image.
-     */
-    image.src = poi.image;
+            image.removeAttribute("src");
+            image.style.display = "none";
+        };
+
+        image.src = poi.image;
+    }
 
     popup.style.display = "block";
 }

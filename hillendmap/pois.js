@@ -911,7 +911,6 @@ const star = [
         title: "Star Trail  1",
         latitude: 51.754838,
         longitude: -1.326033,
-        image: "",
         text: "///oiled.artist.limp sL"
     },
     /////vows.path.bought sE       
@@ -920,7 +919,6 @@ const star = [
         title: "Star Trail  2",
         x: 1190,
         y: 1184,
-        image: "",
         text: "///vows.path.bought sE"
     },
 
