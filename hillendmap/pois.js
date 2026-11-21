@@ -1,6 +1,96 @@
 const mapOverlays = [
 ];
 
+mapOverlays.push(
+{
+  id: "habitat_trail",
+  title: "Habitat Trail",
+  type: "image",
+  image: "HabitatTrail.png",
+  visible: false,
+});
+
+
+const lecterns = [
+
+    {
+        id: "Lectern 0",
+        title: "Habitat Trail Lectern 0",
+        x: 1161,
+        y: 463,
+        text: "Introduction"
+    },
+
+    {
+        id: "Lectern 1",
+        title: "Habitat Trail Lectern 1",
+        x: 820,
+        y: 847,
+        text: "Scrubland"
+    },
+
+    {
+        id: "Lectern 2",
+        title: "Habitat Trail Lectern 2",
+        x: 1043,
+        y: 267,
+        text: "Species-rich grassland"
+    },
+
+    {
+        id: "Lectern 3",
+        title: "Habitat Trail Lectern 3",
+        x: 1429,
+        y: 600,
+        text: "Willow Marsh"
+    },
+
+    {
+        id: "Lectern 4",
+        title: "Habitat Trail Lectern 4",
+        x: 1388,
+        y: 906,
+        text: "Woodland"
+    },
+
+    {
+        id: "Lectern 5",
+        title: "Habitat Trail Lectern 5",
+        x: 1364,
+        y: 1105,
+        text: "Field-margin and Hedgerow"
+    },
+
+    {
+        id: "Lectern 6",
+        title: "Habitat Trail Lectern 6",
+        x: 1148,
+        y: 1168,
+        text: "Ponds"
+    },
+
+    {
+        id: "Lectern 7",
+        title: "Habitat Trail Lectern 7",
+        x: 960,
+        y: 1440,
+        text: "Stream"
+    },
+
+
+];
+
+mapOverlays.push(
+{
+  id: "lecterns",
+  title: "- Lecterns",
+  type: "points",
+  data: lecterns,
+  markerStyle: { background: "#FFD800" },
+  visible: false,
+  markerClass: "map-point-square"
+});
+
 
 const manholes = [
     //memory.guess.ledge       

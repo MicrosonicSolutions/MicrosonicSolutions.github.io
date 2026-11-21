@@ -416,7 +416,22 @@ body {
     box-sizing: content-box;
 }
 
-
+/* Square map point. */
+.map-point-square {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid white;
+    border-radius: 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    z-index: 9;
+    cursor: pointer;
+    pointer-events: auto;
+    touch-action: manipulation;
+    box-sizing: content-box;
+}
 
 /* ============================================================
    POINTS OF INTEREST POPUP
