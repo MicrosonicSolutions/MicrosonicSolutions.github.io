@@ -1203,26 +1203,137 @@ if (optionsCancel)
     });
 }
 
+
 if (optionsApply)
 {
-    optionsApply.addEventListener("click", function() {
-        document
-            .querySelectorAll("#overlay-options input[type='checkbox']")
-            .forEach(checkbox => {
-                const overlay = mapOverlays.find(
-                    item => item.id === checkbox.dataset.overlayId
-                );
+    optionsApply.addEventListener("click", async function() {
 
-                if (overlay) {
-                    overlay.visible = checkbox.checked;
-                }
-            });
+        const checkboxes = document.querySelectorAll(
+            "#overlay-options input[type='checkbox']"
+        );
+
+        for (const checkbox of checkboxes) {
+
+            const overlay = mapOverlays.find(
+                item => item.id === checkbox.dataset.overlayId
+            );
+
+            if (!overlay) continue;
+
+            if (checkbox.checked) {
+
+                // Check password if the overlay is protected.
+                const authorised =
+                    await authenticateOverlay(overlay);
+
+                overlay.visible = authorised;
+
+                // Reflect authentication failure in the checkbox.
+                checkbox.checked = authorised;
+
+            } else {
+
+                overlay.visible = false;
+            }
+        }
 
         updateImageOverlays();
         updateMapPoints();
+
         optionsPopup.style.display = "none";
     });
 }
+
+
+
+/* ============================================================
+ * OVERLAY PASSWORD AUTHENTICATION
+ * ============================================================ */
+
+// Store successful authorisations for this browser session.
+const authorisedPasswords = new Set(
+    JSON.parse(
+        sessionStorage.getItem("authorisedPasswords") || "[]"
+    )
+);
+
+
+// Calculate a PBKDF2 hash of a supplied password.
+async function hashOverlayPassword(password, salt) {
+
+    const encoder = new TextEncoder();
+
+    const keyMaterial = await crypto.subtle.importKey(
+        "raw",
+        encoder.encode(password),
+        "PBKDF2",
+        false,
+        ["deriveBits"]
+    );
+
+    const hash = await crypto.subtle.deriveBits(
+        {
+            name: "PBKDF2",
+            salt: encoder.encode(salt),
+            iterations: 200000,
+            hash: "SHA-256"
+        },
+        keyMaterial,
+        256
+    );
+
+    return Array.from(new Uint8Array(hash))
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+}
+
+
+
+async function authenticateOverlay(overlay) {
+
+    if (!overlay.passwordProtected) {
+        return true;
+    }
+
+    // Identify the password by its salt and hash.
+    const passwordKey =
+        overlay.passwordSalt + ":" + overlay.passwordHash;
+
+    // Has this password already been authorised?
+    if (authorisedPasswords.has(passwordKey)) {
+        return true;
+    }
+
+    const password = prompt(
+        "Enter password for: " + overlay.title
+    );
+
+    if (password === null) {
+        return false;
+    }
+
+    const hash = await hashOverlayPassword(
+        password,
+        overlay.passwordSalt
+    );
+
+    if (hash !== overlay.passwordHash) {
+        alert("Incorrect password.");
+        return false;
+    }
+
+    // Remember this password for the session.
+    authorisedPasswords.add(passwordKey);
+
+    sessionStorage.setItem(
+        "authorisedPasswords",
+        JSON.stringify([...authorisedPasswords])
+    );
+
+    return true;
+}
+
+
 
 function buildOverlayOptions() {
     const container =
@@ -1477,3 +1588,21 @@ if (mapImage.complete)
 
 document.getElementById("poi-popup").style.display = "none";
 
+/***********************
+ * 
+ * PASSWORD SUPPORT
+ * 
+ */
+
+async function generateOverlayPassword(password) {
+
+    const salt = crypto.randomUUID();
+
+    const hash = await hashOverlayPassword(
+        password,
+        salt
+    );
+
+    console.log("Password salt:", salt);
+    console.log("Password hash:", hash);
+}
