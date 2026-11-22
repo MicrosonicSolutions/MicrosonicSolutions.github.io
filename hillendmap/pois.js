@@ -24,8 +24,8 @@ const lecterns = [
     {
         id: "Lectern 1",
         title: "Habitat Trail Lectern 1",
-        x: 820,
-        y: 847,
+        x: 838,
+        y: 899,
         text: "Scrubland"
     },
 
@@ -49,15 +49,15 @@ const lecterns = [
         id: "Lectern 4",
         title: "Habitat Trail Lectern 4",
         x: 1388,
-        y: 906,
+        y: 920,
         text: "Woodland"
     },
 
     {
         id: "Lectern 5",
         title: "Habitat Trail Lectern 5",
-        x: 1364,
-        y: 1105,
+        x: 1351,
+        y: 1119,
         text: "Field-margin and Hedgerow"
     },
 
@@ -83,7 +83,7 @@ const lecterns = [
 mapOverlays.push(
 {
   id: "lecterns",
-  title: "- Lecterns",
+  title: "Habitiat Trail Information Boards",
   type: "points",
   data: lecterns,
   markerStyle: { background: "#FFD800" },
