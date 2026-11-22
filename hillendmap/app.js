@@ -1038,6 +1038,10 @@ function createMapPoints(points, markerStyle, markerClass)
         {
             event.stopPropagation();
 
+            const hasTitle =
+                typeof point.title === "string" &&
+                point.title.trim() !== "";
+
             const hasImage =
                 typeof point.image === "string" &&
                 point.image.trim() !== "";
@@ -1047,7 +1051,7 @@ function createMapPoints(points, markerStyle, markerClass)
                 point.text.trim() !== "";
 
             // Points without information have no popup.
-            if (hasImage || hasText)
+            if (hasImage || hasText || hasTitle)
             {
                 showPOI(point);
             }
