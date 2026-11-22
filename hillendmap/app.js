@@ -1335,28 +1335,85 @@ async function authenticateOverlay(overlay) {
 
 
 
-function buildOverlayOptions() {
-    const container =
-        document.getElementById("overlay-options");
 
+function buildOverlayOptions() {
+    const container = document.getElementById("overlay-options");
     container.replaceChildren();
 
     for (const overlay of mapOverlays) {
         const label = document.createElement("label");
-        const checkbox = document.createElement("input");
+        label.className = "overlay-option";
 
-        checkbox.type = "checkbox";
-        checkbox.checked = overlay.visible;
-        checkbox.dataset.overlayId = overlay.id;
+        const control = document.createElement("button");
+        control.type = "button";
+        control.className = overlay.visible
+            ? "overlay-marker-control"
+            : "overlay-checkbox-control";
 
-        label.append(checkbox);
-        label.append(
-            document.createTextNode(overlay.title)
+        control.setAttribute("aria-label",
+            (overlay.visible ? "Disable " : "Enable ") + overlay.title
         );
 
+        if (overlay.visible && overlay.type === "points") {
+            const markerFrame = document.createElement("span");
+            markerFrame.className = "legend-marker-frame";
+
+            const marker = document.createElement("span");
+            marker.className = overlay.markerClass || "map-point";
+
+            if (overlay.markerStyle?.background) {
+                marker.style.background = overlay.markerStyle.background;
+            }
+
+            markerFrame.appendChild(marker);
+            control.appendChild(markerFrame);
+        } else {
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = overlay.visible;
+            checkbox.tabIndex = -1;
+            checkbox.style.pointerEvents = "none";
+
+            control.appendChild(checkbox);
+        }
+
+        control.addEventListener("click", async function() {
+
+            control.disabled = true;
+
+            try {
+
+                if (overlay.visible) {
+
+                    // Turning an overlay off needs no authentication.
+                    overlay.visible = false;
+
+                } else {
+
+                    // Authenticate before making the overlay visible.
+                    const authorised = await authenticateOverlay(overlay);
+
+                    if (!authorised) return;
+
+                    overlay.visible = true;
+                }
+
+                updateImageOverlays();
+                updateMapPoints();
+
+            } finally {
+
+                // Rebuild the controls to reflect the current state.
+                buildOverlayOptions();
+            }
+        });
+
+        label.append(control);
+        label.append(document.createTextNode(overlay.title));
         container.append(label);
     }
 }
+
 
 
 /* ============================================================

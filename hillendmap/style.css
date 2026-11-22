@@ -282,6 +282,64 @@ body {
     touch-action: manipulation;
 }
 
+
+/* ============================================================
+   KEY
+   ============================================================ */
+
+.overlay-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.overlay-option button {
+    box-sizing: border-box;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+
+.overlay-empty-checkbox {
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    border: 1px solid #888;
+    border-radius: 3px;
+    display: block;
+}
+
+.image-overlay-symbol {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.legend-marker {
+    display: block;
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+    position: static;
+    transform: none;
+}
+
+
 /* ============================================================
    IMAGE OVERLAY
    ============================================================ */
@@ -400,31 +458,12 @@ body {
 
 
 /* Shared style for all map points. */
-.map-point {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    margin-left: -6px;
-    margin-top: -6px;
-    border: 2px solid white;
-    border-radius: 50%;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
-    z-index: 9;
-    cursor: pointer;
-    pointer-events: auto;
-    touch-action: manipulation;
-    box-sizing: content-box;
-}
-
-/* Square map point. */
+.map-point,
 .map-point-square {
     position: absolute;
     width: 12px;
     height: 12px;
-    margin-left: -8px;
-    margin-top: -8px;
     border: 2px solid white;
-    border-radius: 0;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
     z-index: 9;
     cursor: pointer;
@@ -433,6 +472,51 @@ body {
     box-sizing: content-box;
 }
 
+/* Circular map point. */
+.map-point {
+    margin-left: -6px;
+    margin-top: -6px;
+    border-radius: 50%;
+}
+
+/* Square map point. */
+.map-point-square {
+    margin-left: -8px;
+    margin-top: -8px;
+    border-radius: 0;
+}
+
+/* Centre circular and square markers in the options button. */
+.overlay-marker-control .map-point,
+.overlay-marker-control .map-point-square {
+    position: static;
+    margin: 0;
+    transform: none;
+    cursor: default;
+    pointer-events: none;
+    z-index: auto;
+}
+
+
+.legend-marker-frame {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.legend-marker-frame .poi-pin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    pointer-events: none;
+    cursor: default;
+}
 /* ============================================================
    POINTS OF INTEREST POPUP
    ============================================================ */
