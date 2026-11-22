@@ -83,7 +83,7 @@ const lecterns = [
 mapOverlays.push(
 {
   id: "lecterns",
-  title: "Habitiat Trail Information Boards",
+  title: "Habitat Trail Information Boards",
   type: "points",
   data: lecterns,
   markerStyle: { background: "#FFD800" },
