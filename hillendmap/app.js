@@ -331,10 +331,10 @@ function updateMarker()
      */
     if (latitude === null || longitude === null) 
     {
-		if (RICHARD_DEBUG)
-		{
-			showGPSMessage("No GPS position");
-		}
+        if (RICHARD_DEBUG)
+        {
+          showGPSMessage("No GPS position");
+        }
         marker.style.display = "none";
         accuracyCircle.style.display = "none";
 
@@ -781,12 +781,15 @@ function processGPSPosition(position)
 		{
 			debug_message = "Inside map area!";
 		}
-		alert("\nlong = " + debug_longitude +
-			"\nlat = " + debug_latitude +
-			"\nx = " + Math.round(p.x) + 
-			"\ny = " + Math.round(p.y)
-			);
-//		message += " (" + Math.round(p.x) + ", " + Math.round(p.y) + ")";
+    else
+    {
+      alert("\nlong = " + debug_longitude +
+        "\nlat = " + debug_latitude +
+        "\nx = " + Math.round(p.x) + 
+        "\ny = " + Math.round(p.y)
+        );
+  //		message += " (" + Math.round(p.x) + ", " + Math.round(p.y) + ")";
+    }
 	}
 
   
@@ -892,7 +895,7 @@ function startGPS()
             {
                 enableHighAccuracy: true,
                 timeout: 20000,
-                maximumAge: 2000
+                maximumAge: 0
             }
         );
 
