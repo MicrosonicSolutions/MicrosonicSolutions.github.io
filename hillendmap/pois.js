@@ -16,8 +16,8 @@ const lecterns = [
     {
         id: "Lectern 0",
         title: "Habitat Trail Lectern 0",
-        x: 1161,
-        y: 463,
+        x: 917,
+        y: 1039,
         text: "Introduction"
     },
 
@@ -32,8 +32,8 @@ const lecterns = [
     {
         id: "Lectern 2",
         title: "Habitat Trail Lectern 2",
-        x: 1043,
-        y: 267,
+        x: 1161,
+        y: 463,
         text: "Species-rich grassland"
     },
 
@@ -72,7 +72,7 @@ const lecterns = [
     {
         id: "Lectern 7",
         title: "Habitat Trail Lectern 7",
-        x: 960,
+        x: 985,
         y: 1440,
         text: "Stream"
     },
@@ -1019,7 +1019,7 @@ const star = [
     /////oiled.artist.limp sL       
     {
         id: "startrail 1",
-        title: "Star Trail  1",
+        title: "Star Trail 1",
         latitude: 51.754838,
         longitude: -1.326033,
         text: "///oiled.artist.limp sL"
@@ -1027,12 +1027,67 @@ const star = [
     /////vows.path.bought sE       
     {
         id: "startrail 2",
-        title: "Star Trail  2",
+        title: "Star Trail 2",
         x: 1190,
         y: 1184,
         text: "///vows.path.bought sE"
     },
 
+    {
+        id: "startrail 3",
+        title: "Star Trail 3",
+        x: 940,
+        y: 1162,
+        text: "///vows.path.bought sE"
+    },
+
+    {
+        id: "startrail 4",
+        title: "Star Trail 4",
+        x: 808,
+        y: 1237,
+        text: ""
+    },
+
+    {
+        id: "startrail 5",
+        title: "Star Trail 5",
+        x: 854,
+        y: 1353,
+        text: ""
+    },
+
+    {
+        id: "startrail 6",
+        title: "Star Trail 6",
+        x: 903,
+        y: 1458,
+        text: ""
+    },
+
+    {
+        id: "startrail 7",
+        title: "Star Trail 7",
+        x: 1024,
+        y: 1314,
+        text: ""
+    },
+
+    {
+        id: "startrail 8",
+        title: "Star Trail 8",
+        x: 1084,
+        y: 1264,
+        text: ""
+    },
+
+    {
+        id: "startrail 9",
+        title: "Star Trail 9",
+        x: 1045,
+        y: 1542,
+        text: ""
+    }
 
 ];
 
